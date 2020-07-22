@@ -85,11 +85,6 @@ def setMotorContorl(pwm, INA, INB, speed, stat):
         GPIO.output(INA, HIGH)
         GPIO.output(INB, LOW)
         
-    #뒤로
-    #elif stat == BACKWORD:
-     #   GPIO.output(INA, LOW)
-      #  GPIO.output(INB, HIGH)
-        
     #정지
     elif stat == STOP:
         GPIO.output(INA, LOW)
@@ -99,7 +94,7 @@ def setMotorContorl(pwm, INA, INB, speed, stat):
 # 모터 제어함수 간단하게 사용하기 위해 한번더 래핑(감쌈)
 def setMotor(ch, speed, stat):
     if ch == M1_CH1:
-        #pwmA는 핀 설정 후 pwm 핸들을 리턴 받은 값이다.
+        #M1_pwmA는 핀 설정 후 pwm 핸들을 리턴 받은 값이다.
         setMotorContorl(M1_pwmA, M1_IN1, M1_IN2, speed, stat)
     elif ch == M1_CH2:
         setMotorContorl(M1_pwmB, M1_IN3, M1_IN4, speed, stat)
@@ -133,7 +128,6 @@ M3_pwmB = setPinConfig(M3_ENB, M3_IN3, M3_IN4)
 M4_pwmA = setPinConfig(M4_ENA, M4_IN1, M4_IN2)
 M4_pwmB = setPinConfig(M4_ENB, M4_IN3, M4_IN4)
 
-    
 #제어 시작
 
 setMotor(M1_CH1, 0, STOP)
@@ -179,11 +173,6 @@ setMotor(M4_CH1, 0, STOP)
 setMotor(M4_CH2, 100, FORWARD)
 sleep(3)
 setMotor(M4_CH2, 0, STOP)
-
-# 뒤로 100프로 속도로
-#setMotor(CH1, 100, BACKWORD)
-#setMotor(CH2, 100, BACKWORD)
-#sleep(5)
 
 #정지 
 setMotor(M1_CH1, 80, STOP)
