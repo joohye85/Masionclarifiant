@@ -3,4 +3,12 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorDarkGreen">#657569</color>
+    <color name="colorLightGreen">#B5C8BA</color>
+    <color name="colorBeige">#FEF6ED</color>
+    <color name="colorLightPink">#FBD1D4</color>
+    <color name="colorDarkPink">#FB9691</color>
+    <color name="colorGray">#CFD0CF</color>
+    <color name="colorBlack">#020202</color>
 </resources>

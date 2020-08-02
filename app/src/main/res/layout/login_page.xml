@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Masion Clarifiant"
+        android:textColor="@color/colorLightPink"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:layout_marginTop="100dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="메종 끌라리피앙"
+        android:textColor="@color/colorDarkGreen"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        />
+
+    <EditText
+        android:id="@+id/login_id"
+        android:layout_width="250dp"
+        android:layout_height="43dp"
+        android:ems="10"
+        android:hint=" id"
+        android:textColor="@color/colorBlack"
+        android:inputType="text"
+        android:layout_gravity="center"
+        android:layout_marginTop="100dp"
+        android:paddingLeft="10dp"/>
+
+    <EditText
+        android:id="@+id/login_password"
+        android:layout_width="250dp"
+        android:layout_height="43dp"
+        android:textColor="@color/colorBlack"
+        android:ems="10"
+        android:hint=" password"
+        android:inputType="textPassword"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:paddingLeft="10dp"/>
+
+    <Button
+        android:id="@+id/login_button"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:backgroundTint="@color/colorGray"
+        android:textColor="@color/colorWhite"
+        android:text="LOGIN "
+        android:textSize="18dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100px">
+        <TextView
+            android:id="@+id/login_find_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="아이디/비밀번호 찾기"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="150px"
+            android:textColor="@color/colorBlack" />
+
+        <TextView
+            android:id="@+id/login_register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="회원가입"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="150px"
+            android:textColor="@color/colorBlack" />
+    </RelativeLayout>
+</LinearLayout>
