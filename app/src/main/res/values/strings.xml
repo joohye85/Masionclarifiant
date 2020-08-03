@@ -1,3 +1,15 @@
 <resources>
-    <string name="app_name">MasionClarifiant</string>
+    <string name="app_name">Masion Clarifiant</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_search">홈 화면 바로가기</string>
+    <string name="menu_scanner">직접 배합하기</string>
+    <string name="menu_my">재료 상세보기</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
 </resources>
