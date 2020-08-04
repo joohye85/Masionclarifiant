@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 성분 선택 클릭시 나오는 화면 -->
+<LinearLayout android:id="@+id/view1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    app:srcCompat="@drawable/aloe" />
+
+                <ImageView
+                    android:id="@+id/imageView4"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    app:srcCompat="@drawable/greentea" />
+
+                <ImageView
+                    android:id="@+id/imageView5"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    app:srcCompat="@drawable/byeongpul" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <CheckBox
+                    android:id="@+id/aloe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="알로에" />
+
+                <CheckBox
+                    android:id="@+id/greentea"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="녹차" />
+
+                <CheckBox
+                    android:id="@+id/byeongpul"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="병풀" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <ImageView
+                    android:id="@+id/imageView6"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    app:srcCompat="@drawable/honey" />
+
+                <ImageView
+                    android:id="@+id/imageView7"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    app:srcCompat="@drawable/snail2" />
+
+                <ImageView
+                    android:id="@+id/imageView8"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    app:srcCompat="@drawable/olive" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <CheckBox
+                    android:id="@+id/honey"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="꿀" />
+
+                <CheckBox
+                    android:id="@+id/snail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="달팽이" />
+
+                <CheckBox
+                    android:id="@+id/olive"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="올리브" />
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+</LinearLayout>
+

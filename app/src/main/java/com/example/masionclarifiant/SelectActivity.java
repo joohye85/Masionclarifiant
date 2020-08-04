@@ -7,25 +7,19 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
 
-
-public class MainActivity extends AppCompatActivity {
-
+/*아직 네비게이션 바 구현 못해서 일단 MainActivity에 코드 똑같이 붙여넣음*/
+public class SelectActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.select_page);
 
-        /*
-        Intent intent = new Intent(this, LoadingActivity.class);
-        startActivity(intent);
-        */
-
         //TabLayout
         TabLayout tabs = (TabLayout) findViewById(R.id.tab_layout);
-        tabs.addTab(tabs.newTab().setText("종류선택"));
-        tabs.addTab(tabs.newTab().setText("성분선택"));
-        tabs.addTab(tabs.newTab().setText("향선택"));
+        tabs.addTab(tabs.newTab().setText("Tab 1"));
+        tabs.addTab(tabs.newTab().setText("Tab 2"));
+        tabs.addTab(tabs.newTab().setText("Tab 3"));
         tabs.setTabGravity(tabs.GRAVITY_FILL);
 
         //어답터설정
