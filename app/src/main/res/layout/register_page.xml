@@ -17,214 +17,214 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_marginTop="10dp"
-        android:background="@color/colorBeige">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@drawable/rec_circle"
-            android:backgroundTint="@color/colorDarkGreen"
-            android:gravity="center"
-            android:text="아이디와 비밀번호를 입력해주세요"
-            android:textColor="@android:color/white" />
-
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:orientation="horizontal">
-
-            <Button
-                android:layout_width="70dp"
-                android:layout_marginLeft="20dp"
-                android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorBeige">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
                 android:background="@drawable/rec_circle"
-                android:backgroundTint="@color/colorLightPink"
-                android:text="아이디"
-                android:textColor="@android:color/white"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/id"
-                android:layout_width="150dp"
-                android:layout_height="35dp"
-                android:layout_marginLeft="18dp"
-                android:background="@drawable/rec_box"
-                android:ems="8"
-                android:hint=" 10-20자 이내 "
-                android:inputType="textPersonName"
-                android:textSize="15dp"
-                android:textColor="@color/colorBlack"
-                android:paddingLeft="10dp"/>
-
-            <Button
-                android:id="@+id/id_check"
-                android:layout_width="70dp"
-                android:layout_height="33dp"
-                android:layout_marginLeft="18dp"
-                android:background="@drawable/rec_circle"
-                android:backgroundTint="@color/colorGray"
+                android:backgroundTint="@color/colorDarkGreen"
                 android:gravity="center"
-                android:text="중복확인"
-                android:textColor="@android:color/white"
-                android:textSize="10dp" />
-        </LinearLayout>
+                android:text="아이디와 비밀번호를 입력해주세요"
+                android:textColor="@android:color/white" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:orientation="horizontal">
-
-            <Button
-                android:layout_width="70dp"
-                android:layout_marginLeft="20dp"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/rec_circle"
-                android:backgroundTint="@color/colorLightPink"
-                android:text="비밀번호"
-                android:textColor="@android:color/white"
-                android:textStyle="bold" />
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/password"
-                android:layout_width="150dp"
-                android:layout_height="35dp"
-                android:layout_marginLeft="18dp"
-                android:background="@drawable/rec_box"
-                android:ems="8"
-                android:hint=" 10-20자 이내 "
-                android:inputType="textPersonName"
-                android:textSize="15dp"
-                android:textColor="@color/colorBlack"
-                android:paddingLeft="10dp"/>
+                <Button
+                    android:layout_width="70dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rec_circle"
+                    android:backgroundTint="@color/colorLightPink"
+                    android:text="아이디"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold" />
 
-        </LinearLayout>
+                <EditText
+                    android:id="@+id/idText"
+                    android:layout_width="150dp"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="18dp"
+                    android:background="@drawable/rec_box"
+                    android:ems="8"
+                    android:hint=" 10-20자 이내 "
+                    android:inputType="textPersonName"
+                    android:textSize="15dp"
+                    android:textColor="@color/colorBlack"
+                    android:paddingLeft="10dp"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:orientation="horizontal">
+                <Button
+                    android:id="@+id/id_check"
+                    android:layout_width="70dp"
+                    android:layout_height="33dp"
+                    android:layout_marginLeft="18dp"
+                    android:background="@drawable/rec_circle"
+                    android:backgroundTint="@color/colorGray"
+                    android:gravity="center"
+                    android:text="중복확인"
+                    android:textColor="@android:color/white"
+                    android:textSize="10dp" />
+            </LinearLayout>
 
-            <Button
-                android:layout_width="100dp"
-                android:layout_marginLeft="20dp"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/rec_circle"
-                android:backgroundTint="@color/colorLightPink"
-                android:text="비밀번호 확인"
-                android:textColor="@android:color/white"
-                android:textStyle="bold" />
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/password2"
-                android:layout_width="150dp"
-                android:layout_height="35dp"
-                android:layout_marginLeft="18dp"
-                android:background="@drawable/rec_box"
-                android:ems="8"
-                android:hint=" 10-20자 이내 "
-                android:inputType="textPersonName"
-                android:textSize="15dp"
-                android:textColor="@color/colorBlack"
-                android:paddingLeft="10dp"/>
+                <Button
+                    android:layout_width="70dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rec_circle"
+                    android:backgroundTint="@color/colorLightPink"
+                    android:text="비밀번호"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold" />
 
-        </LinearLayout>
+                <EditText
+                    android:id="@+id/passwordText"
+                    android:layout_width="150dp"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="18dp"
+                    android:background="@drawable/rec_box"
+                    android:ems="8"
+                    android:hint=" 10-20자 이내 "
+                    android:inputType="textPersonName"
+                    android:textSize="15dp"
+                    android:textColor="@color/colorBlack"
+                    android:paddingLeft="10dp"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@drawable/rec_circle"
-            android:backgroundTint="@color/colorDarkGreen"
-            android:gravity="center"
-            android:text="성별과 나이를 선택해주세요"
-            android:textColor="@android:color/white" />
+            </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="30dp">
-            <Button
-                android:id="@+id/button"
-                android:layout_width="70dp"
-                android:layout_marginLeft="20dp"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:layout_width="100dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rec_circle"
+                    android:backgroundTint="@color/colorLightPink"
+                    android:text="비밀번호 확인"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/password2"
+                    android:layout_width="150dp"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="18dp"
+                    android:background="@drawable/rec_box"
+                    android:ems="8"
+                    android:hint=" 10-20자 이내 "
+                    android:inputType="textPersonName"
+                    android:textSize="15dp"
+                    android:textColor="@color/colorBlack"
+                    android:paddingLeft="10dp"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
                 android:background="@drawable/rec_circle"
-                android:backgroundTint="@color/colorLightPink"
-                android:textColor="@color/colorWhite"
-                android:text="성별" />
+                android:backgroundTint="@color/colorDarkGreen"
+                android:gravity="center"
+                android:text="성별과 나이를 선택해주세요"
+                android:textColor="@android:color/white" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="30dp">
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="70dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rec_circle"
+                    android:backgroundTint="@color/colorLightPink"
+                    android:textColor="@color/colorWhite"
+                    android:text="성별" />
                 <RadioGroup
+                    android:id="@+id/radiogroup"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
                     android:layout_marginTop="10dp">
 
                     <RadioButton
-                        android:id="@+id/radioButton5"
+                        android:id="@+id/woman"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="20dp"
                         android:text="여자" />
 
                     <RadioButton
-                        android:id="@+id/radioButton6"
+                        android:id="@+id/man"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="20dp"
                         android:text="남자" />
                 </RadioGroup>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="30dp">
-            <Button
-                android:id="@+id/button2"
-                android:layout_width="70dp"
-                android:layout_marginLeft="20dp"
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/rec_circle"
-                android:backgroundTint="@color/colorLightPink"
-                android:textColor="@color/colorWhite"
-                android:text="나이" />
-            //드롭다운 박스 내용 -> age_array.xml
-            <!-- 나중에 드롭박스 내용을 생년으로 수정할 예정-->
+                android:orientation="horizontal"
+                android:layout_marginTop="30dp">
+                <Button
+                    android:id="@+id/button2"
+                    android:layout_width="70dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rec_circle"
+                    android:backgroundTint="@color/colorLightPink"
+                    android:textColor="@color/colorWhite"
+                    android:text="나이" />
 
-            <Spinner
-                android:id="@+id/register_page_spinner_age"
-                android:layout_width="150dp"
-                android:layout_height="70dp"
+                <Spinner
+                    android:id="@+id/register_page_spinner_age"
+                    android:entries="@array/age_array"
+                    android:layout_width="150dp"
+                    android:layout_height="70dp"
+                    android:layout_marginLeft="20dp"
+                    android:focusableInTouchMode="true"
+                    android:overlapAnchor="false"
+                    android:popupBackground="#F3E0E0E0"
+                    android:spinnerMode="dropdown"
+                    android:textColor="@color/colorBlack"
+                    android:visibility="visible"
+                    tools:visibility="visible" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/joinbtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="70dp"
+                android:layout_marginBottom="40dp"
                 android:layout_marginLeft="20dp"
-                android:focusableInTouchMode="true"
-                android:overlapAnchor="false"
-                android:popupBackground="#F3E0E0E0"
-                android:spinnerMode="dropdown"
-                android:textColor="@color/colorBlack"
-                android:visibility="visible"
-                tools:visibility="visible" />
-
+                android:layout_marginRight="20dp"
+                android:backgroundTint="@color/colorDarkPink"
+                android:text="Maison Clarifiant 시작하기"
+                android:textColor="@color/colorWhite"
+                android:textStyle="bold"/>
         </LinearLayout>
-
-        <Button
-            android:id="@+id/register"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="70dp"
-            android:layout_marginBottom="40dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:backgroundTint="@color/colorDarkPink"
-            android:text="Maison Clarifiant 시작하기"
-            android:textColor="@color/colorWhite"
-            android:textStyle="bold"/>
-    </LinearLayout>
     </ScrollView>
 </LinearLayout>
