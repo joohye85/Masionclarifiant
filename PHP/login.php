@@ -1,7 +1,6 @@
 <?php
 	session_start();
-	$connect = mysqli_connect('maison.c22zsfchgrm1.ap-northeast-2.rds.amazonaws.com:3306','admin','sswu1234','maison');
-	
+	$connect = mysqli_connect('maison.cadwyruywj2k.us-east-2.rds.amazonaws.com:3306','admin','sswu1234','maison');
 	$userID = $_POST["userID"];
 	$userPW = $_POST["userPW"];
 
