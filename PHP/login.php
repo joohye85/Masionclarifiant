@@ -10,7 +10,7 @@
 	mysqli_stmt_execute($statement);
 
 	mysqli_stmt_store_result($statement);
-	mysqli_stmt_bind_result($statement, $userID, $userPW, $gender, $age, $skin, $interest);
+	mysqli_stmt_bind_result($statement, $userID, $userPW, $gender, $age);
 
 	$_SESSION = array();
   	$_SESSION["success"] = false;
@@ -22,8 +22,6 @@
     	$_SESSION['userPW'] = $userPW;
     	$_SESSION["gender"] = $gender;
     	$_SESSION["age"] = $age;
-    	$_SESSION["skinType"] = $skin;
-    	$_SESSION["interest"] = $interest;
 	}
 }
 	$json = json_encode($_SESSION);
