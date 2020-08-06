@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
         //어답터설정
         final ViewPager viewPager = (ViewPager) findViewById(R.id.recently_purchased_products);
-        final CustomFragmentPagerAdapter myPagerAdapter = new CustomFragmentPagerAdapter(getSupportFragmentManager(), 2);
+        final ContentMainPageAdapter myPagerAdapter = new ContentMainPageAdapter(getSupportFragmentManager(), 2);
         viewPager.setAdapter(myPagerAdapter);
 
     }
