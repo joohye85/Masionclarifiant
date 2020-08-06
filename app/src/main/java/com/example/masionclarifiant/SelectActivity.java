@@ -7,7 +7,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
 
-/*아직 네비게이션 바 구현 못해서 일단 MainActivity에 코드 똑같이 붙여넣음*/
+/* 네비게이션 바 구현 필요 */
 public class SelectActivity extends AppCompatActivity {
 
     @Override
