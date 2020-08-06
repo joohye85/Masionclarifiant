@@ -17,9 +17,9 @@ public class SelectActivity extends AppCompatActivity {
 
         //TabLayout
         TabLayout tabs = (TabLayout) findViewById(R.id.tab_layout);
-        tabs.addTab(tabs.newTab().setText("Tab 1"));
-        tabs.addTab(tabs.newTab().setText("Tab 2"));
-        tabs.addTab(tabs.newTab().setText("Tab 3"));
+        tabs.addTab(tabs.newTab().setText("종류선택"));
+        tabs.addTab(tabs.newTab().setText("성분선택"));
+        tabs.addTab(tabs.newTab().setText("향선택"));
         tabs.setTabGravity(tabs.GRAVITY_FILL);
 
         //어답터설정
