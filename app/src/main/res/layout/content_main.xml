@@ -77,13 +77,13 @@
             android:layout_gravity="center_vertical"
             app:srcCompat="@drawable/ic_keyboard_arrow_left_24px" />
 
-        //최근 구매한 화장품 나오는 화면 시작
+        <!--최근 구매한 화장품 나오는 화면 시작-->
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/recently_purchased_products"
             android:layout_width="250dp"
             android:layout_height="227dp">
         </androidx.viewpager.widget.ViewPager>
-        //최근 구매한 화장품 나오는 화면 끝
+        <!--최근 구매한 화장품 나오는 화면 끝-->
 
         <ImageButton
             android:id="@+id/imageButton3"
@@ -101,5 +101,12 @@
         android:layout_height="2dp"
         android:layout_gravity="center"
         android:background="@color/colorGray"/>
+
+    <TextView
+        android:id="@+id/selected_inf"
+        android:layout_width="match_parent"
+        android:layout_height="99dp"
+        android:text="재료 직접 배합"
+        android:textColor="@color/colorDarkGreen" />
 
 </LinearLayout>
