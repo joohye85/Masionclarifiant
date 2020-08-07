@@ -1,6 +1,7 @@
 <?php
 	session_start();
-	$connect = mysqli_connect('maison.cadwyruywj2k.us-east-2.rds.amazonaws.com:3306','admin','sswu1234','maison');
+	$connect = mysqli_connect('maison.c22zsfchgrm1.ap-northeast-2.rds.amazonaws.com:3306','admin','sswu1234','maison');
+	header("Content-Type: application/json;charset=utf-8");
 	$userID = $_POST["userID"];
 	$userPW = $_POST["userPW"];
 
@@ -12,18 +13,19 @@
 	mysqli_stmt_store_result($statement);
 	mysqli_stmt_bind_result($statement, $userID, $userPW, $gender, $age);
 
-	$_SESSION = array();
-  	$_SESSION["success"] = false;
+	$_SESSION = array(); #세션 배열 생성
+  	$_SESSION["success"] = false; 
 	
 	if(!empty($_POST["userID"]) && !empty($_POST["userPW"])){ 
 		while(mysqli_stmt_fetch($statement)){
 		$_SESSION["success"] = true;
-   		$_SESSION['userID'] = $userID;
-    	$_SESSION['userPW'] = $userPW;
+   		$_SESSION["userID"] = $userID;
+    	$_SESSION["userPW"] = $userPW;
     	$_SESSION["gender"] = $gender;
     	$_SESSION["age"] = $age;
 	}
 }
 	$json = json_encode($_SESSION);
   	echo $json;
+  	var_dump($_SESSION)
 ?>

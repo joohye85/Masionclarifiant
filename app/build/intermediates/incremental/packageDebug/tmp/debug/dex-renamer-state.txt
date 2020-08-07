@@ -1,0 +1,4 @@
+#Sat Aug 08 05:20:56 KST 2020
+base.0=C\:\\Users\\jooae\\source\\repos\\20_hf088\\main\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
