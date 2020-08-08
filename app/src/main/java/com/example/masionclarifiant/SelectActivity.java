@@ -16,7 +16,7 @@ public class SelectActivity extends AppCompatActivity {
         setContentView(R.layout.select_page);
 
         //TabLayout
-        TabLayout tabs = (TabLayout) findViewById(R.id.tab_layout);
+        TabLayout tabs = (TabLayout)findViewById(R.id.tab_layout);
         tabs.addTab(tabs.newTab().setText("종류선택"));
         tabs.addTab(tabs.newTab().setText("성분선택"));
         tabs.addTab(tabs.newTab().setText("향선택"));

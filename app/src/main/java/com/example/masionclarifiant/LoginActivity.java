@@ -37,6 +37,8 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 final String userID = id_textView.getText().toString();
                 final String userPW = password_textView.getText().toString();
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                LoginActivity.this.startActivity(intent);
 
                 Response.Listener<String> res = new Response.Listener<String>() {
                     @Override
