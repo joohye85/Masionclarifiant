@@ -39,11 +39,6 @@ public class SelectActivity extends AppCompatActivity {
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabs));
 
         //String skinType = rb.getText().toString();
-        String skinType = "hi";
-        Bundle bundle = new Bundle();
-        SelectFrag2 fragment1 = new SelectFrag2();
-        bundle.putString("skinType", skinType);
-        fragment1.setArguments(bundle);
 
         TextView choice = (TextView) findViewById(R.id.choice);
         choice.setOnClickListener(new View.OnClickListener() {

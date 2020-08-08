@@ -38,6 +38,13 @@ public class LoginActivity extends AppCompatActivity {
                 final String userID = id_textView.getText().toString();
                 final String userPW = password_textView.getText().toString();
 
+                if(userID.isEmpty() || userPW.isEmpty()){
+                    AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
+                    builder.setMessage("아이디 또는 비밀번호가 입력되지않았습니다.")
+                            .setNegativeButton("다시 시도", null)
+                            .create()
+                            .show();return;
+                }
                 Response.Listener<String> res = new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
