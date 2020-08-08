@@ -88,6 +88,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.nav_logout:
                 Intent intent4 = new Intent(MainActivity.this, LoginActivity.class);
+                intent4.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP); //액티비티 초기화
                 startActivity(intent4);
             case R.id.nav_mypage:
                 break;
