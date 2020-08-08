@@ -73,6 +73,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(intent2);
                 break;
             case R.id.nav_ingredient:
+                Intent intent3 = new Intent(MainActivity.this, FindIngredientActivity.class);
+                startActivity(intent3);
                 break;
             case R.id.nav_logout:
                 Intent intent4 = new Intent(MainActivity.this, LoginActivity.class);
