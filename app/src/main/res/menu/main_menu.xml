@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    //한 번에 하나의 메뉴만 선택 가능
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:title="홈 화면 바로가기"
+            android:icon="@drawable/ic_home_black_24dp"/>
+        <item
+            android:id="@+id/nav_select"
+            android:title="화장품 직접 배합하기"
+            android:icon="@drawable/ic_colorize_black_24dp"/>
+        <item
+            android:id="@+id/nav_ingredient"
+            android:title="천연재료 상세보기"
+            android:icon="@drawable/ic_search_black_24dp"/>
+    </group>
+
+    <item android:title="마이페이지">
+        <menu>
+            <group android:checkableBehavior="single">
+            <item
+                android:id="@+id/nav_logout"
+                android:title="로그아웃"
+                android:icon="@drawable/ic_lock_open_black_24dp"/>
+            <item
+                android:id="@+id/nav_mypage"
+                android:title="내 정보 수정"
+                android:icon="@drawable/ic_child_care_black_24dp"/>
+            <item
+                android:id="@+id/nav_order"
+                android:title="주문 조회"
+                android:icon="@drawable/ic_local_grocery_store_black_24dp"/>
+            </group>
+        </menu>
+    </item>
+
+</menu>
