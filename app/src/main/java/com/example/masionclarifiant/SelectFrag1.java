@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -26,6 +28,9 @@ public class SelectFrag1 extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         //return super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.select_fragment1,container,false);
+        //RadioGroup radioGroup = (RadioGroup) findViewById(R.id.radiogroup);
+        // RadioButton rb = (RadioButton) findViewById(radioGroup.getCheckedRadioButtonId());
+        //String skinType = rb.getText().toString();
         return view;
     }
 }

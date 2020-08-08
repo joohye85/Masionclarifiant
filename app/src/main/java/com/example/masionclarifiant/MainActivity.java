@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toolbar;
 
 import androidx.annotation.NonNull;
@@ -32,15 +34,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         final ContentMainPageAdapter myPagerAdapter = new ContentMainPageAdapter(getSupportFragmentManager(), 2);
         viewPager.setAdapter(myPagerAdapter);
         
-        TextView selected_inf = (TextView) findViewById(R.id.selected_inf);
-        selected_inf.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, SelectActivity.class);
-                MainActivity.this.startActivity(intent);
-                finish();
-            }
-        });
 
         /*--Hooks--*/
         drawerLayout = findViewById(R.id.drawer_layout);
@@ -86,6 +79,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.nav_logout:
                 Intent intent4 = new Intent(MainActivity.this, LoginActivity.class);
+                intent4.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP); //액티비티 초기화
                 startActivity(intent4);
             case R.id.nav_mypage:
                 break;

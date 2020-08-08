@@ -38,14 +38,12 @@ public class SelectActivity extends AppCompatActivity {
         tabs.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(viewPager));
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabs));
 
-        RadioGroup radioGroup = (RadioGroup)findViewById(R.id.radiogroup);
-        RadioButton rb = (RadioButton) findViewById(radioGroup.getCheckedRadioButtonId());
-        String skinType = rb.getText().toString();
-
+        //String skinType = rb.getText().toString();
+        String skinType = "hi";
         Bundle bundle = new Bundle();
-        bundle.putString("skinType",skinType);
-        Fragment fragment = new Fragment();
-        fragment.setArguments(bundle);
+        SelectFrag2 fragment1 = new SelectFrag2();
+        bundle.putString("skinType", skinType);
+        fragment1.setArguments(bundle);
 
         TextView choice = (TextView) findViewById(R.id.choice);
         choice.setOnClickListener(new View.OnClickListener() {
