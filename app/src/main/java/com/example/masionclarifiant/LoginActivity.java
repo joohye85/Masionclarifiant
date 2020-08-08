@@ -26,8 +26,9 @@ public class LoginActivity extends AppCompatActivity {
 
         final EditText id_textView = (EditText) findViewById(R.id.login_id);
         final EditText password_textView = (EditText)findViewById(R.id.login_password);
-        final Button login_button = (Button)findViewById(R.id.login_button);
+        final Button login_button = (Button)findViewById(R.id.find_btn);
         final TextView register = (TextView) findViewById(R.id.login_register);
+        final TextView find_pw = (TextView) findViewById(R.id.login_find_id);
 
         if(logState.equals("logout"))
             Toast.makeText(getApplicationContext(), "로그아웃 되었습니다.", Toast.LENGTH_LONG).show();
@@ -81,6 +82,14 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(LoginActivity.this, RegisterActivity.class); //파라메터는 현재 액티비티, 전환될 액티비티
                 LoginActivity.this.startActivity(intent); //엑티비티 요청
+            }
+        });
+
+        find_pw.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, FindActivity.class); //파라메터는 현재 액티비티, 전환될 액티비티
+                LoginActivity.this.startActivity(intent);
             }
         });
     }

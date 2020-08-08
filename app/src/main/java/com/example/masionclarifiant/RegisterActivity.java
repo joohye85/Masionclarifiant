@@ -33,6 +33,8 @@ public class RegisterActivity extends AppCompatActivity {
         final RadioGroup gender = (RadioGroup) findViewById(R.id.radiogroup);
         final Spinner spinner = (Spinner) findViewById(R.id.register_page_spinner_age);
         final EditText pw2Text = (EditText)findViewById(R.id.password2);
+        final Button check = (Button)findViewById(R.id.id_check);
+
         String[] list = getResources().getStringArray(R.array.age_array);
         Button joinbtn = (Button) findViewById(R.id.joinbtn);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getBaseContext(), R.layout.support_simple_spinner_dropdown_item, list);
@@ -48,6 +50,37 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
 
+            }
+        });
+        check.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final String userID = idText.getText().toString();
+                Response.Listener<String> res = new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try{
+                            JSONObject jsonObject = new JSONObject(response);
+                            Boolean check = jsonObject.getBoolean("userID");
+                            if(check){
+                                AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
+                                builder.setMessage("사용할 수 있는 아이디입니다.")
+                                        .setPositiveButton("확인", null)
+                                        .create()
+                                        .show();
+                            }else{
+                                AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
+                                builder.setMessage("중복 아이디 입니다.")
+                                        .setNegativeButton("확인", null)
+                                        .create()
+                                        .show();
+                            }
+                        }catch (Exception e){e.printStackTrace();}
+                    }
+                };
+                CheckRequest checkRequest = new CheckRequest(userID, res);
+                RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
+                queue.add(checkRequest);
             }
         });
 
