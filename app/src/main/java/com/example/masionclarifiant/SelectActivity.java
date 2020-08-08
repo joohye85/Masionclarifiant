@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
@@ -37,6 +38,14 @@ public class SelectActivity extends AppCompatActivity {
         tabs.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(viewPager));
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabs));
 
+        RadioGroup radioGroup = (RadioGroup)findViewById(R.id.radiogroup);
+        RadioButton rb = (RadioButton) findViewById(radioGroup.getCheckedRadioButtonId());
+        String skinType = rb.getText().toString();
+
+        Bundle bundle = new Bundle();
+        bundle.putString("skinType",skinType);
+        Fragment fragment = new Fragment();
+        fragment.setArguments(bundle);
 
         TextView choice = (TextView) findViewById(R.id.choice);
         choice.setOnClickListener(new View.OnClickListener() {
