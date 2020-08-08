@@ -25,8 +25,9 @@ public class SelectFrag2 extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         //return super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.select_fragment2,container,false);
-        /*String data = getArguments().getString("skinType");
-        Toast.makeText(getContext(),data,Toast.LENGTH_SHORT).show();*/
+        Bundle bundle = this.getArguments();
+        String data = bundle.getString("skinType");
+        //Toast.makeText(getContext(),data,Toast.LENGTH_SHORT).show();
         return view;
     }
 }

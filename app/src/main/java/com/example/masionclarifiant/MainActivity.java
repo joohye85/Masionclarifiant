@@ -31,6 +31,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         final ViewPager viewPager = (ViewPager) findViewById(R.id.recently_purchased_products);
         final ContentMainPageAdapter myPagerAdapter = new ContentMainPageAdapter(getSupportFragmentManager(), 2);
         viewPager.setAdapter(myPagerAdapter);
+        
+        TextView selected_inf = (TextView) findViewById(R.id.selected_inf);
+        selected_inf.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SelectActivity.class);
+                MainActivity.this.startActivity(intent);
+                finish();
+            }
+        });
 
         /*--Hooks--*/
         drawerLayout = findViewById(R.id.drawer_layout);
