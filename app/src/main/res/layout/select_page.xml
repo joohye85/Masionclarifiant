@@ -75,5 +75,18 @@
             android:layout_height="wrap_content"
             android:paddingTop="8dp"
             android:text="전체해제" />
+
+        <TextView
+            android:id="@+id/choice"
+            android:layout_width="105dp"
+            android:layout_height="43dp"
+            android:layout_weight="1"
+            android:text="선택완료" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
 </LinearLayout>
