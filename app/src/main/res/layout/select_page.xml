@@ -21,6 +21,7 @@
             android:layout_gravity="center_horizontal"
             android:text="Masion Clarifiant"
             android:textColor="@color/colorDarkGreen"
+            app:fontFamily="serif"
             android:textSize="30dp" />
         <TextView
             android:id="@+id/textView2"

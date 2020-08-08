@@ -12,7 +12,7 @@
             android:icon="@drawable/ic_colorize_black_24dp"/>
         <item
             android:id="@+id/nav_ingredient"
-            android:title="천연재료 상세보기"
+            android:title="천연원료 상세보기"
             android:icon="@drawable/ic_search_black_24dp"/>
     </group>
 
