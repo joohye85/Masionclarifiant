@@ -40,29 +40,35 @@
                     app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
             </TableRow>
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" >
-
-                <CheckBox
-                    android:id="@+id/teatree"
+                <RadioGroup
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="티트리" />
+                    android:orientation="horizontal"
+                    android:gravity="center">
 
-                <CheckBox
-                    android:id="@+id/rosemary"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="로즈마리" />
+                    <RadioButton
+                        android:id="@+id/teatree"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:text="티트리" />
 
-                <CheckBox
-                    android:id="@+id/byeongpul"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="향 없음" />
-            </TableRow>
+                    <RadioButton
+                        android:id="@+id/rosemary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:text="로즈마리" />
 
+                    <RadioButton
+                        android:id="@+id/nothing"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:text="향 없음" />
+                </RadioGroup>
         </TableLayout>
     </LinearLayout>
 </LinearLayout>

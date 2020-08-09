@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
     <FrameLayout
@@ -58,36 +59,200 @@
     </LinearLayout>
 
 
-    <LinearLayout
+    <RelativeLayout
+        android:id="@+id/selectedLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#7E7E9980"
         android:orientation="horizontal">
 
         <ImageButton
-            android:id="@+id/imageButton"
+            android:id="@+id/deleteAll"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
             app:srcCompat="@drawable/ic_cached_black_18dp" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/deleteAllText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/deleteAll"
             android:paddingTop="8dp"
-            android:text="전체해제" />
+            android:text="전체해제"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/deleteAll"
+            tools:layout_editor_absoluteY="0dp" />
+
+        <Button
+            android:id="@+id/choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|bottom"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:text="완료하기"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="321dp"
+            tools:layout_editor_absoluteY="153dp" />
 
         <TextView
-            android:id="@+id/choice"
-            android:layout_width="105dp"
-            android:layout_height="43dp"
-            android:layout_weight="1"
-            android:text="선택완료" />
-    </LinearLayout>
+            android:id="@+id/tonerText"
+            android:visibility="gone"
+            android:width="50dp"
+            android:height="25dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:textSize="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/deleteAllText"
+            android:background="@drawable/round_rec"
+            android:gravity="center"
+            android:text="토너" />
 
-    <TextView
-        android:id="@+id/textView16"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
+        <TextView
+            android:id="@+id/lotionText"
+            android:visibility="gone"
+            android:width="50dp"
+            android:height="25dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:textSize="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/deleteAllText"
+            android:background="@drawable/round_rec"
+            android:gravity="center"
+            android:text="로션" />
+
+        <TextView
+            android:id="@+id/aloeText"
+            android:visibility="gone"
+            android:width="50dp"
+            android:height="25dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:textSize="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/tonerText"
+            android:background="@drawable/round_rec"
+            android:gravity="center"
+            android:text="알로에" />
+        <TextView
+            android:id="@+id/greenteaText"
+            android:visibility="gone"
+            android:width="50dp"
+            android:height="25dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:textSize="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/aloeText"
+            android:background="@drawable/round_rec"
+            android:gravity="center"
+            android:text="녹차" />
+        <TextView
+            android:id="@+id/byeongpulText"
+            android:visibility="gone"
+            android:width="50dp"
+            android:height="25dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:textSize="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/greenteaText"
+            android:background="@drawable/round_rec"
+            android:gravity="center"
+            android:text="병풀" />
+        <TextView
+            android:id="@+id/honeyText"
+            android:visibility="gone"
+            android:width="50dp"
+            android:height="25dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:textSize="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/byeongpulText"
+            android:background="@drawable/round_rec"
+            android:gravity="center"
+            android:text="꿀" />
+        <TextView
+            android:id="@+id/snailText"
+            android:visibility="gone"
+            android:width="50dp"
+            android:height="25dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:textSize="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/deleteAll"
+            android:background="@drawable/round_rec"
+            android:gravity="center"
+            android:text="달팽이" />
+        <TextView
+            android:id="@+id/oliveText"
+            android:visibility="gone"
+            android:width="50dp"
+            android:height="25dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:textSize="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/snailText"
+            android:background="@drawable/round_rec"
+            android:gravity="center"
+            android:text="올리브" />
+        <TextView
+            android:id="@+id/teatreeText"
+            android:visibility="gone"
+            android:width="50dp"
+            android:height="25dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:textSize="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/deleteAllText"
+            android:background="@drawable/round_rec"
+            android:gravity="center"
+            android:text="티트리" />
+        <TextView
+            android:id="@+id/rosemaryText"
+            android:visibility="gone"
+            android:width="60dp"
+            android:height="25dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:textSize="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/deleteAllText"
+            android:background="@drawable/round_rec"
+            android:gravity="center"
+            android:text="로즈마리" />
+        <TextView
+            android:id="@+id/nothingText"
+            android:visibility="gone"
+            android:width="50dp"
+            android:height="25dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:textSize="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/deleteAllText"
+            android:background="@drawable/round_rec"
+            android:gravity="center"
+            android:text="향 없음" />
+    </RelativeLayout>
+
 </LinearLayout>

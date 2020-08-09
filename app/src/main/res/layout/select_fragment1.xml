@@ -19,20 +19,22 @@
             android:layout_weight="1"
             app:srcCompat="@drawable/toner" />
     </LinearLayout>
+
     <RadioGroup
+        android:id="@+id/radiogroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="center_horizontal">
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal">
 
         <RadioButton
-            android:id="@+id/radioButton"
+            android:id="@+id/toner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="토너" />
 
         <RadioButton
-            android:id="@+id/radioButton2"
+            android:id="@+id/lotion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="80dp"

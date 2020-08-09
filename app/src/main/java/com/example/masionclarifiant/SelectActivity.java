@@ -3,13 +3,9 @@ package com.example.masionclarifiant;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import android.widget.TextView;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
@@ -40,8 +36,8 @@ public class SelectActivity extends AppCompatActivity {
 
         //String skinType = rb.getText().toString();
 
-        TextView choice = (TextView) findViewById(R.id.choice);
-        choice.setOnClickListener(new View.OnClickListener() {
+        Button choiceBtn = (Button)findViewById(R.id.choice);
+        choiceBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(SelectActivity.this, SelectResultActivity.class);
