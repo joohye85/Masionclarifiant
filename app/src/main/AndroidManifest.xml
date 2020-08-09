@@ -14,12 +14,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".FindActivity"></activity>
+        <activity android:name=".MypageActivity"></activity>
+        <activity android:name=".FindActivity" />
         <activity
             android:name=".MainActivity"
             android:configChanges="orientation|screenSize"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".LoadingActivity"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".LoadingActivity" />
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,7 +32,6 @@
         <activity android:name=".SelectActivity" />
         <activity android:name=".SelectResultActivity" />
         <activity android:name=".FindIngredientActivity" />
-
     </application>
 
 </manifest>
