@@ -10,13 +10,15 @@ public class SelectRequest extends StringRequest {
     final static private String URL="http://wngp0805.dothome.co.kr/selected_skin.php";
     private Map<String,String> map;
 
-    public SelectRequest(String i_name, String perfume, String skinType, Response.Listener<String>listener){
+    public SelectRequest(String userID, String skinType, String i_name, String perfume, Response.Listener<String>listener){
         super(Method.POST,URL,listener,null);//위 url에 post방식으로 값을 전송
 
         map=new HashMap<>();
+        map.put("userID", userID);
         map.put("i_name",i_name);
         map.put("perfume",perfume);
         map.put("skinType",skinType);
+
     }
 
     @Override

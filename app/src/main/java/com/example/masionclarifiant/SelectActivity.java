@@ -40,7 +40,9 @@ public class SelectActivity extends AppCompatActivity {
         choiceBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                final String userID = getIntent().getStringExtra("userID");
                 Intent intent = new Intent(SelectActivity.this, SelectResultActivity.class);
+                intent.putExtra("userID", userID);
                 SelectActivity.this.startActivity(intent);
                 finish();
             }

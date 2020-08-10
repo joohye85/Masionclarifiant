@@ -97,6 +97,11 @@ public class RegisterActivity extends AppCompatActivity {
                 String userPW = pwText.getText().toString();
                 RadioButton rb = (RadioButton) findViewById(gender.getCheckedRadioButtonId());
                 String gender = rb.getText().toString();
+                /*if(idText.getText().toString().isEmpty() || pwText.getText().toString().isEmpty()){
+                    Toast.makeText(getApplicationContext(), "빈 항목이 존재합니다.", Toast.LENGTH_SHORT).show();
+                    idText.requestFocus();
+                    return;
+                }*/
                 Response.Listener<String> res = new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {

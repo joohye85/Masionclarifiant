@@ -72,7 +72,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_home:
                 break;
             case R.id.nav_select:
+                String userID2 = getIntent().getStringExtra("userID");
                 Intent intent2 = new Intent(MainActivity.this, SelectActivity.class);
+                intent2.putExtra("userID",userID2);
                 startActivity(intent2);
                 break;
             case R.id.nav_ingredient:
@@ -83,6 +85,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Intent intent4 = new Intent(MainActivity.this, LoginActivity.class);
                 intent4.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP); //액티비티 초기화
                 startActivity(intent4);
+                break;
             case R.id.nav_mypage:
                 String userID = getIntent().getStringExtra("userID");
                 Intent intent5 = new Intent(MainActivity.this, MypageActivity.class);
