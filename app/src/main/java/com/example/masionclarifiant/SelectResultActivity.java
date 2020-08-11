@@ -35,7 +35,7 @@ public class SelectResultActivity extends AppCompatActivity {
     public static TextView rst_nothingText;
     public static String skinType2 = "";
     public static String perfume2 ="";
-    public static StringBuilder ingredient = new StringBuilder("");
+    public static StringBuilder ingredient = new StringBuilder();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,65 +70,58 @@ public class SelectResultActivity extends AppCompatActivity {
             skinType2 ="로션";
         }
 
-
-
         System.out.println("배열 0의 값"+ SelectFrag2.selectedingredients[0]);
         System.out.println("배열 1의 값"+ SelectFrag2.selectedingredients[1]);
         System.out.println("배열 2의 값"+ SelectFrag2.selectedingredients[2]);
         System.out.println("배열 3의 값"+ SelectFrag2.selectedingredients[3]);
         System.out.println("배열 4의 값"+ SelectFrag2.selectedingredients[4]);
         System.out.println("배열 5의 값"+ SelectFrag2.selectedingredients[5]);
-        for(int x=0; x>=5;x++){ //여기 문제있음 -> x 순으로 하면 다 선택되어야 값이 저장됨(수정 필요)ㅁㅁㄴㄴㅁㅇㄴㅁㄴ
-            if(x ==0){
-                if (SelectFrag2.selectedingredients[0].equals(ingredients[0])) {
-                    rst_aloeText.setVisibility(View.VISIBLE);
-                     if (ingredient.equals("")){
-                         ingredient.append("알로에"); }
-                     else
-                         ingredient.append(" + 알로에");
-                }
-            }else if(x==1){
-                if(SelectFrag2.selectedingredients[1].equals(ingredients[1])) {
-                    rst_greenteaText.setVisibility(View.VISIBLE);
-                    if (ingredient.equals("")){
-                        ingredient.append("녹차"); }
-                    else
-                        ingredient.append(" + 녹차");
-                }
-            }else if(x==2){
-                if (SelectFrag2.selectedingredients[2].equals(ingredients[2])) {
-                    rst_byeoungpulText.setVisibility(View.VISIBLE);
-                    if (ingredient.equals("")){
-                        ingredient.append("병풀"); }
-                    else
-                        ingredient.append(" + 병풀");
-                }
-            }else if(x==3){
-                if (SelectFrag2.selectedingredients[3].equals(ingredients[3])) {
-                    rst_honeyText.setVisibility(View.VISIBLE);
-                    if (ingredient.equals("")){
-                        ingredient.append("꿀");}
-                    else
-                        ingredient.append(" + 꿀");
-                }
-            }else if(x==4){
-                if (SelectFrag2.selectedingredients[4].equals(ingredients[4])) {
-                    if (ingredient.equals("")){
-                        ingredient.append("달팽이"); }
-                    else
-                        ingredient.append(" + 달팽이");
-                }
-            }else if(x==5){
-                if (SelectFrag2.selectedingredients[5].equals(ingredients[5])) {
-                    rst_oliveText.setVisibility(View.VISIBLE);
-                    if (ingredient.equals("")){
-                        ingredient.append("올리브"); }
-                    else
-                        ingredient.append(" + 올리브");
-                }
-            }
+
+        if (SelectFrag2.selectedingredients[0].equals(ingredients[0])) {
+            rst_aloeText.setVisibility(View.VISIBLE);
+            if (ingredient.length() == 0){
+                ingredient.append("알로에"); }
+            else
+                ingredient.append(" + 알로에");
         }
-        System.out.printf("dddddddddddddddddddddd" + ingredient.toString());
+        if(SelectFrag2.selectedingredients[1].equals(ingredients[1])) {
+            rst_greenteaText.setVisibility(View.VISIBLE);
+            if (ingredient.length() == 0){
+                ingredient.append("녹차"); }
+            else
+                ingredient.append(" + 녹차");
+        }
+        if (SelectFrag2.selectedingredients[2].equals(ingredients[2])) {
+            rst_byeoungpulText.setVisibility(View.VISIBLE);
+            if (ingredient.length() == 0){
+                ingredient.append("병풀"); }
+            else
+                ingredient.append(" + 병풀");
+        }
+        if (SelectFrag2.selectedingredients[3].equals(ingredients[3])) {
+            rst_honeyText.setVisibility(View.VISIBLE);
+            if (ingredient.length() == 0){
+                ingredient.append("꿀");}
+            else
+                ingredient.append(" + 꿀");
+        }
+        if (SelectFrag2.selectedingredients[4].equals(ingredients[4])) {
+            if (ingredient.length() == 0){
+                        ingredient.append("달팽이"); }
+            else
+                ingredient.append(" + 달팽이");
+        }
+        if (SelectFrag2.selectedingredients[5].equals(ingredients[5])) {
+            rst_oliveText.setVisibility(View.VISIBLE);
+            if (ingredient.length() == 0){
+                ingredient.append("올리브"); }
+            else
+                ingredient.append(" + 올리브");
+        }
+        for(int i=0;i>=5;i++){
+            SelectFrag2.selectedingredients[i] = "x";
+            System.out.printf("ssssssssssssssssssssss" + SelectFrag2.selectedingredients[i]);
+        }
         if((SelectFrag3.selectedscent).equals("teatree")){
             rst_teatreeText.setVisibility(View.VISIBLE);
             perfume2 = "티트리";}
@@ -145,7 +138,8 @@ public class SelectResultActivity extends AppCompatActivity {
         yes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final String i_name = ingredient.toString();
+                final StringBuilder i_name2 = new StringBuilder(ingredient.toString());
+                String i_name = i_name2.toString();
                 System.out.printf("ddddddddddddddddddddddddddddd" + i_name);
                 final String perfume = perfume2.toString();
                 final String skinType = skinType2.toString();
@@ -163,8 +157,11 @@ public class SelectResultActivity extends AppCompatActivity {
                                         .setPositiveButton("확인", new DialogInterface.OnClickListener() {
                                             @Override
                                             public void onClick(DialogInterface dialog, int which) {
+                                                ingredient.delete(0,ingredient.length());
+                                                i_name2.delete(0,i_name2.length());
                                                 Intent intent = new Intent(SelectResultActivity.this, MainActivity.class);
                                                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                                                SelectResultActivity.this.finish();
                                                 SelectResultActivity.this.startActivity(intent);
                                             }
                                         })
