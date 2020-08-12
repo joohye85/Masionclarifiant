@@ -3,6 +3,7 @@ package com.example.masionclarifiant;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,8 +21,14 @@ public class FindIngredientActivity extends AppCompatActivity {
         ImageView oliveimg = (ImageView)findViewById(R.id.oliveimg);
         ImageView teatreeimg = (ImageView)findViewById(R.id.teatreimg);
         ImageView rosemaryimg = (ImageView)findViewById(R.id.rosemaryimg);
+        TextView back_btn = (TextView)findViewById(R.id.back_btn);
 
-
+        back_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FindIngredientActivity.this.onBackPressed();
+            }
+        });
         aloeimg.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 AlertDialog.Builder dlg = new AlertDialog.Builder(FindIngredientActivity.this);
