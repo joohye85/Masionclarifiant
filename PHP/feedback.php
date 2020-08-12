@@ -2,15 +2,9 @@
 	session_start();
 	date_default_timezone_set('Asia/Seoul');
 
-	$connect = mysqli_connect('maison.c22zsfchgrm1.ap-northeast-2.rds.amazonaws.com:3306','admin','sswu1234','maison');
-	#$costype = "직접배합";
-	#$i_name = $_POST["i_name"];
-	#$perfume = $_POST["perfume"];
-	#$skinType = $_POST["skinType"];
-	#$createDate = date("Y-m-d H:i:s"); #시간은 현재시간으로
+	$connect = mysqli_connect('maison.c22zsfchgrm1.ap-northeast-2.rds.amazonaws.com:3306','admin','sswu1234','maison');	
 	$userID = $_POST["userID"];
 	$feedback = $_POST["feedback"];
-	#$feedback = null;
 	$_SESSION = array();
 	$userID2 = null;
 	
