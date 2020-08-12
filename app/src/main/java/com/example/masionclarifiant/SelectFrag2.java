@@ -63,12 +63,8 @@ public class SelectFrag2 extends Fragment {
         snailText = (TextView) getActivity().findViewById(R.id.snailText);
         oliveText = (TextView) getActivity().findViewById(R.id.oliveText);
 
-        for(int i=0; i>=5; i++){
-            selectedingredients[i] = "";
-            System.out.printf("ssssssssssssssssssssss" + selectedingredients[i]);
-        }
-
         deleteAllBtn = (ImageButton) getActivity().findViewById(R.id.deleteAll);
+
         aloebox.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
                 if(totalCount==3) Toast.makeText(getContext(), "성분은 3개 이내로 담아주세요", Toast.LENGTH_SHORT).show();

@@ -69,13 +69,15 @@ public class SelectResultActivity extends AppCompatActivity {
             rst_lotionText.setVisibility(View.VISIBLE);
             skinType2 ="로션";
         }
-
+/*
         System.out.println("배열 0의 값"+ SelectFrag2.selectedingredients[0]);
         System.out.println("배열 1의 값"+ SelectFrag2.selectedingredients[1]);
         System.out.println("배열 2의 값"+ SelectFrag2.selectedingredients[2]);
         System.out.println("배열 3의 값"+ SelectFrag2.selectedingredients[3]);
         System.out.println("배열 4의 값"+ SelectFrag2.selectedingredients[4]);
         System.out.println("배열 5의 값"+ SelectFrag2.selectedingredients[5]);
+
+ */
 
         if (SelectFrag2.selectedingredients[0].equals(ingredients[0])) {
             rst_aloeText.setVisibility(View.VISIBLE);
@@ -118,10 +120,7 @@ public class SelectResultActivity extends AppCompatActivity {
             else
                 ingredient.append(" + 올리브");
         }
-        for(int i=0;i>=5;i++){
-            SelectFrag2.selectedingredients[i] = "x";
-            System.out.printf("ssssssssssssssssssssss" + SelectFrag2.selectedingredients[i]);
-        }
+
         if((SelectFrag3.selectedscent).equals("teatree")){
             rst_teatreeText.setVisibility(View.VISIBLE);
             perfume2 = "티트리";}
@@ -140,11 +139,11 @@ public class SelectResultActivity extends AppCompatActivity {
             public void onClick(View v) {
                 final StringBuilder i_name2 = new StringBuilder(ingredient.toString());
                 String i_name = i_name2.toString();
-                System.out.printf("ddddddddddddddddddddddddddddd" + i_name);
                 final String perfume = perfume2.toString();
                 final String skinType = skinType2.toString();
                 final String userID = getIntent().getStringExtra("userID");
 
+                SelectFrag2.selectedingredients = new String[]{"x", "x", "x", "x", "x", "x"};
                 Response.Listener<String> res = new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -187,6 +186,7 @@ public class SelectResultActivity extends AppCompatActivity {
         no.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SelectFrag2.selectedingredients = new String[]{"x", "x", "x", "x", "x", "x"};
                 SelectResultActivity.this.finish();
                 SelectResultActivity.super.onBackPressed();
             }
