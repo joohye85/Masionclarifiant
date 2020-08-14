@@ -67,7 +67,8 @@ public class SelectFrag2 extends Fragment {
 
         aloebox.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
-                if(totalCount==3) Toast.makeText(getContext(), "성분은 3개 이내로 담아주세요", Toast.LENGTH_SHORT).show();
+                if(totalCount>=3) {Toast.makeText(getContext(), "성분은 3개 이내로 담아주세요", Toast.LENGTH_SHORT).show();
+                aloebox.setChecked(false);}
                 if(aloebox.isChecked()){
                     aloeText.setVisibility(View.VISIBLE);
                     selectedingredients[0] = "aloe";
@@ -82,7 +83,8 @@ public class SelectFrag2 extends Fragment {
 
         greenteabox.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
-                if(totalCount==3) Toast.makeText(getContext(), "성분은 3개 이내로 담아주세요", Toast.LENGTH_SHORT).show();
+                if(totalCount>=3) {Toast.makeText(getContext(), "성분은 3개 이내로 담아주세요", Toast.LENGTH_SHORT).show();
+                greenteabox.setChecked(false);}
                 if(greenteabox.isChecked()){
                     greenteaText.setVisibility(View.VISIBLE);
                     selectedingredients[1] = "greentea";
@@ -97,7 +99,8 @@ public class SelectFrag2 extends Fragment {
 
         byeongpulbox.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
-                if(totalCount==3) Toast.makeText(getContext(), "성분은 3개 이내로 담아주세요", Toast.LENGTH_SHORT).show();
+                if(totalCount>=3) {Toast.makeText(getContext(), "성분은 3개 이내로 담아주세요", Toast.LENGTH_SHORT).show();
+                byeongpulbox.setChecked(false);}
                 if(byeongpulbox.isChecked()){
                     byeoungpulText.setVisibility(View.VISIBLE);
                     selectedingredients[2] = "byeongpul";
@@ -112,7 +115,8 @@ public class SelectFrag2 extends Fragment {
 
         honeybox.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
-                if(totalCount==3) Toast.makeText(getContext(), "성분은 3개 이내로 담아주세요", Toast.LENGTH_SHORT).show();
+                if(totalCount>=3) {Toast.makeText(getContext(), "성분은 3개 이내로 담아주세요", Toast.LENGTH_SHORT).show();
+                honeybox.setChecked(false);}
                 if(honeybox.isChecked()){
                     honeyText.setVisibility(View.VISIBLE);
                     selectedingredients[3] = "honey";
@@ -127,7 +131,8 @@ public class SelectFrag2 extends Fragment {
 
         snailbox.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
-                if(totalCount==3) Toast.makeText(getContext(), "성분은 3개 이내로 담아주세요", Toast.LENGTH_SHORT).show();
+                if(totalCount>=3) {Toast.makeText(getContext(), "성분은 3개 이내로 담아주세요", Toast.LENGTH_SHORT).show();
+                snailbox.setChecked(false);}
                 if(snailbox.isChecked()){
                     snailText.setVisibility(View.VISIBLE);
                     selectedingredients[4] = "snail";
@@ -143,7 +148,8 @@ public class SelectFrag2 extends Fragment {
         olivebox.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
                 if(olivebox.isChecked()){
-                    if(totalCount==3) Toast.makeText(getContext(), "성분은 3개 이내로 담아주세요", Toast.LENGTH_SHORT).show();
+                    if(totalCount>=3){ Toast.makeText(getContext(), "성분은 3개 이내로 담아주세요", Toast.LENGTH_SHORT).show();
+                    olivebox.setChecked(false);}
                     selectedingredients[5] = "olive";
                     oliveText.setVisibility(View.VISIBLE);
                     totalCount++;

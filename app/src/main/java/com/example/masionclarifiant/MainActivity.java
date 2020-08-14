@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 intent5.putExtra("userID",userID);
                 startActivity(intent5);
                 break;
-            case R.id.nav_order:
+            case R.id.nav_combination:
                 break;
         }
 
