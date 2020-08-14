@@ -41,7 +41,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="50dp"
         android:orientation="vertical">
 
         <TextView
@@ -69,6 +69,17 @@
 
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/reset_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="20dp"
+        android:gravity="right"
+        android:text="다음에 배합하기"
+        android:textColor="@color/colorDarkGreen"
+        android:textSize="17dp" />
+
     <RelativeLayout
         android:id="@+id/selectedLayout"
         android:layout_width="match_parent"
@@ -83,6 +94,7 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:visibility="gone" />
+
     </RelativeLayout>
 
 </LinearLayout>

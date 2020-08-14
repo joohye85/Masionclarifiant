@@ -23,7 +23,7 @@
                 <ImageView
                     android:id="@+id/imageView3"
                     android:layout_width="100dp"
-                    android:layout_height="80dp"
+                    android:layout_height="match_parent"
                     app:srcCompat="@drawable/aloe" />
 
                 <ImageView

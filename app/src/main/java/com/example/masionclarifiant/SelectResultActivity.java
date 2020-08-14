@@ -84,41 +84,41 @@ public class SelectResultActivity extends AppCompatActivity {
             if (ingredient.length() == 0){
                 ingredient.append("알로에"); }
             else
-                ingredient.append(" + 알로에");
+                ingredient.append(",알로에");
         }
         if(SelectFrag2.selectedingredients[1].equals(ingredients[1])) {
             rst_greenteaText.setVisibility(View.VISIBLE);
             if (ingredient.length() == 0){
                 ingredient.append("녹차"); }
             else
-                ingredient.append(" + 녹차");
+                ingredient.append(",녹차");
         }
         if (SelectFrag2.selectedingredients[2].equals(ingredients[2])) {
             rst_byeoungpulText.setVisibility(View.VISIBLE);
             if (ingredient.length() == 0){
                 ingredient.append("병풀"); }
             else
-                ingredient.append(" + 병풀");
+                ingredient.append(",병풀");
         }
         if (SelectFrag2.selectedingredients[3].equals(ingredients[3])) {
             rst_honeyText.setVisibility(View.VISIBLE);
             if (ingredient.length() == 0){
                 ingredient.append("꿀");}
             else
-                ingredient.append(" + 꿀");
+                ingredient.append(",꿀");
         }
         if (SelectFrag2.selectedingredients[4].equals(ingredients[4])) {
             if (ingredient.length() == 0){
                         ingredient.append("달팽이"); }
             else
-                ingredient.append(" + 달팽이");
+                ingredient.append(",달팽이");
         }
         if (SelectFrag2.selectedingredients[5].equals(ingredients[5])) {
             rst_oliveText.setVisibility(View.VISIBLE);
             if (ingredient.length() == 0){
                 ingredient.append("올리브"); }
             else
-                ingredient.append(" + 올리브");
+                ingredient.append(",올리브");
         }
 
         if((SelectFrag3.selectedscent).equals("teatree")){
@@ -143,7 +143,6 @@ public class SelectResultActivity extends AppCompatActivity {
                 final String skinType = skinType2.toString();
                 final String userID = getIntent().getStringExtra("userID");
 
-                SelectFrag2.selectedingredients = new String[]{"x", "x", "x", "x", "x", "x"};
                 Response.Listener<String> res = new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -158,10 +157,12 @@ public class SelectResultActivity extends AppCompatActivity {
                                             public void onClick(DialogInterface dialog, int which) {
                                                 ingredient.delete(0,ingredient.length());
                                                 i_name2.delete(0,i_name2.length());
-                                                Intent intent = new Intent(SelectResultActivity.this, MainActivity.class);
+                                                Intent intent = new Intent(SelectResultActivity.this, CombiActivity.class);
+                                                //intent.putExtra("userID",userID);
                                                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP);
                                                 SelectResultActivity.this.finish();
                                                 SelectResultActivity.this.startActivity(intent);
+                                                SelectFrag2.selectedingredients = new String[]{"x", "x", "x", "x", "x", "x"};
                                             }
                                         })
                                         .create()
@@ -178,6 +179,7 @@ public class SelectResultActivity extends AppCompatActivity {
                     }
                 };
                 SelectRequest selectRequest = new SelectRequest(userID, skinType, i_name, perfume, res);
+                selectRequest.setShouldCache(false);
                 RequestQueue queue = Volley.newRequestQueue(SelectResultActivity.this);
                 queue.add(selectRequest);
             }

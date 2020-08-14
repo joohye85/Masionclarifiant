@@ -103,7 +103,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(intent5);
                 break;
             case R.id.nav_combination:
+                String userID3 = getIntent().getStringExtra("userID");
                 Intent intent6 = new Intent(MainActivity.this, CombiActivity.class);
+                intent6.putExtra("userID",userID3);
                 startActivity(intent6);
                 break;
         }

@@ -34,7 +34,7 @@ public class SelectFrag2 extends Fragment {
 
     public ImageButton deleteAllBtn;
 
-    int totalCount = 0;
+    public static int totalCount = 0;
 
     public static SelectFrag2 newInstance(){
         SelectFrag2 fragment2 = new SelectFrag2();
@@ -77,6 +77,7 @@ public class SelectFrag2 extends Fragment {
                 else{
                     aloeText.setVisibility(View.GONE);
                     selectedingredients[0] = "x";
+                    totalCount--;
                 }
             }
         });
@@ -93,6 +94,7 @@ public class SelectFrag2 extends Fragment {
                 else{
                     greenteaText.setVisibility(View.GONE);
                     selectedingredients[1] = "x";
+                    totalCount--;
                 }
             }
         });
@@ -109,6 +111,7 @@ public class SelectFrag2 extends Fragment {
                 else{
                     byeoungpulText.setVisibility(View.GONE);
                     selectedingredients[2] = "x";
+                    totalCount--;
                 }
             }
         });
@@ -125,6 +128,7 @@ public class SelectFrag2 extends Fragment {
                 else{
                     honeyText.setVisibility(View.GONE);
                     selectedingredients[3] = "x";
+                    totalCount--;
                 }
             }
         });
@@ -141,6 +145,7 @@ public class SelectFrag2 extends Fragment {
                 else{
                     snailText.setVisibility(View.GONE);
                     selectedingredients[4] = "x";
+                    totalCount--;
                 }
             }
         });
@@ -157,6 +162,7 @@ public class SelectFrag2 extends Fragment {
                 else{
                     selectedingredients[5] = "x";
                     oliveText.setVisibility(View.GONE);
+                    totalCount--;
                 }
             }
         });
@@ -181,6 +187,7 @@ public class SelectFrag2 extends Fragment {
                 olivebox.setChecked(false);
 
                 SelectFrag1.selectedkind = "";
+                totalCount = 0;
             }
         });
         return view;
