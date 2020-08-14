@@ -25,6 +25,7 @@ public class CombiActivity extends AppCompatActivity {
     public static String wifiModuleIp = "";
     public static int wifiModulePort = 0;
     public static String CMD = "0";
+    Button motorStart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +35,8 @@ public class CombiActivity extends AppCompatActivity {
         ipaddress = (EditText) findViewById(R.id.ssssssss);
         ipaddress.setText("220.69.172.235");
 
-        final Button motorStart = (Button)findViewById(R.id.motorStart);
-            motorStart.setOnClickListener(new View.OnClickListener() {
+        motorStart = (Button)findViewById(R.id.motorStart);
+        motorStart.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Toast.makeText(getApplicationContext(), "배합을 시작합니다.", Toast.LENGTH_SHORT).show();
@@ -46,14 +47,14 @@ public class CombiActivity extends AppCompatActivity {
                 }
             });
     }
-    public void getTest(){
+    /*public void getTest(){
         for(int i=0;i>=SelectFrag2.selectedingredients.length;i++){
             if(SelectFrag2.selectedingredients[i].equals("x")){
 
             }
         }
 
-    }
+    }*/
     public void getIPandPort()
     {
         String ipaddress2 = ipaddress.getText().toString();
