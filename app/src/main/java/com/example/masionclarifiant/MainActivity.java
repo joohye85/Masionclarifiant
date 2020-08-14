@@ -1,10 +1,14 @@
 package com.example.masionclarifiant;
 
+import android.content.ClipData;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toolbar;
 
@@ -16,6 +20,12 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.navigation.NavigationView;
+
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.net.InetAddress;
+import java.net.Socket;
+import java.net.UnknownHostException;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -93,6 +103,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(intent5);
                 break;
             case R.id.nav_combination:
+                Intent intent6 = new Intent(MainActivity.this, CombiActivity.class);
+                startActivity(intent6);
                 break;
         }
 
@@ -100,3 +112,4 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 }
+
