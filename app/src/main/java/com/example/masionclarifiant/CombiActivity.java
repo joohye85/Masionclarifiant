@@ -1,7 +1,5 @@
 package com.example.masionclarifiant;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -12,6 +10,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
@@ -20,7 +20,6 @@ import org.json.JSONObject;
 
 import java.io.DataOutputStream;
 import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
@@ -52,7 +51,7 @@ public class CombiActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_combi);
 
-        ipaddress = (EditText) findViewById(R.id.ssssssss);
+        ipaddress = (EditText) findViewById(R.id.ipadress);
         ipaddress.setText("220.69.172.235");
         final String userID = getIntent().getStringExtra("userID");
 

@@ -10,7 +10,6 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
 
-/* 네비게이션 바 구현 필요 */
 public class SelectActivity extends AppCompatActivity {
 
     @Override

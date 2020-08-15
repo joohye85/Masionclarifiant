@@ -8,6 +8,7 @@
         android:layout_height="wrap_content"
         android:text="Masion Clarifiant"
         android:textColor="@color/colorLightPink"
+        android:fontFamily="serif"
         android:textSize="30dp"
         android:textStyle="bold"
         android:layout_gravity="center"

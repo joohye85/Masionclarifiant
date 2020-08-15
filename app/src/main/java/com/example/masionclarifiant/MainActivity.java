@@ -1,15 +1,9 @@
 package com.example.masionclarifiant;
 
-import android.content.ClipData;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toolbar;
 
 import androidx.annotation.NonNull;
@@ -17,15 +11,8 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.navigation.NavigationView;
-
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.net.InetAddress;
-import java.net.Socket;
-import java.net.UnknownHostException;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -39,11 +26,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        /*
         //메인 화면 어답터설정
         final ViewPager viewPager = (ViewPager) findViewById(R.id.recently_purchased_products);
         final ContentMainPageAdapter myPagerAdapter = new ContentMainPageAdapter(getSupportFragmentManager(), 2);
         viewPager.setAdapter(myPagerAdapter);
-        
+        */
 
         /*--Hooks--*/
         drawerLayout = findViewById(R.id.drawer_layout);
@@ -101,12 +89,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Intent intent5 = new Intent(MainActivity.this, MypageActivity.class);
                 intent5.putExtra("userID",userID);
                 startActivity(intent5);
-                break;
-            case R.id.nav_combination:
-                String userID3 = getIntent().getStringExtra("userID");
-                Intent intent6 = new Intent(MainActivity.this, CombiActivity.class);
-                intent6.putExtra("userID",userID3);
-                startActivity(intent6);
                 break;
         }
 
