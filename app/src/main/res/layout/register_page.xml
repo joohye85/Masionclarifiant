@@ -236,19 +236,19 @@
                     android:orientation="horizontal">
                     <Button
                         android:id="@+id/dryBtn"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
                         android:backgroundTint="@android:color/white"
                         android:background="@drawable/round_rec"
                         android:drawableTop="@drawable/ic_stacked_line_chart_black_18dp"
                         android:paddingTop="20dp"
                         android:layout_marginTop="10dp"
-                        android:layout_marginRight="30dp"
+                        android:layout_marginRight="10dp"
                         android:text="건성" />
                     <Button
                         android:id="@+id/oilBtn"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
                         android:backgroundTint="@android:color/white"
                         android:background="@drawable/round_rec"
                         android:drawableTop="@drawable/ic_blur_on_black_18dp"
@@ -262,19 +262,19 @@
                     android:orientation="horizontal">
                     <Button
                         android:id="@+id/complexBtn"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
                         android:backgroundTint="@android:color/white"
                         android:background="@drawable/round_rec"
                         android:drawableTop="@drawable/ic_blur_linear_black_18dp"
                         android:paddingTop="20dp"
                         android:layout_marginTop="10dp"
-                        android:layout_marginRight="30dp"
+                        android:layout_marginRight="10dp"
                         android:text="복합성" />
                     <Button
                         android:id="@+id/sensitiveBtn"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
                         android:backgroundTint="@android:color/white"
                         android:background="@drawable/round_rec"
                         android:drawableTop="@drawable/ic_gamepad_black_18dp"

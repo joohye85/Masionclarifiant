@@ -23,15 +23,18 @@ public class FindIngredientActivity extends AppCompatActivity {
         ImageView rosemaryimg = (ImageView)findViewById(R.id.rosemaryimg);
         TextView back_btn = (TextView)findViewById(R.id.back_btn);
 
+        /*
         back_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FindIngredientActivity.this.onBackPressed();
             }
         });
+        */
+
         aloeimg.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                AlertDialog.Builder dlg = new AlertDialog.Builder(FindIngredientActivity.this);
+                AlertDialog.Builder dlg = new AlertDialog.Builder(FindIngredientActivity.this, R.style.MyDialogTheme);
                 dlg.setTitle("■ 알로에의 효능");
                 dlg.setMessage(R.string.aloe);
                 dlg.setPositiveButton("확인",null);
@@ -41,7 +44,7 @@ public class FindIngredientActivity extends AppCompatActivity {
 
         greenteaimg.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                AlertDialog.Builder dlg = new AlertDialog.Builder(FindIngredientActivity.this);
+                AlertDialog.Builder dlg = new AlertDialog.Builder(FindIngredientActivity.this, R.style.MyDialogTheme);
                 dlg.setTitle("■ 녹차의 효능");
                 dlg.setMessage(R.string.greentea);
                 dlg.setPositiveButton("확인",null);
@@ -51,7 +54,7 @@ public class FindIngredientActivity extends AppCompatActivity {
 
         byeongpulimg.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                AlertDialog.Builder dlg = new AlertDialog.Builder(FindIngredientActivity.this);
+                AlertDialog.Builder dlg = new AlertDialog.Builder(FindIngredientActivity.this, R.style.MyDialogTheme);
                 dlg.setTitle("■ 병풀의 효능");
                 dlg.setMessage(R.string.byeongpul);
                 dlg.setPositiveButton("확인",null);
@@ -61,7 +64,7 @@ public class FindIngredientActivity extends AppCompatActivity {
 
        honeyimg.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                AlertDialog.Builder dlg = new AlertDialog.Builder(FindIngredientActivity.this);
+                AlertDialog.Builder dlg = new AlertDialog.Builder(FindIngredientActivity.this, R.style.MyDialogTheme);
                 dlg.setTitle("■ 꿀의 효능");
                 dlg.setMessage(R.string.honey);
                 dlg.setPositiveButton("확인",null);
@@ -71,7 +74,7 @@ public class FindIngredientActivity extends AppCompatActivity {
 
         snailimg.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                AlertDialog.Builder dlg = new AlertDialog.Builder(FindIngredientActivity.this);
+                AlertDialog.Builder dlg = new AlertDialog.Builder(FindIngredientActivity.this, R.style.MyDialogTheme);
                 dlg.setTitle("■ 달팽이의 효능");
                 dlg.setMessage(R.string.snail);
                 dlg.setPositiveButton("확인",null);
@@ -81,7 +84,7 @@ public class FindIngredientActivity extends AppCompatActivity {
 
         oliveimg.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                AlertDialog.Builder dlg = new AlertDialog.Builder(FindIngredientActivity.this);
+                AlertDialog.Builder dlg = new AlertDialog.Builder(FindIngredientActivity.this, R.style.MyDialogTheme);
                 dlg.setTitle("■ 올리브의 효능");
                 dlg.setMessage(R.string.olive);
                 dlg.setPositiveButton("확인",null);
@@ -91,7 +94,7 @@ public class FindIngredientActivity extends AppCompatActivity {
 
         teatreeimg.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                AlertDialog.Builder dlg = new AlertDialog.Builder(FindIngredientActivity.this);
+                AlertDialog.Builder dlg = new AlertDialog.Builder(FindIngredientActivity.this, R.style.MyDialogTheme);
                 dlg.setTitle("■ 티트리의 효능");
                 dlg.setMessage(R.string.teatree);
                 dlg.setPositiveButton("확인",null);
@@ -101,7 +104,7 @@ public class FindIngredientActivity extends AppCompatActivity {
 
         rosemaryimg.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                AlertDialog.Builder dlg = new AlertDialog.Builder(FindIngredientActivity.this);
+                AlertDialog.Builder dlg = new AlertDialog.Builder(FindIngredientActivity.this, R.style.MyDialogTheme);
                 dlg.setTitle("■ 로즈마리의 효능");
                 dlg.setMessage(R.string.rosemary);
                 dlg.setPositiveButton("확인",null);

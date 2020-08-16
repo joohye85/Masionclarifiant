@@ -24,6 +24,10 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstance);
         setContentView(R.layout.login_page);
 
+        /*테스트용*/
+        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+        LoginActivity.this.startActivity(intent);
+
         final EditText id_textView = (EditText) findViewById(R.id.login_id);
         final EditText password_textView = (EditText)findViewById(R.id.login_password);
         final Button login_button = (Button)findViewById(R.id.find_btn);

@@ -91,6 +91,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 intent5.putExtra("userID",userID);
                 startActivity(intent5);
                 break;
+            case R.id.nav_mypage2:
+                Intent intent6 = new Intent(MainActivity.this, Mypage2Activity.class);
+                startActivity(intent6);
+                break;
         }
 
         drawerLayout.closeDrawer(GravityCompat.START);
