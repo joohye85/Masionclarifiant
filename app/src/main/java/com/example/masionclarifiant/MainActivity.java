@@ -38,14 +38,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mainmenu1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                String userID2 = getIntent().getStringExtra("userID");
+                Intent intent2 = new Intent(MainActivity.this, SelectActivity.class);
+                intent2.putExtra("userID",userID2);
+                startActivity(intent2);
             }
         });
 
         mainmenu2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent combiIntent = new Intent(MainActivity.this, CombiActivity.class);
+                startActivity(combiIntent);
             }
         });
 
@@ -97,6 +101,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Intent intent2 = new Intent(MainActivity.this, SelectActivity.class);
                 intent2.putExtra("userID",userID2);
                 startActivity(intent2);
+                break;
+            case R.id.nav_combination:
+                Intent intent7 = new Intent(MainActivity.this, CombiActivity.class);
+                startActivity(intent7);
                 break;
             case R.id.nav_ingredient:
                 Intent intent3 = new Intent(MainActivity.this, FindIngredientActivity.class);
