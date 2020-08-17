@@ -11,7 +11,7 @@
 	mysqli_stmt_execute($statement);
 
 	mysqli_stmt_store_result($statement);
-	mysqli_stmt_bind_result($statement, $userID, $userPW, $gender, $age);
+	mysqli_stmt_bind_result($statement, $userID, $userPW, $gender, $age, $skinType, $interest);
 
 	$_SESSION = array(); #세션 배열 생성
   	$_SESSION["success"] = false; 
@@ -23,9 +23,10 @@
     	$_SESSION["userPW"] = $userPW;
     	$_SESSION["gender"] = $gender;
     	$_SESSION["age"] = $age;
-	}
+    	$_SESSION["skinType"] = $skinType;
+    	$_SESSION["interest"] = $interest;
+ 	}
 }
 	$json = json_encode($_SESSION);
   	echo $json;
-  	var_dump($_SESSION)
 ?>
