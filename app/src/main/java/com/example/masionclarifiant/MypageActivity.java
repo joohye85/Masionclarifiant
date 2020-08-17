@@ -104,10 +104,10 @@ public class MypageActivity extends AppCompatActivity{
                 }catch (Exception e){e.printStackTrace();}
             }
         };
-        Mypage2Request mypage2Request = new Mypage2Request(userID, res2);
+        Recently_three_dataRequest recently_three_dataRequest = new Recently_three_dataRequest(userID, res2);
         //mypage2Request.setShouldCache(false);
         RequestQueue queue2 = Volley.newRequestQueue(MypageActivity.this);
-        queue2.add(mypage2Request);
+        queue2.add(recently_three_dataRequest);
         //가장 최근에 조합한 화장품 1개 가져오기
         Response.Listener<String> res = new Response.Listener<String>() {
             @Override
@@ -169,7 +169,7 @@ public class MypageActivity extends AppCompatActivity{
                                             @Override
                                             public void onClick(DialogInterface dialog, int which) {
                                                 feedback_save = "예";
-                                                Toast.makeText(getApplicationContext(), feedback_save +"전송되었습니다." , Toast.LENGTH_SHORT).show();
+                                                Toast.makeText(getApplicationContext(), "전송되었습니다." , Toast.LENGTH_SHORT).show();
                                             }
                                         })
                                         .setNegativeButton("아니요", new DialogInterface.OnClickListener() {
@@ -192,9 +192,10 @@ public class MypageActivity extends AppCompatActivity{
                         }catch (Exception e){e.printStackTrace();}
                     }
                 };
-                MypageRequest mypageRequest = new MypageRequest(userID, feedback_save, res);
+                Toast.makeText(getApplicationContext(), feedback_save, Toast.LENGTH_SHORT).show();
+                FeedbackRequest feedbackRequest = new FeedbackRequest(userID,feedback_save,res);
                 RequestQueue queue = Volley.newRequestQueue(MypageActivity.this);
-                queue.add(mypageRequest);
+                queue.add(feedbackRequest);
         }
         });
 

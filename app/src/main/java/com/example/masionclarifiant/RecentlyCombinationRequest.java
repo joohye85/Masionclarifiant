@@ -7,6 +7,7 @@ import com.android.volley.toolbox.StringRequest;
 import java.util.HashMap;
 import java.util.Map;
 
+//피드백을 전송하기 위해 최근 조합한 데이터 1개를 보내주는 Request
 public class RecentlyCombinationRequest extends StringRequest {
     final static private String URL = "http://wngp0805.dothome.co.kr/recently_data.php";
     private Map<String,String> map;

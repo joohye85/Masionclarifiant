@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolbar;
-
+    //public final String userID = getIntent().getStringExtra("userID");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +33,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         final ContentMainPageAdapter myPagerAdapter = new ContentMainPageAdapter(getSupportFragmentManager(), 2);
         viewPager.setAdapter(myPagerAdapter);
 
-
         /*--Hooks--*/
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
@@ -42,7 +41,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         //Hide or show items
         Menu menu = navigationView.getMenu();
-  //      menu.findItem(R.id.nav_logout).setVisible(false);
+        //      menu.findItem(R.id.nav_logout).setVisible(false);
 
         navigationView.bringToFront();
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout,  R.string.navigation_drawer_open,R.string.navigation_drawer_close);
@@ -71,9 +70,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_home:
                 break;
             case R.id.nav_select:
-                String userID2 = getIntent().getStringExtra("userID");
+                String userID3 = getIntent().getStringExtra("userID");
                 Intent intent2 = new Intent(MainActivity.this, SelectActivity.class);
-                intent2.putExtra("userID",userID2);
+                intent2.putExtra("userID",userID3);
                 startActivity(intent2);
                 break;
             case R.id.nav_ingredient:
@@ -92,19 +91,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(intent5);
                 break;
             case R.id.nav_mypage2:
+                String userID5 = getIntent().getStringExtra("userID");
                 Intent intent6 = new Intent(MainActivity.this, Mypage2Activity.class);
+                intent6.putExtra("userID",userID5);
                 startActivity(intent6);
                 break;
-            case R.id.nav_skin:
-                String userID4 = getIntent().getStringExtra("userID");
-                Intent intent7 = new Intent(MainActivity.this, MyskinActivity.class);
-                intent7.putExtra("userID",userID4);
+            case R.id.nav_combination:
+                String userID7 = getIntent().getStringExtra("userID");
+                Intent intent7 = new Intent(MainActivity.this, CombiActivity.class);
+                intent7.putExtra("userID",userID7);
                 startActivity(intent7);
                 break;
+
         }
 
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
 }
-

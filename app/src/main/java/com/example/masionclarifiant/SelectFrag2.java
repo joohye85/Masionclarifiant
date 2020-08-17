@@ -46,9 +46,11 @@ public class SelectFrag2 extends Fragment {
         //return super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.select_fragment2,container,false);
 
+        //SelectFrag1에 있는 토너/로션 텍스트
         tonerText = (TextView) getActivity().findViewById(R.id.tonerText);
         lotionText = (TextView) getActivity().findViewById(R.id.lotionText);
 
+        //체크박스
         aloebox = (CheckBox) view.findViewById(R.id.aloe);
         greenteabox = (CheckBox) view.findViewById(R.id.greentea);
         byeongpulbox = (CheckBox) view.findViewById(R.id.byeongpul);
@@ -56,6 +58,7 @@ public class SelectFrag2 extends Fragment {
         snailbox = (CheckBox) view.findViewById(R.id.snail);
         olivebox = (CheckBox) view.findViewById(R.id.olive);
 
+        //체크박스 선택하면 하단에 나타나는 텍스트뷰
         aloeText = (TextView) getActivity().findViewById(R.id.aloeText);
         greenteaText = (TextView) getActivity().findViewById(R.id.greenteaText);
         byeoungpulText = (TextView) getActivity().findViewById(R.id.byeongpulText);
@@ -75,6 +78,7 @@ public class SelectFrag2 extends Fragment {
                     totalCount++;
                 }
                 else{
+                    aloebox.setChecked(false);
                     aloeText.setVisibility(View.GONE);
                     selectedingredients[0] = "x";
                     totalCount--;
@@ -92,6 +96,7 @@ public class SelectFrag2 extends Fragment {
                     totalCount++;
                 }
                 else{
+                    greenteabox.setChecked(false);
                     greenteaText.setVisibility(View.GONE);
                     selectedingredients[1] = "x";
                     totalCount--;
@@ -109,6 +114,7 @@ public class SelectFrag2 extends Fragment {
                     totalCount++;
                 }
                 else{
+                    byeongpulbox.setChecked(false);
                     byeoungpulText.setVisibility(View.GONE);
                     selectedingredients[2] = "x";
                     totalCount--;
@@ -126,6 +132,7 @@ public class SelectFrag2 extends Fragment {
                     totalCount++;
                 }
                 else{
+                    honeybox.setChecked(false);
                     honeyText.setVisibility(View.GONE);
                     selectedingredients[3] = "x";
                     totalCount--;
@@ -143,6 +150,7 @@ public class SelectFrag2 extends Fragment {
                     totalCount++;
                 }
                 else{
+                    snailbox.setChecked(false);
                     snailText.setVisibility(View.GONE);
                     selectedingredients[4] = "x";
                     totalCount--;
@@ -161,6 +169,7 @@ public class SelectFrag2 extends Fragment {
                 }
                 else{
                     selectedingredients[5] = "x";
+                    olivebox.setChecked(false);
                     oliveText.setVisibility(View.GONE);
                     totalCount--;
                 }
@@ -169,6 +178,11 @@ public class SelectFrag2 extends Fragment {
 
         deleteAllBtn.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
+
+                //selectedingredients = new String[]{"x", "x", "x", "x", "x", "x"};
+
+
+
                 lotionText.setVisibility(View.GONE);
                 tonerText.setVisibility(View.GONE);
 

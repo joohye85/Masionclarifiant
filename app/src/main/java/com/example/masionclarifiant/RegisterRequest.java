@@ -6,11 +6,12 @@ import com.android.volley.toolbox.StringRequest;
 import java.util.HashMap;
 import java.util.Map;
 
+//회원가입 Request
 public class RegisterRequest extends StringRequest {
     final static private String URL="http://wngp0805.dothome.co.kr/register.php";
     private Map<String,String> map;
 
-    public RegisterRequest(String userID, String userPW, String gender, String age, Response.Listener<String>listener){
+    public RegisterRequest(String userID, String userPW, String gender, String age, String skinType, String interest, Response.Listener<String>listener){
         super(Method.POST,URL,listener,null);//위 url에 post방식으로 값을 전송
 
         map=new HashMap<>();
@@ -18,6 +19,8 @@ public class RegisterRequest extends StringRequest {
         map.put("userPW",userPW);
         map.put("gender",gender);
         map.put("age",age);
+        map.put("skinType", skinType);
+        map.put("interest",interest);
     }
 
     @Override
