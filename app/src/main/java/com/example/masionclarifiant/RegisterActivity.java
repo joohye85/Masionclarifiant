@@ -35,6 +35,12 @@ public class RegisterActivity extends AppCompatActivity {
         final EditText pw2Text = (EditText)findViewById(R.id.password2);
         final Button check = (Button)findViewById(R.id.id_check);
 
+        final Button dryBtn = (Button)findViewById(R.id.dryBtn);
+        final Button oilBtn = (Button)findViewById(R.id.oilBtn);
+        final Button sensitiveBtn = (Button)findViewById(R.id.sensitiveBtn);
+        final Button complexBtn = (Button)findViewById(R.id.complexBtn);
+
+
         String[] list = getResources().getStringArray(R.array.age_array);
         Button joinbtn = (Button) findViewById(R.id.joinbtn);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getBaseContext(), R.layout.support_simple_spinner_dropdown_item, list);

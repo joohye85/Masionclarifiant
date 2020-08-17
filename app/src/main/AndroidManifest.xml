@@ -14,9 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".MyskinActivity"></activity>
-        <activity android:name=".CombiActivity" />
+        <activity android:name=".CombiActivity"/>
         <activity android:name=".MypageActivity" />
+        <activity android:name=".Mypage2Activity" />
         <activity android:name=".FindActivity" />
         <activity
             android:name=".MainActivity"

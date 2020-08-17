@@ -45,18 +45,21 @@
 
                 <CheckBox
                     android:id="@+id/aloe"
+                    android:checked="false"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="알로에" />
 
                 <CheckBox
                     android:id="@+id/greentea"
+                    android:checked="false"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="녹차" />
 
                 <CheckBox
                     android:id="@+id/byeongpul"
+                    android:checked="false"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="병풀" />
@@ -91,18 +94,21 @@
 
                 <CheckBox
                     android:id="@+id/honey"
+                    android:checked="false"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="꿀" />
 
                 <CheckBox
                     android:id="@+id/snail"
+                    android:checked="false"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="달팽이" />
 
                 <CheckBox
                     android:id="@+id/olive"
+                    android:checked="false"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="올리브" />

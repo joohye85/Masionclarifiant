@@ -16,7 +16,7 @@
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="105dp"
+            android:layout_height="80dp"
             android:background="@color/colorBabyPink"
             android:orientation="vertical">
 
@@ -30,27 +30,11 @@
                 android:textSize="30dp"
                 android:textStyle="bold"
                 app:fontFamily="serif" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="50dp"
-                android:text="메종 끌라리피앙"
-                android:textColor="@color/colorDarkGreen"
-                android:textSize="20dp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="80dp"
-                android:text="MY PAGE"
-                android:textColor="@color/colorDarkGreen"
-                android:textSize="15dp" />
         </FrameLayout>
 
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -59,6 +43,7 @@
 
             <FrameLayout
                 android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
                 android:layout_height="41dp"
                 android:orientation="vertical">
 
@@ -84,7 +69,7 @@
                     android:textSize="15dp" />
 
                 <View
-                    android:layout_width="360dp"
+                    android:layout_width="340dp"
                     android:layout_height="2dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="15dp"
@@ -96,171 +81,195 @@
                 android:layout_width="wrap_content"
                 android:layout_height="34dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="4dp"
-                android:text="님이 이용하신 화장품 조합 "
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:text=" 님이 이용하신 화장품 조합 "
                 android:textColor="@color/colorDarkGreen"
-                android:textSize="19dp"
+                android:textSize="17dp"
                 android:textStyle="bold" />
 
-            <TableLayout
-                android:id="@+id/table"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="60dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="50dp"
-                        android:gravity="center"
-                        android:text="일자"
-                        android:textColor="@color/colorDarkPink"
-                        android:textSize="17dp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="50dp"
-                        android:gravity="center"
-                        android:text="종류"
-                        android:textColor="@color/colorDarkPink"
-                        android:textSize="17dp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="50dp"
-                        android:gravity="center"
-                        android:text="재료"
-                        android:textColor="@color/colorDarkPink"
-                        android:textSize="17dp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="향"
-                        android:textColor="@color/colorDarkPink"
-                        android:textSize="17dp"
-                        android:textStyle="bold" />
-
-                </TableRow>
-
-            </TableLayout>
-
-            <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:id="@+id/date1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:text="TextView" />
-
-                <TextView
-                    android:id="@+id/type1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="145dp"
-                    android:text="TextView" />
-
-                <TextView
-                    android:id="@+id/ingredient1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="180dp"
-                    android:text="TextView" />
-
-                <TextView
-                    android:id="@+id/perfume1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="280dp"
-                    android:text="TextView" />
-            </FrameLayout>
-
-            <FrameLayout
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="13dp">
+                android:orientation="vertical"
+                android:gravity="center">
 
-                <TextView
-                    android:id="@+id/date2"
+                <TableLayout
+                    android:id="@+id/table"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:text="TextView" />
+                    android:textAlignment="center">
 
-                <TextView
-                    android:id="@+id/type2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="145dp"
-                    android:text="TextView" />
+                    <TableRow
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@color/colorGray"
+                        android:padding="2dp">
 
-                <TextView
-                    android:id="@+id/ingredient2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="180dp"
-                    android:text="TextView" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:text="일자"
+                            android:textColor="@color/colorDarkGreen"
+                            android:textSize="16dp"
+                            android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/perfume2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="280dp"
-                    android:text="TextView" />
-            </FrameLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="종류"
+                            android:textColor="@color/colorDarkGreen"
+                            android:textSize="16dp"
+                            android:textStyle="bold"/>
 
-            <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="13dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="재료"
+                            android:textColor="@color/colorDarkGreen"
+                            android:textSize="16dp"
+                            android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/date3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:text="TextView" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="향"
+                            android:textColor="@color/colorDarkGreen"
+                            android:textSize="16dp"
+                            android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/type3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="145dp"
-                    android:text="TextView" />
+                    </TableRow>
 
-                <TextView
-                    android:id="@+id/ingredient3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="180dp"
-                    android:text="TextView" />
+                    <TableRow
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:padding="2dp"
+                        android:background="@color/colorGray">
 
-                <TextView
-                    android:id="@+id/perfume3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="280dp"
-                    android:text="TextView" />
-            </FrameLayout>
+                        <TextView
+                            android:id="@+id/date1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="TextView"
+                            android:padding="5dp"
+                            android:background="@color/colorWhite"/>
+
+                        <TextView
+                            android:id="@+id/type1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="TextView"
+                            android:padding="5dp"
+                            android:background="@color/colorWhite"/>
+
+                        <TextView
+                            android:id="@+id/ingredient1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="TextView"
+                            android:padding="5dp"
+                            android:background="@color/colorWhite"/>
+
+                        <TextView
+                            android:id="@+id/perfume1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="TextView"
+                            android:padding="5dp"
+                            android:background="@color/colorWhite"/>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="2dp"
+                        android:background="@color/colorGray">
+
+                        <TextView
+                            android:id="@+id/date2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="TextView"
+                            android:padding="5dp"
+                            android:background="@color/colorWhite"/>
+
+                        <TextView
+                            android:id="@+id/type2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="TextView"
+                            android:padding="5dp"
+                            android:background="@color/colorWhite"/>
+
+                        <TextView
+                            android:id="@+id/ingredient2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="TextView"
+                            android:padding="5dp"
+                            android:background="@color/colorWhite"/>
+
+                        <TextView
+                            android:id="@+id/perfume2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="TextView"
+                            android:padding="5dp"
+                            android:background="@color/colorWhite"/>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="2dp"
+                        android:background="@color/colorGray">
+
+                        <TextView
+                            android:id="@+id/date3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="TextView"
+                            android:padding="5dp"
+                            android:background="@color/colorWhite"/>
+
+                        <TextView
+                            android:id="@+id/type3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="TextView"
+                            android:padding="5dp"
+                            android:background="@color/colorWhite"/>
+
+                        <TextView
+                            android:id="@+id/ingredient3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="TextView"
+                            android:padding="5dp"
+                            android:background="@color/colorWhite"/>
+
+                        <TextView
+                            android:id="@+id/perfume3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="TextView"
+                            android:padding="5dp"
+                            android:background="@color/colorWhite"/>
+                    </TableRow>
+                </TableLayout>
+            </LinearLayout>
 
             <View
-                android:layout_width="360dp"
+                android:layout_width="340dp"
                 android:layout_height="2dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginBottom="6dp"
                 android:background="@color/colorGray" />
 
@@ -272,7 +281,7 @@
                 android:layout_marginTop="2dp"
                 android:text="님의 화장품 조합 만족도 조사"
                 android:textColor="@color/colorDarkGreen"
-                android:textSize="19dp"
+                android:textSize="17dp"
                 android:textStyle="bold" />
 
             <TextView
@@ -280,8 +289,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginTop="10dp"
                 android:layout_marginBottom="15dp"
-                android:text="제공된 화장품은 마음에 드셨나요? 당신의 의견을 보내주세요!"
+                android:textAlignment="center"
+                android:textStyle="italic"
+                android:text="제공된 화장품은 마음에 드셨나요?\n당신의 의견을 보내주세요!"
                 android:textColor="#848484"
                 android:textSize="15dp" />
 
@@ -293,8 +305,7 @@
                 android:layout_marginBottom="15dp"
                 android:text="가장 최근 이용하신 화장품의 조합은 다음과 같습니다. "
                 android:textColor="@color/colorDarkGreen"
-                android:textSize="17dp"
-                android:textStyle="italic" />
+                android:textSize="12dp" />
 
             <FrameLayout
                 android:layout_width="match_parent"
@@ -405,15 +416,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="5dp"
-                android:background="@color/colorBabyPink"
-                android:fontFamily="serif-monospace"
-                android:text="FEEDBACK"
-                android:textColor="@color/colorDarkGreen"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="30dp"
+                android:padding="10dp"
+                android:background="@color/colorDarkPink"
+                android:text=" FEEDBACK "
+                android:textColor="@color/colorWhite"
                 android:textStyle="bold" />
 
         </LinearLayout>
-
+        </ScrollView>
     </LinearLayout>
-
 </androidx.drawerlayout.widget.DrawerLayout>

@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="Masion Clarifiant"
+        android:fontFamily="serif"
         android:textColor="@color/colorDarkGreen"
         android:textSize="30dp" />
 
@@ -141,6 +142,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:background="@drawable/rec_circle"
+                android:layout_marginTop="20dp"
                 android:backgroundTint="@color/colorDarkGreen"
                 android:gravity="center"
                 android:text="성별과 나이를 선택해주세요"
@@ -210,14 +212,154 @@
                     android:textColor="@color/colorBlack"
                     android:visibility="visible"
                     tools:visibility="visible" />
+            </LinearLayout>
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/rec_circle"
+                android:layout_marginTop="30dp"
+                android:backgroundTint="@color/colorDarkGreen"
+                android:gravity="center"
+                android:text="피부타입을 선택해주세요"
+                android:textColor="@android:color/white" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical"
+                android:gravity="center">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                    <Button
+                        android:id="@+id/dryBtn"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:backgroundTint="@android:color/white"
+                        android:background="@drawable/round_rec"
+                        android:drawableTop="@drawable/ic_stacked_line_chart_black_18dp"
+                        android:paddingTop="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp"
+                        android:text="건성" />
+                    <Button
+                        android:id="@+id/oilBtn"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:backgroundTint="@android:color/white"
+                        android:background="@drawable/round_rec"
+                        android:drawableTop="@drawable/ic_blur_on_black_18dp"
+                        android:paddingTop="20dp"
+                        android:layout_marginTop="10dp"
+                        android:text="지성" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                    <Button
+                        android:id="@+id/complexBtn"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:backgroundTint="@android:color/white"
+                        android:background="@drawable/round_rec"
+                        android:drawableTop="@drawable/ic_blur_linear_black_18dp"
+                        android:paddingTop="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp"
+                        android:text="복합성" />
+                    <Button
+                        android:id="@+id/sensitiveBtn"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:backgroundTint="@android:color/white"
+                        android:background="@drawable/round_rec"
+                        android:drawableTop="@drawable/ic_gamepad_black_18dp"
+                        android:paddingTop="20dp"
+                        android:layout_marginTop="10dp"
+                        android:text="민감성" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/rec_circle"
+                android:layout_marginTop="30dp"
+                android:backgroundTint="@color/colorDarkGreen"
+                android:gravity="center"
+                android:text="집중 케어가 필요한 항목을 선택해주세요"
+                android:textColor="@android:color/white" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_margin="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/checkBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="수분" />
+
+                    <CheckBox
+                        android:id="@+id/checkBox2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="각질" />
+
+                    <CheckBox
+                        android:id="@+id/checkBox3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="진정" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/checkBox4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="탄력" />
+
+                    <CheckBox
+                        android:id="@+id/checkBox5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="미백" />
+
+                    <CheckBox
+                        android:id="@+id/checkBox6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="잡티 " />
+                </LinearLayout>
             </LinearLayout>
 
             <Button
                 android:id="@+id/joinbtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="70dp"
+                android:layout_marginTop="50dp"
                 android:layout_marginBottom="40dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
