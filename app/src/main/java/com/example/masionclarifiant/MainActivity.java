@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.Toolbar;
 
 import androidx.annotation.NonNull;
@@ -21,13 +23,35 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolbar;
+    LinearLayout mainmenu1;
+    LinearLayout mainmenu2;
     //public final String userID = getIntent().getStringExtra("userID");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+    //메인 화면 버튼설정
+        mainmenu1 = (LinearLayout)findViewById(R.id.mainmenu1);
+        mainmenu2 = (LinearLayout)findViewById(R.id.mainmenu2);
 
+        mainmenu1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String userID2 = getIntent().getStringExtra("userID");
+                Intent intent2 = new Intent(MainActivity.this, SelectActivity.class);
+                intent2.putExtra("userID",userID2);
+                startActivity(intent2);
+            }
+        });
+
+        mainmenu2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent combiIntent = new Intent(MainActivity.this, CombiActivity.class);
+                startActivity(combiIntent);
+            }
+        });
         //메인 화면 어답터설정
         final ViewPager viewPager = (ViewPager) findViewById(R.id.recently_purchased_products);
         final ContentMainPageAdapter myPagerAdapter = new ContentMainPageAdapter(getSupportFragmentManager(), 2);
@@ -92,7 +116,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.nav_mypage2:
                 String userID5 = getIntent().getStringExtra("userID");
-                Intent intent6 = new Intent(MainActivity.this, Mypage2Activity.class);
+                Intent intent6 = new Intent(MainActivity.this, MyskinActivity.class);
                 intent6.putExtra("userID",userID5);
                 startActivity(intent6);
                 break;
