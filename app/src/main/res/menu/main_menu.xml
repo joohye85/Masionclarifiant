@@ -8,7 +8,7 @@
             android:icon="@drawable/ic_home_black_24dp"/>
         <item
             android:id="@+id/nav_mypage2"
-            android:title="마이페이지"
+            android:title="MY SKIN"
             android:icon="@drawable/ic_settings_black_24dp"/>
         <item
             android:id="@+id/nav_logout"
@@ -21,11 +21,15 @@
             <group android:checkableBehavior="single">
                 <item
                     android:id="@+id/nav_select"
-                    android:title="화장품 직접 배합하기"
+                    android:title="배합재료 선택하기"
                     android:icon="@drawable/ic_colorize_black_24dp"/>
                 <item
+                    android:id="@+id/nav_combination"
+                    android:title="화장품 배합 시작하기"
+                    android:icon="@drawable/ic_assessment_24px"/>
+                <item
                     android:id="@+id/nav_mypage"
-                    android:title="마이 레시피"
+                    android:title="MY RECIPE"
                     android:icon="@drawable/ic_assessment_24px"/>
                 <item
                     android:id="@+id/nav_ingredient"
@@ -35,7 +39,7 @@
         </menu>
     </item>
 
-    <item android:title="SKIN DIAGNOSIS">
+   <!-- <item android:title="SKIN DIAGNOSIS">
         <menu>
             <group android:checkableBehavior="single">
              <item
@@ -46,5 +50,5 @@
                     android:icon="@drawable/ic_insights_black_18dp"/>
             </group>
         </menu>
-    </item>
+    </item>-->
 </menu>

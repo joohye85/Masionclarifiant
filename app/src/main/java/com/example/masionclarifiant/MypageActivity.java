@@ -71,32 +71,43 @@ public class MypageActivity extends AppCompatActivity{
             public void onResponse(String response) {
                 try{
                     JSONArray jsonArray = new JSONArray(response);
-
                     for(int i=0;i<jsonArray.length();i++){
-                        JSONObject jsonObject = jsonArray.getJSONObject(i);
-                        Boolean success = jsonObject.getBoolean("success");
-                        if(success){
-                            String skinType2 = jsonObject.getString("skinType");
-                            String i_name2 = jsonObject.getString("i_name");
-                            String perfume2 = jsonObject.getString("perfume");
-                            String createData2 = jsonObject.getString("createDate");
-                            Toast.makeText(getApplicationContext(), "눈눈나난ㄴ나" + createData2, Toast.LENGTH_SHORT).show();
-                            for(int j=0;j>=3;j++){
-                                textViews[i][0].setText(createData2);
+                        JSONObject jsonObject2 = jsonArray.getJSONObject(i);
+                        Boolean success = jsonObject2.getBoolean("success");
+                        String i_name = jsonObject2.getString("i_name");
+                        String createDate = jsonObject2.getString("createDate");
+                        String perfume = jsonObject2.getString("perfume");
+                        String skinType = jsonObject2.getString("skinType");
+                        i_nameArray.add(i_name);
+                        createDateArray.add(createDate);
+                        perfumeArray.add(perfume);
+                        skinTypeArray.add(skinType);
+                       /* if(success2){
+                            String i_name2 = jsonObject2.getString("i_name");
+
+                            for(int j=0;j>=textViews.length;i++){
+                                textViews[i][0].setText(createDate2);
                                 textViews[i][1].setText(skinType2);
                                 textViews[i][2].setText(i_name2);
                                 textViews[i][3].setText(perfume2);
                             }
+                        }*/
+                    }
+                    for(int i=0;i<textViews.length;i++){
+                        for (int j=0;j<4;j++){
+                            textViews[i][0].setText(createDateArray.get(i));
+                            textViews[i][1].setText(skinTypeArray.get(i));
+                            textViews[i][2].setText(i_nameArray.get(i));
+                            textViews[i][3].setText(perfumeArray.get(i));
                         }
                     }
                 }catch (Exception e){e.printStackTrace();}
             }
         };
-        Mypage2Request mypage2Request = new Mypage2Request(userID, res2);
-        mypage2Request.setShouldCache(false);
+        Recently_three_dataRequest recently_three_dataRequest = new Recently_three_dataRequest(userID, res2);
+        //mypage2Request.setShouldCache(false);
         RequestQueue queue2 = Volley.newRequestQueue(MypageActivity.this);
-        queue2.add(mypage2Request);
-
+        queue2.add(recently_three_dataRequest);
         //가장 최근에 조합한 화장품 1개 가져오기
         Response.Listener<String> res = new Response.Listener<String>() {
             @Override
@@ -118,6 +129,7 @@ public class MypageActivity extends AppCompatActivity{
         recentlyCombinationRequest.setShouldCache(false); //이전 결과 있어도 새로 요청하여 응답 보여줌
         RequestQueue queue = Volley.newRequestQueue(MypageActivity.this);
         queue.add(recentlyCombinationRequest);
+
         my_pg.setText(userID + "님 환영합니다!");
         user_use_combination.setText(userID +"님이 이용하신 화장품 조합");
         feedback_message.setText(userID  +"님의 화장품 조합 만족도 조사");
@@ -141,11 +153,9 @@ public class MypageActivity extends AppCompatActivity{
                             .show();
                     return;
                 }
-                Dialog2 dialog = new Dialog2(MypageActivity.this);
+               /* Dialog2 dialog = new Dialog2(MypageActivity.this);
                 //dialog.callFunction(feedback_save);
-                dialog.callFunction();
-
-                if(tnf == true){
+                dialog.callFunction();*/
                 Response.Listener<String> res = new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -154,15 +164,19 @@ public class MypageActivity extends AppCompatActivity{
                             Boolean success = jsonResponse.getBoolean("success");
                             if(success){
                                 AlertDialog.Builder builder = new AlertDialog.Builder(MypageActivity.this);
-                                builder.setMessage("피드백이 전송됐습니다.")
-                                        .setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                builder.setMessage("사용하신 화장품이 만족스러우셨나요?")
+                                        .setPositiveButton("예", new DialogInterface.OnClickListener() {
                                             @Override
                                             public void onClick(DialogInterface dialog, int which) {
-                                                Intent intent = new Intent(MypageActivity.this, MainActivity.class);
-                                                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                                                tnf = false;
-                                                MypageActivity.this.finish();
-                                                MypageActivity.this.startActivity(intent);
+                                                feedback_save = "예";
+                                                Toast.makeText(getApplicationContext(), "전송되었습니다." , Toast.LENGTH_SHORT).show();
+                                            }
+                                        })
+                                        .setNegativeButton("아니요", new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                feedback_save = "아니오";
+                                                Toast.makeText(getApplicationContext(), "전송되었습니다.", Toast.LENGTH_SHORT).show();
                                             }
                                         })
                                         .create()
@@ -178,9 +192,10 @@ public class MypageActivity extends AppCompatActivity{
                         }catch (Exception e){e.printStackTrace();}
                     }
                 };
-                MypageRequest mypageRequest = new MypageRequest(userID, feedback_save, res);
+                Toast.makeText(getApplicationContext(), feedback_save, Toast.LENGTH_SHORT).show();
+                FeedbackRequest feedbackRequest = new FeedbackRequest(userID,feedback_save,res);
                 RequestQueue queue = Volley.newRequestQueue(MypageActivity.this);
-                queue.add(mypageRequest);}
+                queue.add(feedbackRequest);
         }
         });
 

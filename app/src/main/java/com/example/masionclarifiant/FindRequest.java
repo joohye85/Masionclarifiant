@@ -7,6 +7,7 @@ import com.android.volley.toolbox.StringRequest;
 import java.util.HashMap;
 import java.util.Map;
 
+//비밀번호 찾기 Request
 public class FindRequest extends StringRequest {
     final static private String URL = "http://wngp0805.dothome.co.kr/find_pw.php";
     private Map<String,String> map;

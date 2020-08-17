@@ -35,12 +35,6 @@ public class CombiActivity extends AppCompatActivity {
     public static ArrayList<String> list = new ArrayList<>();
     public static String CMD = "0";
 
-    public static String aloe;
-    public static String byeongpul;
-    public static String greentea;
-    public static String honey;
-    public static String snail;
-    public static String olive;
     public static String skintype;
     public static String i_Name ="";
 
@@ -52,7 +46,7 @@ public class CombiActivity extends AppCompatActivity {
         setContentView(R.layout.activity_combi);
 
         ipaddress = (EditText) findViewById(R.id.ipadress);
-        ipaddress.setText("220.69.172.235");
+        ipaddress.setText("220.69.172.45");
         final String userID = getIntent().getStringExtra("userID");
 
         Response.Listener<String> res = new Response.Listener<String>() {

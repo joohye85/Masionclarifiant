@@ -162,6 +162,12 @@ public class SelectResultActivity extends AppCompatActivity {
                                                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP);
                                                 SelectResultActivity.this.finish();
                                                 SelectResultActivity.this.startActivity(intent);
+                                                SelectFrag2.aloebox.setChecked(false);
+                                                SelectFrag2.byeongpulbox.setChecked(false);
+                                                SelectFrag2.greenteabox.setChecked(false);
+                                                SelectFrag2.honeybox.setChecked(false);
+                                                SelectFrag2.olivebox.setChecked(false);
+                                                SelectFrag2.snailbox.setChecked(false);
                                                 SelectFrag2.selectedingredients = new String[]{"x", "x", "x", "x", "x", "x"};
                                             }
                                         })
@@ -188,6 +194,12 @@ public class SelectResultActivity extends AppCompatActivity {
         no.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SelectFrag2.aloebox.setChecked(false);
+                SelectFrag2.byeongpulbox.setChecked(false);
+                SelectFrag2.greenteabox.setChecked(false);
+                SelectFrag2.honeybox.setChecked(false);
+                SelectFrag2.olivebox.setChecked(false);
+                SelectFrag2.snailbox.setChecked(false);
                 SelectFrag2.selectedingredients = new String[]{"x", "x", "x", "x", "x", "x"};
                 SelectResultActivity.this.finish();
                 SelectResultActivity.super.onBackPressed();

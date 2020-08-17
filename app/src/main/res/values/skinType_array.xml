@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="skinType_array">
+        <item>건성</item>
+        <item>지성</item>
+        <item>민감성</item>
+        <item>복합성</item>
+    </string-array>
+</resources>

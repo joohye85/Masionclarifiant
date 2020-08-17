@@ -18,15 +18,11 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONObject;
 
 public class LoginActivity extends AppCompatActivity {
-    static String logState = "login";
 
     public void onCreate(Bundle savedInstance) {
         super.onCreate(savedInstance);
         setContentView(R.layout.login_page);
 
-        /*테스트용*/
-        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-        LoginActivity.this.startActivity(intent);
 
         final EditText id_textView = (EditText) findViewById(R.id.login_id);
         final EditText password_textView = (EditText)findViewById(R.id.login_password);
@@ -34,8 +30,6 @@ public class LoginActivity extends AppCompatActivity {
         final TextView register = (TextView) findViewById(R.id.login_register);
         final TextView find_pw = (TextView) findViewById(R.id.login_find_id);
 
-        if(logState.equals("logout"))
-            Toast.makeText(getApplicationContext(), "로그아웃 되었습니다.", Toast.LENGTH_LONG).show();
 
         login_button.setOnClickListener(new View.OnClickListener() {  //로그인 버튼 -> 메인 화면으로 이동
             @Override
