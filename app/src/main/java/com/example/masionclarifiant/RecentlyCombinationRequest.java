@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class RecentlyCombinationRequest extends StringRequest {
-    final static private String URL = "http://wngp0805.dothome.co.kr/recently_three_data.php";
+    final static private String URL = "http://wngp0805.dothome.co.kr/recently_data.php";
     private Map<String,String> map;
 
     public RecentlyCombinationRequest(String userID, Response.Listener<String>listener){

@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Mypage2Request extends StringRequest {
-    final static private String URL = "http://wngp0805.dothome.co.kr/recently_three_data.php";
+    final static private String URL = "http://wngp0805.dothome.co.kr/r_t_d.php";
     private Map<String, String> map;
 
     public Mypage2Request(String userID, Response.Listener<String> listener) {

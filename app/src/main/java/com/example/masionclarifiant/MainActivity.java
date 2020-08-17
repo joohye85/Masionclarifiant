@@ -108,6 +108,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 intent6.putExtra("userID",userID3);
                 startActivity(intent6);
                 break;
+            case R.id.nav_skin:
+                String userID4 = getIntent().getStringExtra("userID");
+                Intent intent7 = new Intent(MainActivity.this, MyskinActivity.class);
+                intent7.putExtra("userID",userID4);
+                startActivity(intent7);
+                break;
         }
 
         drawerLayout.closeDrawer(GravityCompat.START);

@@ -163,27 +163,28 @@
                     android:id="@+id/date1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
                     android:text="TextView" />
 
                 <TextView
                     android:id="@+id/type1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="125dp"
+                    android:layout_marginLeft="145dp"
                     android:text="TextView" />
 
                 <TextView
                     android:id="@+id/ingredient1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="210dp"
+                    android:layout_marginLeft="180dp"
                     android:text="TextView" />
 
                 <TextView
                     android:id="@+id/perfume1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="300dp"
+                    android:layout_marginLeft="280dp"
                     android:text="TextView" />
             </FrameLayout>
 
@@ -196,27 +197,28 @@
                     android:id="@+id/date2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
                     android:text="TextView" />
 
                 <TextView
                     android:id="@+id/type2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="125dp"
+                    android:layout_marginLeft="145dp"
                     android:text="TextView" />
 
                 <TextView
                     android:id="@+id/ingredient2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="210dp"
+                    android:layout_marginLeft="180dp"
                     android:text="TextView" />
 
                 <TextView
                     android:id="@+id/perfume2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="300dp"
+                    android:layout_marginLeft="280dp"
                     android:text="TextView" />
             </FrameLayout>
 
@@ -229,27 +231,28 @@
                     android:id="@+id/date3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
                     android:text="TextView" />
 
                 <TextView
                     android:id="@+id/type3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="125dp"
+                    android:layout_marginLeft="145dp"
                     android:text="TextView" />
 
                 <TextView
                     android:id="@+id/ingredient3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="210dp"
+                    android:layout_marginLeft="180dp"
                     android:text="TextView" />
 
                 <TextView
                     android:id="@+id/perfume3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="300dp"
+                    android:layout_marginLeft="280dp"
                     android:text="TextView" />
             </FrameLayout>
 
