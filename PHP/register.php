@@ -4,9 +4,11 @@
 	$userPW = $_POST["userPW"];
 	$gender = $_POST["gender"];
 	$age = $_POST["age"];
+	$skinType = $_POST["skinType"];
+	$interest = $_POST["interest"];
 
-	$statement = mysqli_prepare($connect, "INSERT INTO user VALUES (?,?,?,?)");
-	mysqli_stmt_bind_param($statement, "ssss", $userID, $userPW, $gender, $age);
+	$statement = mysqli_prepare($connect, "INSERT INTO user VALUES (?,?,?,?,?,?)");
+	mysqli_stmt_bind_param($statement, "ssssss", $userID, $userPW, $gender, $age,$skinType, $interest);
 	mysqli_stmt_execute($statement);
 
 	$response = array();
