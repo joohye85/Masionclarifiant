@@ -9,6 +9,7 @@
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
 
+    <!--
     <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
@@ -16,7 +17,7 @@
         app:headerLayout="@layout/header"
         app:menu="@menu/main_menu"
         android:layout_gravity="start"/>
-
+ !-->
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -69,7 +70,7 @@
             android:textColor="@color/colorDarkGreen"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="30dp"
-            android:text="◆  최근 구매 제품"
+            android:text="◆  추천 화장품 조합"
             android:textStyle="bold"/>
         <LinearLayout
             android:layout_width="match_parent"
@@ -116,19 +117,19 @@
             android:text="◆  메뉴 바로가기"
             android:textStyle="bold"/>
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:layout_gravity="center"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="30dp">
+            android:layout_marginTop="5dp">
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:layout_width="110dp"
+                android:layout_height="90dp"
+                android:orientation="vertical"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="15dp"
                 android:padding="6dp"
+                android:gravity="center"
                 android:background="@drawable/round_rec"
                 android:backgroundTint="@color/colorBeige">
 
@@ -142,17 +143,20 @@
                     android:id="@+id/textView3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
                     android:paddingLeft="10dp"
-                    android:text="화장품 직접 배합하기 " />
+                    android:textAlignment="center"
+                    android:text="화장품\n직접 배합하기 " />
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:layout_width="110dp"
+                android:layout_height="90dp"
+                android:orientation="vertical"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="15dp"
                 android:padding="6dp"
+                android:gravity="center"
                 android:background="@drawable/round_rec"
                 android:backgroundTint="@color/colorBeige">
 
@@ -164,10 +168,12 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
                     android:paddingLeft="10dp"
                     android:text="마이 레시피 " />
             </LinearLayout>
 
+            <!-- 피부 진단하기 버튼
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -191,7 +197,8 @@
                     android:paddingLeft="10dp"
                     android:text="피부 진단하기 " />
             </LinearLayout>
-
+            !-->
+            <!-- 진단결과 확인하기 버튼
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -215,6 +222,7 @@
                     android:paddingLeft="10dp"
                     android:text="진단결과 확인하기 " />
             </LinearLayout>
+            !-->
         </LinearLayout>
 
         <LinearLayout
