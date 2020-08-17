@@ -20,7 +20,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     //Variables
     DrawerLayout drawerLayout;
     NavigationView navigationView;
-
     Toolbar toolbar;
     //public final String userID = getIntent().getStringExtra("userID");
     @Override
@@ -93,7 +92,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.nav_mypage2:
                 String userID5 = getIntent().getStringExtra("userID");
-                Intent intent6 = new Intent(MainActivity.this, MyskinActivity.class);
+                Intent intent6 = new Intent(MainActivity.this, Mypage2Activity.class);
                 intent6.putExtra("userID",userID5);
                 startActivity(intent6);
                 break;

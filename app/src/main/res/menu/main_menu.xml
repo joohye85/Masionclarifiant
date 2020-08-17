@@ -26,7 +26,7 @@
                 <item
                     android:id="@+id/nav_combination"
                     android:title="화장품 배합 시작하기"
-                    android:icon="@drawable/ic_assessment_24px"/>
+                    android:icon="@drawable/ic_filter_alt_24px"/>
                 <item
                     android:id="@+id/nav_mypage"
                     android:title="MY RECIPE"

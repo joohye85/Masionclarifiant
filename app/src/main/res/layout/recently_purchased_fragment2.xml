@@ -34,7 +34,7 @@
             android:layout_marginTop="5dp"
             android:layout_weight="1"
             android:layout_gravity="center"
-            android:text="꿀+백 로션" />
+            android:text="꿀+녹 로션" />
 
     </LinearLayout>
 </LinearLayout>

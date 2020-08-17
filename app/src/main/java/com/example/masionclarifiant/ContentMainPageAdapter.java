@@ -28,6 +28,9 @@ public class ContentMainPageAdapter extends FragmentPagerAdapter {
                 RecentlyFrag2 tab2 = new RecentlyFrag2();
                 System.out.println("1선택됨");
                 return tab2;
+            case 2:
+                RecentlyFrag3 tab3 = new RecentlyFrag3();
+                return tab3;
             default:
                 return null;
         }
