@@ -10,7 +10,7 @@
 	mysqli_stmt_execute($statement);
 
 	mysqli_stmt_store_result($statement);
-	mysqli_stmt_bind_result($statement, $userID, $userPW, $gender, $age);
+	mysqli_stmt_bind_result($statement, $userID, $userPW, $gender, $age, $skinType, $interest);
 
 	$_SESSION = array(); #세션 배열 생성
 	if(mysqli_stmt_fetch($statement) >= 1){
