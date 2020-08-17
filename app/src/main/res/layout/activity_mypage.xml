@@ -158,33 +158,33 @@
                             android:id="@+id/date1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="TextView"
+                            android:background="@color/colorWhite"
                             android:padding="5dp"
-                            android:background="@color/colorWhite"/>
+                            android:text="정보 없음" />
 
                         <TextView
                             android:id="@+id/type1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="TextView"
+                            android:background="@color/colorWhite"
                             android:padding="5dp"
-                            android:background="@color/colorWhite"/>
+                            android:text="정보 없음" />
 
                         <TextView
                             android:id="@+id/ingredient1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="TextView"
+                            android:background="@color/colorWhite"
                             android:padding="5dp"
-                            android:background="@color/colorWhite"/>
+                            android:text="정보 없음" />
 
                         <TextView
                             android:id="@+id/perfume1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="TextView"
+                            android:background="@color/colorWhite"
                             android:padding="5dp"
-                            android:background="@color/colorWhite"/>
+                            android:text="정보 없음" />
                     </TableRow>
 
                     <TableRow
@@ -197,33 +197,33 @@
                             android:id="@+id/date2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="TextView"
+                            android:background="@color/colorWhite"
                             android:padding="5dp"
-                            android:background="@color/colorWhite"/>
+                            android:text="정보 없음" />
 
                         <TextView
                             android:id="@+id/type2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="TextView"
+                            android:background="@color/colorWhite"
                             android:padding="5dp"
-                            android:background="@color/colorWhite"/>
+                            android:text="정보 없음" />
 
                         <TextView
                             android:id="@+id/ingredient2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="TextView"
+                            android:background="@color/colorWhite"
                             android:padding="5dp"
-                            android:background="@color/colorWhite"/>
+                            android:text="정보 없음" />
 
                         <TextView
                             android:id="@+id/perfume2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="TextView"
+                            android:background="@color/colorWhite"
                             android:padding="5dp"
-                            android:background="@color/colorWhite"/>
+                            android:text="정보 없음" />
                     </TableRow>
 
                     <TableRow
@@ -236,33 +236,33 @@
                             android:id="@+id/date3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="TextView"
+                            android:background="@color/colorWhite"
                             android:padding="5dp"
-                            android:background="@color/colorWhite"/>
+                            android:text="정보 없음" />
 
                         <TextView
                             android:id="@+id/type3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="TextView"
+                            android:background="@color/colorWhite"
                             android:padding="5dp"
-                            android:background="@color/colorWhite"/>
+                            android:text="정보 없음" />
 
                         <TextView
                             android:id="@+id/ingredient3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="TextView"
+                            android:background="@color/colorWhite"
                             android:padding="5dp"
-                            android:background="@color/colorWhite"/>
+                            android:text="정보 없음" />
 
                         <TextView
                             android:id="@+id/perfume3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="TextView"
+                            android:background="@color/colorWhite"
                             android:padding="5dp"
-                            android:background="@color/colorWhite"/>
+                            android:text="정보 없음" />
                     </TableRow>
                 </TableLayout>
             </LinearLayout>
