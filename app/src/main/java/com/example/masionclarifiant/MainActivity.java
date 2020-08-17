@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.Toolbar;
 
 import androidx.annotation.NonNull;
@@ -21,16 +23,36 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolbar;
+    LinearLayout mainmenu1;
+    LinearLayout mainmenu2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //메인 화면 버튼설정
+        mainmenu1 = (LinearLayout)findViewById(R.id.mainmenu1);
+        mainmenu2 = (LinearLayout)findViewById(R.id.mainmenu2);
+
+        mainmenu1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        mainmenu2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
 
         //메인 화면 어답터설정
         final ViewPager viewPager = (ViewPager) findViewById(R.id.recently_purchased_products);
-        final ContentMainPageAdapter myPagerAdapter = new ContentMainPageAdapter(getSupportFragmentManager(), 2);
+        final ContentMainPageAdapter myPagerAdapter = new ContentMainPageAdapter(getSupportFragmentManager(), 3);
         viewPager.setAdapter(myPagerAdapter);
 
 

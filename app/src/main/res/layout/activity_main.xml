@@ -8,7 +8,6 @@
     tools:context=".MainActivity"
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
-
     <!--
     <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"
@@ -17,7 +16,7 @@
         app:headerLayout="@layout/header"
         app:menu="@menu/main_menu"
         android:layout_gravity="start"/>
- !-->
+        !-->
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -70,7 +69,7 @@
             android:textColor="@color/colorDarkGreen"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="30dp"
-            android:text="◆  추천 화장품 조합"
+            android:text="◆  고객님의 맞춤 추천 화장품 조합"
             android:textStyle="bold"/>
         <LinearLayout
             android:layout_width="match_parent"
@@ -86,7 +85,6 @@
                 app:srcCompat="@drawable/ic_keyboard_arrow_left_24px" />
 
             //최근 구매한 화장품 나오는 화면 시작
-
             <androidx.viewpager.widget.ViewPager
                 android:id="@+id/recently_purchased_products"
                 android:layout_width="250dp"
@@ -106,6 +104,7 @@
         <View
             android:layout_width="340dp"
             android:layout_height="2dp"
+            android:layout_marginTop="10dp"
             android:layout_gravity="center"
             android:background="@color/colorGray"/>
         <TextView
@@ -114,7 +113,7 @@
             android:textColor="@color/colorDarkGreen"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="30dp"
-            android:text="◆  메뉴 바로가기"
+            android:text="◆  나만의 천연 화장품 만들기"
             android:textStyle="bold"/>
         <LinearLayout
             android:layout_width="wrap_content"
@@ -123,6 +122,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="5dp">
             <LinearLayout
+                android:id="@+id/mainmenu1"
                 android:layout_width="110dp"
                 android:layout_height="90dp"
                 android:orientation="vertical"
@@ -146,14 +146,15 @@
                     android:layout_marginTop="3dp"
                     android:paddingLeft="10dp"
                     android:textAlignment="center"
-                    android:text="화장품\n직접 배합하기 " />
+                    android:text="화장품\n원료 선택하기" />
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/mainmenu2"
                 android:layout_width="110dp"
                 android:layout_height="90dp"
                 android:orientation="vertical"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="25dp"
                 android:layout_marginTop="15dp"
                 android:padding="6dp"
                 android:gravity="center"
@@ -163,14 +164,15 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/ic_assessment_24px" />
+                    app:srcCompat="@drawable/ic_filter_alt_24px" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="3dp"
                     android:paddingLeft="10dp"
-                    android:text="마이 레시피 " />
+                    android:textAlignment="center"
+                    android:text="화장품\n배합 시작하기" />
             </LinearLayout>
 
             <!-- 피부 진단하기 버튼
