@@ -18,7 +18,7 @@
             android:layout_height="100dp"
             android:layout_weight="1"
             android:layout_gravity="center"
-            app:srcCompat="@drawable/frag2" />
+            app:srcCompat="@drawable/frag3" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -26,7 +26,7 @@
             android:layout_weight="1"
             android:layout_gravity="center"
             android:textStyle="bold"
-            android:text="2순위" />
+            android:text="3순위" />
         <TextView
             android:id="@+id/textView13"
             android:layout_width="wrap_content"
@@ -34,7 +34,7 @@
             android:layout_marginTop="5dp"
             android:layout_weight="1"
             android:layout_gravity="center"
-            android:text="꿀+백 로션" />
+            android:text="알+녹 스킨" />
 
     </LinearLayout>
 </LinearLayout>

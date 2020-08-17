@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- 종류 선택 클릭시 나오는 화면 -->
 <LinearLayout android:id="@+id/view1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -19,8 +18,15 @@
             android:layout_height="100dp"
             android:layout_weight="1"
             android:layout_gravity="center"
-            app:srcCompat="@drawable/lotion" />
-
+            app:srcCompat="@drawable/frag1" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:text="1순위" />
         <TextView
             android:id="@+id/textView13"
             android:layout_width="wrap_content"
@@ -28,7 +34,7 @@
             android:layout_marginTop="5dp"
             android:layout_weight="1"
             android:layout_gravity="center"
-            android:text="알꿀로션" />
+            android:text="올+녹 로션" />
 
     </LinearLayout>
 </LinearLayout>
