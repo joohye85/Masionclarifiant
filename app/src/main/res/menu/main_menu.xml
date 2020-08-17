@@ -21,7 +21,7 @@
             <group android:checkableBehavior="single">
                 <item
                     android:id="@+id/nav_select"
-                    android:title="배합재료 선택하기"
+                    android:title="화장품 원료 선택하기"
                     android:icon="@drawable/ic_colorize_black_24dp"/>
                 <item
                     android:id="@+id/nav_combination"

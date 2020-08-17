@@ -14,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".CombiActivity"/>
+        <activity android:name=".MyskinActivity"></activity>
+        <activity android:name=".CombiActivity" />
         <activity android:name=".MypageActivity" />
         <activity android:name=".Mypage2Activity" />
         <activity android:name=".FindActivity" />
@@ -26,6 +27,7 @@
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

@@ -20,9 +20,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:gravity="center"
-        android:textSize="15dp"
-        android:text="회원 정보 변경 페이지입니다"
-        android:textColor="@color/colorDarkGreen"/>
+        android:text="MY SKIN"
+        android:textColor="@color/colorDarkGreen"
+        android:textSize="15dp" />
 
     <View
         android:layout_marginTop="20dp"
@@ -32,87 +32,86 @@
         android:background="@color/colorGray"/>
 
     <TextView
+        android:id="@+id/type_title"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@drawable/rec_circle"
         android:layout_marginTop="10dp"
+        android:background="@drawable/rec_circle"
         android:backgroundTint="@color/colorLightPink"
         android:gravity="center"
-        android:text="피부타입을 선택해주세요"
-        android:textStyle="bold"
-        android:textColor="@android:color/white" />
+        android:text="피부타입"
+        android:textColor="@android:color/white"
+        android:textStyle="bold" />
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center">
-        <LinearLayout
+        android:layout_height="100dp"
+        android:layout_marginBottom="30dp">
+
+        <Button
+            android:id="@+id/dryBtn"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <Button
-                android:id="@+id/dryBtn"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:background="@drawable/round_rec"
-                android:drawableTop="@drawable/ic_stacked_line_chart_black_18dp"
-                android:paddingTop="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp"
-                android:text="건성" />
-            <Button
-                android:id="@+id/oilBtn"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:background="@drawable/round_rec"
-                android:drawableTop="@drawable/ic_blur_on_black_18dp"
-                android:paddingTop="20dp"
-                android:layout_marginTop="10dp"
-                android:text="지성" />
-        </LinearLayout>
-        <LinearLayout
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/round_rec"
+            android:drawableTop="@drawable/ic_stacked_line_chart_black_18dp"
+            android:paddingTop="20dp"
+            android:text="건성"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/complexBtn"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <Button
-                android:id="@+id/complexBtn"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:background="@drawable/round_rec"
-                android:drawableTop="@drawable/ic_blur_linear_black_18dp"
-                android:paddingTop="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp"
-                android:text="복합성" />
-            <Button
-                android:id="@+id/sensitiveBtn"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:background="@drawable/round_rec"
-                android:drawableTop="@drawable/ic_gamepad_black_18dp"
-                android:paddingTop="20dp"
-                android:layout_marginTop="10dp"
-                android:text="민감성" />
-        </LinearLayout>
-    </LinearLayout>
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/round_rec"
+            android:drawableTop="@drawable/ic_blur_linear_black_18dp"
+            android:paddingTop="20dp"
+            android:text="복합성"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/sensitiveBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/round_rec"
+            android:drawableTop="@drawable/ic_gamepad_black_18dp"
+            android:paddingTop="20dp"
+            android:text="민감성"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/oilBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/round_rec"
+            android:drawableTop="@drawable/ic_blur_on_black_18dp"
+            android:paddingTop="20dp"
+            android:text="지성"
+            android:visibility="gone" />
+    </FrameLayout>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@drawable/rec_circle"
         android:layout_marginTop="30dp"
+        android:background="@drawable/rec_circle"
         android:backgroundTint="@color/colorDarkGreen"
         android:gravity="center"
-        android:text="집중 케어가 필요한 항목을 선택해주세요"
-        android:textStyle="bold"
-        android:textColor="@android:color/white" />
+        android:text="집중케어가 필요한 항목"
+        android:textColor="@android:color/white"
+        android:textStyle="bold" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_margin="20dp">
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -141,6 +140,7 @@
                 android:text="진정" />
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -185,14 +185,14 @@
 
             <Button
                 android:id="@+id/changebtn"
-                android:layout_width="100dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="120dp"
                 android:layout_marginTop="30dp"
                 android:backgroundTint="@color/colorDarkPink"
-                android:text="변경하기"
+                android:text="회원정보 수정하러가기"
                 android:textColor="@color/colorWhite" />
         </LinearLayout>
-
     </LinearLayout>
+
 </LinearLayout>

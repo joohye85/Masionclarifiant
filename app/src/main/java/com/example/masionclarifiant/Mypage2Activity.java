@@ -38,6 +38,7 @@ public class Mypage2Activity extends AppCompatActivity{
         final Button sensitiveBtn = (Button)findViewById(R.id.sensitiveBtn);
 
         final Button changeBtn = (Button) findViewById(R.id.changebtn);
+        final Button backBtn = (Button) findViewById(R.id.backbtn);
 
         checkBox = (CheckBox) findViewById(R.id.checkBox);
         checkBox2 = (CheckBox) findViewById(R.id.checkBox2);
@@ -170,7 +171,7 @@ public class Mypage2Activity extends AppCompatActivity{
                                         .setPositiveButton("확인", new DialogInterface.OnClickListener() {
                                             @Override
                                             public void onClick(DialogInterface dialog, int which) {
-                                                Intent intent = new Intent(Mypage2Activity.this, MainActivity.class);
+                                                Intent intent = new Intent(Mypage2Activity.this, MyskinActivity.class);
                                                 intent.putExtra("userID", userID);
                                                 Mypage2Activity.this.startActivity(intent);
                                             }
@@ -194,5 +195,11 @@ public class Mypage2Activity extends AppCompatActivity{
             }
         });
 
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Mypage2Activity.this.onBackPressed();
+            }
+        });
     }
 }
