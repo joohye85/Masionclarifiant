@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +17,10 @@ import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 public class SelectResultActivity extends AppCompatActivity {
     public static TextView rst_tonerText;
@@ -36,6 +41,7 @@ public class SelectResultActivity extends AppCompatActivity {
     public static String skinType2 = "";
     public static String perfume2 ="";
     public static StringBuilder ingredient = new StringBuilder();
+    public static ArrayList<String> arrayList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,7 +84,41 @@ public class SelectResultActivity extends AppCompatActivity {
         System.out.println("배열 5의 값"+ SelectFrag2.selectedingredients[5]);
 
  */
+        if (SelectFrag2.selectedingredients[0].equals(ingredients[0])) {
+            rst_aloeText.setVisibility(View.VISIBLE);
+            arrayList.add("알로에");
+        }
+        if(SelectFrag2.selectedingredients[1].equals(ingredients[1])) {
+            rst_greenteaText.setVisibility(View.VISIBLE);
+            arrayList.add("녹차");
+        }
+        if (SelectFrag2.selectedingredients[2].equals(ingredients[2])) {
+            rst_byeoungpulText.setVisibility(View.VISIBLE);
+            arrayList.add("병풀");
+        }
+        if (SelectFrag2.selectedingredients[3].equals(ingredients[3])) {
+            rst_honeyText.setVisibility(View.VISIBLE);
+            arrayList.add("꿀");
+        }
+        if (SelectFrag2.selectedingredients[4].equals(ingredients[4])) {
+            rst_snailText.setVisibility(View.VISIBLE);
+            arrayList.add("달팽이");
+        }
+        if (SelectFrag2.selectedingredients[5].equals(ingredients[5])) {
+            rst_oliveText.setVisibility(View.VISIBLE);
+            arrayList.add("올리브");
+        }
 
+        Collections.sort(arrayList);
+
+        for(String s : arrayList){
+            ingredient.append(s);
+            ingredient.append(",");
+        }
+
+        ingredient.setLength(ingredient.length() -1);
+        //Toast.makeText(getApplicationContext(), ingredient.toString(), Toast.LENGTH_SHORT).show();
+/*
         if (SelectFrag2.selectedingredients[0].equals(ingredients[0])) {
             rst_aloeText.setVisibility(View.VISIBLE);
             if (ingredient.length() == 0){
@@ -121,6 +161,7 @@ public class SelectResultActivity extends AppCompatActivity {
                 ingredient.append(",올리브");
         }
 
+*/
         if((SelectFrag3.selectedscent).equals("teatree")){
             rst_teatreeText.setVisibility(View.VISIBLE);
             perfume2 = "티트리";}

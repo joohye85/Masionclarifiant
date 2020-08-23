@@ -65,7 +65,7 @@ public class MypageActivity extends AppCompatActivity{
         final TextView perfume = (TextView)findViewById(R.id.perfume);
         TableLayout tableLayout = (TableLayout)findViewById(R.id.table);
 
-        //가장 최근에 조합한 화장품 목록(3개) 가져오기(수정중).....................
+        //가장 최근에 조합한 화장품 목록(3개) 가져오기
         Response.Listener<String> res2 = new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {

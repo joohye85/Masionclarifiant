@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         });
         //메인 화면 어답터설정
         final ViewPager viewPager = (ViewPager) findViewById(R.id.recently_purchased_products);
-        final ContentMainPageAdapter myPagerAdapter = new ContentMainPageAdapter(getSupportFragmentManager(), 2);
+        final ContentMainPageAdapter myPagerAdapter = new ContentMainPageAdapter(getSupportFragmentManager(), 3);
         viewPager.setAdapter(myPagerAdapter);
 
         /*--Hooks--*/

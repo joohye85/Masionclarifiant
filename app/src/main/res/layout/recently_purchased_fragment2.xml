@@ -11,13 +11,23 @@
         android:orientation="vertical"
         android:layout_gravity="center">
 
+        <TextView
+            android:id="@+id/count"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="24dp"
+            android:layout_weight="1"
+            android:text="14명이 이 제품을 선택했습니다!"
+            android:textAlignment="center" />
+
         <ImageView
             android:id="@+id/recent2"
-            android:layout_marginTop="30dp"
             android:layout_width="200dp"
             android:layout_height="100dp"
-            android:layout_weight="1"
             android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:layout_weight="1"
             app:srcCompat="@drawable/frag2" />
         <TextView
             android:layout_width="wrap_content"
@@ -26,15 +36,17 @@
             android:layout_weight="1"
             android:layout_gravity="center"
             android:textStyle="bold"
+            android:textSize="17dp"
             android:text="2순위" />
         <TextView
             android:id="@+id/textView13"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
             android:layout_weight="1"
             android:layout_gravity="center"
-            android:text="꿀+녹 로션" />
+            android:text="올+녹 로션"
+            android:textSize="15dp"/>
 
     </LinearLayout>
 </LinearLayout>
