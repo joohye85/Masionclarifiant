@@ -33,8 +33,6 @@ public class SelectActivity extends AppCompatActivity {
         tabs.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(viewPager));
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabs));
 
-        //String skinType = rb.getText().toString();
-
         Button choiceBtn = (Button)findViewById(R.id.choice);
         choiceBtn.setOnClickListener(new View.OnClickListener() {
             @Override

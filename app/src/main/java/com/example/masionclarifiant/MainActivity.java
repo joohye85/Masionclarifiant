@@ -19,19 +19,18 @@ import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    //Variables
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolbar;
     LinearLayout mainmenu1;
     LinearLayout mainmenu2;
-    //public final String userID = getIntent().getStringExtra("userID");
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-    //메인 화면 버튼설정
+     //메인 화면 버튼설정
         mainmenu1 = (LinearLayout)findViewById(R.id.mainmenu1);
         mainmenu2 = (LinearLayout)findViewById(R.id.mainmenu2);
 
@@ -74,7 +73,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         /*--Make a menu clickable--*/
         navigationView.setNavigationItemSelectedListener(this);
-
         navigationView.setCheckedItem(R.id.nav_home);
     }
 

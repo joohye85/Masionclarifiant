@@ -38,7 +38,7 @@
         </menu>
     </item>
 
-   <!-- <item android:title="SKIN DIAGNOSIS">
+   <item android:title="SKIN DIAGNOSIS">
         <menu>
             <group android:checkableBehavior="single">
              <item
@@ -49,5 +49,5 @@
                     android:icon="@drawable/ic_insights_black_18dp"/>
             </group>
         </menu>
-    </item>-->
+    </item>
 </menu>

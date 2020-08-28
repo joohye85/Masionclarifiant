@@ -2,21 +2,12 @@ package com.example.masionclarifiant;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
-
-import com.android.volley.Response;
-
-/**
- * Created by Administrator on 2017-08-07.
- */
 
 public class Dialog2 {
     private Context context;

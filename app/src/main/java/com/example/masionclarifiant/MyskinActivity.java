@@ -1,14 +1,13 @@
 package com.example.masionclarifiant;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -55,8 +54,6 @@ public class MyskinActivity extends AppCompatActivity {
         //타이틀 설정
         TextView type_title = (TextView)findViewById(R.id.type_title);
         type_title.setText(userID +"님의 피부타입");
-
-
 
         //피부타입 버튼으로 보이게하기
         final Button dryBtn = (Button)findViewById(R.id.dryBtn);
@@ -107,11 +104,5 @@ public class MyskinActivity extends AppCompatActivity {
         MyskinRequest myskinRequest = new MyskinRequest(userID, res);
         RequestQueue queue = Volley.newRequestQueue(MyskinActivity.this);
         queue.add(myskinRequest);
-       // checkboxs.append(interest_text);
-       // checkboxs.
-
-
-
-
     }
 }
