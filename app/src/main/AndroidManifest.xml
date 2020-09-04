@@ -34,7 +34,7 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".SelectActivity" />
         <activity android:name=".SelectResultActivity" />
-        <activity android:name=".FindIngredientActivity" />
+        <activity android:name=".IntroSlider"/>
     </application>
 
 </manifest>

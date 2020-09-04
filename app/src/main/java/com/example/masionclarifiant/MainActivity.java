@@ -124,7 +124,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 intent7.putExtra("userID",userID7);
                 startActivity(intent7);
                 break;
-
+            case R.id.nav_diagnose:
+                Intent intent = new Intent(MainActivity.this, IntroSlider.class);
+                startActivity(intent);
         }
 
         drawerLayout.closeDrawer(GravityCompat.START);
