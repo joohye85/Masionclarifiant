@@ -1,5 +1,6 @@
 package com.example.masionclarifiant;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
@@ -51,6 +52,14 @@ public class DiagnoseStart extends AppCompatActivity {
             }
         });
 
+        diagnoseBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(DiagnoseStart.this, DiagnoseFin.class);
+                startActivity(intent);
+            }
+        });
+
         addDotsIndicator(0);
         mSlideViewPager.addOnPageChangeListener(viewListener);
     }
@@ -70,7 +79,7 @@ public class DiagnoseStart extends AppCompatActivity {
         for(int i=0; i<mDots.length; i++){
             mDots[i] = new TextView(this);
             mDots[i].setText(Html.fromHtml("&#8226;"));
-            mDots[i].setTextSize(35);
+            mDots[i].setTextSize(40);
             mDots[i].setTextColor(getResources().getColor(R.color.colorGray));
 
             mDotLayout.addView(mDots[i]);

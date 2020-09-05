@@ -3,6 +3,46 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBeige">
+    <RelativeLayout
+        android:id="@+id/check_circle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_above="@+id/slideViewPager"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp">
+        <ImageView
+            android:id="@+id/start_state1"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/ic_check"/>
+        <View
+            android:id="@+id/one_and_two"
+            android:layout_width="30dp"
+            android:layout_height="2dp"
+            android:background="@color/colorGray"
+            android:layout_toRightOf="@+id/start_state1"
+            android:layout_centerVertical="true"/>
+        <ImageView
+            android:id="@+id/start_state2"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/circle"
+            android:layout_toRightOf="@id/one_and_two"/>
+        <View
+            android:id="@+id/two_and_three"
+            android:layout_width="30dp"
+            android:layout_height="2dp"
+            android:background="@color/colorGray"
+            android:layout_toRightOf="@id/start_state2"
+            android:layout_centerVertical="true"/>
+        <ImageView
+            android:id="@+id/start_state3"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/circle"
+            android:layout_toRightOf="@+id/two_and_three"/>
+    </RelativeLayout>
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/slideViewPager"
