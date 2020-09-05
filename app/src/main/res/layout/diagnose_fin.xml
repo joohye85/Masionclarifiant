@@ -6,6 +6,29 @@
     android:layout_height="match_parent"
     tools:context=".DiagnoseFin"
     android:background="@color/colorBeige">
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Masion Clarifiant"
+        android:fontFamily="serif"
+        android:textColor="@color/colorDarkGreen"
+        android:textSize="30dp"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorWhite"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:paddingBottom="15dp"
+        android:layout_below="@+id/textView"
+        android:text="000님 오늘의 피부 상태를 측정해보세요!"
+        android:background="@drawable/ic_message"
+        android:textColor="@color/colorWhite"
+        android:textSize="20dp"
+        android:gravity="center"/>
+
     <RelativeLayout
         android:id="@+id/check_circle"
         android:layout_width="wrap_content"
@@ -22,7 +45,8 @@
             <ImageView
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:background="@drawable/circle"/>
+                android:background="@drawable/circle"
+                android:backgroundTint="@color/colorLightGreen"/>
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -52,7 +76,8 @@
             <ImageView
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:background="@drawable/circle"/>
+                android:background="@drawable/circle"
+                android:backgroundTint="@color/colorLightGreen"/>
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"

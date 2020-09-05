@@ -70,11 +70,13 @@ public class DiagnoseStart extends AppCompatActivity {
             backBtn.setVisibility(View.INVISIBLE);
             diagnoseBtn.setVisibility(View.GONE);
         }
-        if(position == 1){
+        if(position == 1) {
             nextBtn.setVisibility(View.INVISIBLE);
             backBtn.setVisibility(View.VISIBLE);
             diagnoseBtn.setVisibility(View.VISIBLE);
         }
+        mSlideViewPager.setCurrentItem(position);
+        mDotLayout.removeAllViews();
         mDots = new TextView[2];
         for(int i=0; i<mDots.length; i++){
             mDots[i] = new TextView(this);
@@ -96,7 +98,6 @@ public class DiagnoseStart extends AppCompatActivity {
 
         @Override
         public void onPageSelected(int position) {
-            mDotLayout.removeAllViews();
             addDotsIndicator(position);
         }
 

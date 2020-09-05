@@ -26,6 +26,9 @@ public class SliderAdapter extends PagerAdapter{
             "정확한 진단을 위해 세안 후에 이용해주세요"
             ,"진단기기를 피부에 대고\n '피부진단하기' 버튼을 눌러주세요"};
 
+    public ImageView slideImageView;
+    public TextView slideDescription;
+
     @Override
     public int getCount() {
         return slide_descs.length;
@@ -42,8 +45,8 @@ public class SliderAdapter extends PagerAdapter{
         layoutInflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
         View view = layoutInflater.inflate(R.layout.slide_layout, container, false);
 
-        ImageView slideImageView= (ImageView)view.findViewById(R.id.slide_image);
-        TextView slideDescription = (TextView)view.findViewById(R.id.slide_desc);
+        slideImageView= (ImageView)view.findViewById(R.id.slide_image);
+        slideDescription = (TextView)view.findViewById(R.id.slide_desc);
 
         slideImageView.setImageResource(slide_images[position]);
         slideDescription.setText(slide_descs[position]);
@@ -56,5 +59,9 @@ public class SliderAdapter extends PagerAdapter{
     @Override
     public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
         container.removeView((RelativeLayout)object);
+    }
+
+    public void setInfo(int position){
+
     }
 }
