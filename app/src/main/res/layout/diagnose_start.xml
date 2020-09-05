@@ -95,36 +95,46 @@
         android:layout_width="match_parent"
         android:layout_height="260dp"
         android:layout_centerInParent="true">
+
     </androidx.viewpager.widget.ViewPager>
 
     <LinearLayout
-        android:id="@+id/dotsLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        android:orientation="horizontal"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/slideViewPager">
+        android:id="@+id/Linear1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/slideViewPager"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/slide_back"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/rec_circle"
+            android:backgroundTint="#E6E3DF"
+            android:textColor="#82817E"
+            android:text="back" />
+
+        <LinearLayout
+            android:id="@+id/dotsLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginLeft="93dp"
+            android:orientation="horizontal">
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/slide_next"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginLeft="97dp"
+            android:background="@drawable/rec_circle"
+            android:backgroundTint="#E6E3DF"
+            android:textColor="#82817E"
+            android:text="next" />
+
     </LinearLayout>
-
-    <Button
-        android:id="@+id/slide_back"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:background="@drawable/rec_circle"
-        android:backgroundTint="@color/colorGray"
-        android:text="back"
-        android:layout_toLeftOf="@+id/dotsLayout"
-        android:layout_marginRight="80dp"/>
-
-    <Button
-        android:id="@+id/slide_next"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:background="@drawable/rec_circle"
-        android:backgroundTint="@color/colorGray"
-        android:text="next"
-        android:layout_toRightOf="@+id/dotsLayout"
-        android:layout_marginLeft="80dp"/>
 
     <Button
         android:id="@+id/intro_diagnose_btn"
@@ -133,7 +143,7 @@
         android:text="피부 진단 시작하기"
         android:textSize="20dp"
         android:textColor="@color/colorWhite"
-        android:layout_below="@+id/dotsLayout"
+        android:layout_below="@+id/Linear1"
         android:layout_centerHorizontal="true"
         android:paddingLeft="25dp"
         android:paddingRight="25dp"
