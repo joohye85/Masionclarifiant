@@ -13,5 +13,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/slide_image"
         android:layout_centerHorizontal="true"
-        android:textColor="@color/colorWhite"/>
+        android:textSize="18dp"
+        android:gravity="center"
+        android:textColor="@color/colorBlack"
+        android:layout_marginTop="15dp"/>
 </RelativeLayout>

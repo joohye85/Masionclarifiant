@@ -125,7 +125,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(intent7);
                 break;
             case R.id.nav_diagnose:
-                Intent intent = new Intent(MainActivity.this, IntroSlider.class);
+                Intent intent = new Intent(MainActivity.this, DiagnoseStart.class);
                 startActivity(intent);
         }
 

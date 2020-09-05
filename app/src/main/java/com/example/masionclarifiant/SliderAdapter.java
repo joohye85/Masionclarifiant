@@ -24,7 +24,7 @@ public class SliderAdapter extends PagerAdapter{
     public int[] slide_images = {R.drawable.diagnose2, R.drawable.diagnose1};
     public String[] slide_descs = {
             "정확한 진단을 위해 세안 후에 이용해주세요"
-            ,"진단기기를 피부에 대고 '피부진단하기' 버튼을 눌러주세요"};
+            ,"진단기기를 피부에 대고\n '피부진단하기' 버튼을 눌러주세요"};
 
     @Override
     public int getCount() {

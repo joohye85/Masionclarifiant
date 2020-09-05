@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DiagnoseFin"
+    android:background="@color/colorBeige">
+    <TextView
+        android:id="@+id/fin_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="피부 진단이 완료되었습니다!\n'진단결과 확인하기'
+버튼을 눌러주세요"
+        android:textSize="20dp"
+        android:gravity="center"
+        android:textColor="@color/colorBlack"/>
+
+    <Button
+        android:id="@+id/intro_diagnose_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="진단 결과 확인하기"
+        android:textSize="20dp"
+        android:textColor="@color/colorWhite"
+        android:layout_below="@+id/fin_text"
+        android:layout_centerHorizontal="true"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:background="@drawable/round_rec"
+        android:backgroundTint="@color/colorDarkPink"
+        android:layout_marginTop="80dp"/>
+</RelativeLayout>

@@ -2,16 +2,15 @@ package com.example.masionclarifiant;
 
 import android.os.Bundle;
 import android.text.Html;
+import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
-import org.w3c.dom.Text;
-
-public class IntroSlider extends AppCompatActivity {
+public class DiagnoseStart extends AppCompatActivity {
     private ViewPager mSlideViewPager;
     private LinearLayout mDotLayout;
 
@@ -19,10 +18,16 @@ public class IntroSlider extends AppCompatActivity {
 
     private SliderAdapter sliderAdapter;
 
+    private Button backBtn, nextBtn, diagnoseBtn;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.intro_slider);
+        setContentView(R.layout.diagnose_start);
+
+        backBtn = findViewById(R.id.slide_back);
+        nextBtn = findViewById(R.id.slide_next);
+        diagnoseBtn = findViewById(R.id.intro_diagnose_btn);
 
         mSlideViewPager = (ViewPager) findViewById(R.id.slideViewPager);
         mDotLayout = (LinearLayout) findViewById(R.id.dotsLayout);
@@ -30,11 +35,37 @@ public class IntroSlider extends AppCompatActivity {
         sliderAdapter = new SliderAdapter(this);
         mSlideViewPager.setAdapter(sliderAdapter);
 
+        nextBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mDotLayout.removeAllViews();
+                addDotsIndicator(1);
+            }
+        });
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mDotLayout.removeAllViews();
+                addDotsIndicator(0);
+            }
+        });
+
         addDotsIndicator(0);
         mSlideViewPager.addOnPageChangeListener(viewListener);
     }
 
     public void addDotsIndicator(int position){
+        if(position == 0){
+            nextBtn.setVisibility(View.VISIBLE);
+            backBtn.setVisibility(View.INVISIBLE);
+            diagnoseBtn.setVisibility(View.GONE);
+        }
+        if(position == 1){
+            nextBtn.setVisibility(View.INVISIBLE);
+            backBtn.setVisibility(View.VISIBLE);
+            diagnoseBtn.setVisibility(View.VISIBLE);
+        }
         mDots = new TextView[2];
         for(int i=0; i<mDots.length; i++){
             mDots[i] = new TextView(this);
@@ -46,23 +77,22 @@ public class IntroSlider extends AppCompatActivity {
         }
 
         if(mDots.length > 0)
-            mDots[position].setTextColor(getResources().getColor(R.color.colorWhite));
+            mDots[position].setTextColor(getResources().getColor(R.color.colorDarkPink));
     }
 
     ViewPager.OnPageChangeListener viewListener = new ViewPager.OnPageChangeListener() {
         @Override
         public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
         }
 
         @Override
         public void onPageSelected(int position) {
+            mDotLayout.removeAllViews();
             addDotsIndicator(position);
         }
 
         @Override
         public void onPageScrollStateChanged(int state) {
-
         }
     };
 }
