@@ -38,7 +38,9 @@
         <activity android:name=".SelectResultActivity" />
         <activity android:name=".DiagnoseStart" />
         <activity android:name=".DiagnoseMeasure"/>
-        <activity android:name=".DiagnoseFin"></activity>
+        <activity android:name=".DiagnoseFin"/>
+        <activity android:name=".DiagnoseResult"/>
+        <activity android:name=".DiagnoseRecommend"/>
     </application>
 
 </manifest>

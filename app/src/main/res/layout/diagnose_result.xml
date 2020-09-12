@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_horizontal"
+            android:text="Masion Clarifiant"
+            android:fontFamily="serif"
+            android:textColor="@color/colorWhite"
+            android:textSize="30dp"
+            android:layout_alignParentTop="true"
+            android:background="@color/colorDarkPink"
+            android:layout_marginBottom="20dp"/>
+
+        <TextView
+            android:id="@+id/diagnose_state"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="■ 피부진단 결과"
+            android:layout_below="@+id/textView"
+            android:textSize="19dp"
+            android:textColor="@color/colorBlack"
+            android:layout_marginLeft="10dp"/>
+
+        <TextView
+            android:id="@+id/state_chart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/diagnose_state"
+            android:text="막대 차트 들어갈 자리"/>
+
+        <TextView
+            android:id="@+id/diagnose_age"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="■ 피부나이 변화 그래프"
+            android:layout_below="@+id/state_chart"
+            android:textSize="19dp"
+            android:textColor="@color/colorBlack"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"/>
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/age_chart"
+            android:layout_height="300dp"
+            android:layout_width="match_parent"
+            android:layout_margin="5dp"
+            android:layout_below="@+id/diagnose_age"
+            android:background="@color/colorBeige"
+            android:foregroundTint="@color/colorDarkPink"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@+id/age_chart"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="10dp">
+            <Button
+                android:id="@+id/go_home_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="홈으로 이동"
+                android:textSize="18dp"
+                android:textColor="@color/colorWhite"
+                android:layout_below="@+id/fin_text"
+                android:layout_centerHorizontal="true"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:background="@drawable/round_rec"
+                android:backgroundTint="@color/colorDarkGreen"/>
+
+            <Button
+                android:id="@+id/go_recommend_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="추천 제품보기"
+                android:textSize="18dp"
+                android:textColor="@color/colorWhite"
+                android:layout_below="@+id/fin_text"
+                android:layout_centerHorizontal="true"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:background="@drawable/round_rec"
+                android:backgroundTint="@color/colorDarkPink"
+                android:layout_marginLeft="40dp"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+</ScrollView>

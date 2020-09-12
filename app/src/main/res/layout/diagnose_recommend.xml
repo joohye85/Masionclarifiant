@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_horizontal"
+            android:text="Masion Clarifiant"
+            android:fontFamily="serif"
+            android:textColor="@color/colorWhite"
+            android:textSize="30dp"
+            android:layout_alignParentTop="true"
+            android:background="@color/colorDarkPink"
+            android:layout_marginBottom="20dp"/>
+
+        <TextView
+            android:id="@+id/diagnose_state"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="■ 제품 소개"
+            android:layout_below="@+id/textView"
+            android:textSize="19dp"
+            android:textColor="@color/colorBlack"
+            android:layout_marginLeft="10dp"/>
+    </RelativeLayout>
+</ScrollView>
