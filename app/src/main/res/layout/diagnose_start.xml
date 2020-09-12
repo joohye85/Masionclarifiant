@@ -16,6 +16,7 @@
         android:background="@color/colorWhite"/>
 
     <TextView
+        android:id="@+id/measuer_text"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:paddingBottom="15dp"
@@ -31,9 +32,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_above="@+id/slideViewPager"
+        android:layout_below="@+id/measuer_text"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="20dp">
+        android:layout_marginTop="15dp">
         <LinearLayout
             android:id="@+id/state1"
             android:layout_width="wrap_content"
@@ -47,6 +48,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:text="시작하기"
+                android:textSize="13dp"
                 android:textColor="@color/colorBlack"
                 android:gravity="center"
                 android:layout_marginTop="10dp"
@@ -74,14 +76,15 @@
                 android:layout_height="60dp"
                 android:background="@drawable/circle"
                 android:backgroundTint="@color/colorLightGreen"/>
+
             <TextView
-                android:layout_width="fill_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="진단중"
-                android:textColor="@color/colorBlack"
-                android:gravity="center"
                 android:layout_marginTop="10dp"
-                />
+                android:gravity="center"
+                android:text="유수분측정"
+                android:textSize="13dp"
+                android:textColor="@color/colorBlack" />
         </LinearLayout>
         <RelativeLayout
             android:id="@+id/two_and_three"
@@ -95,6 +98,7 @@
                 android:layout_centerVertical="true"/>
         </RelativeLayout>
         <LinearLayout
+            android:id="@+id/state3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -107,9 +111,42 @@
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:text="피부촬영"
+                android:textColor="@color/colorBlack"
+                android:gravity="center"
+                android:textSize="13dp"
+                android:layout_marginTop="10dp"
+                />
+        </LinearLayout>
+        <RelativeLayout
+            android:id="@+id/three_and_four"
+            android:layout_width="30dp"
+            android:layout_height="60dp"
+            android:layout_toRightOf="@+id/state3">
+            <View
+                android:layout_width="30dp"
+                android:layout_height="2dp"
+                android:background="@color/colorGray"
+                android:layout_centerVertical="true"/>
+        </RelativeLayout>
+        <LinearLayout
+            android:id="@+id/state4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_toRightOf="@+id/three_and_four">
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/circle"
+                android:backgroundTint="@color/colorLightGreen"/>
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
                 android:text="진단완료"
                 android:textColor="@color/colorBlack"
                 android:gravity="center"
+                android:textSize="13dp"
                 android:layout_marginTop="10dp"
                 />
         </LinearLayout>

@@ -14,7 +14,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".DiagnoseFin"></activity>
         <activity android:name=".MyskinActivity" />
         <activity android:name=".CombiActivity" />
         <activity android:name=".MypageActivity" />
@@ -37,6 +36,8 @@
         <activity android:name=".SelectActivity" />
         <activity android:name=".SelectResultActivity" />
         <activity android:name=".DiagnoseStart" />
+        <activity android:name=".DiagnoseMeasure"/>
+        <activity android:name=".DiagnoseFin"></activity>
     </application>
 
 </manifest>
