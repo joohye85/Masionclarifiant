@@ -1,13 +1,17 @@
 package com.example.masionclarifiant;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
@@ -31,15 +35,28 @@ public class DiagnoseResult extends AppCompatActivity {
         LineData chartData = new LineData();
 
         //아직 수정 필요 -> 그래프 선 색상, 수치 바꿈
-        entry1.add(new Entry(2, 3));
-        entry1.add(new Entry(8, 9));
-        entry1.add(new Entry(10, 5));
+        entry1.add(new Entry(2, 33));
+        entry1.add(new Entry(8, 22));
+        entry1.add(new Entry(10, 40));
 
         LineDataSet set1 = new LineDataSet(entry1, "피부나이");
+        set1.setColor(Color.rgb(0, 0, 0));
+        set1.setValueTextSize(10);
+        set1.setCircleColor(ContextCompat.getColor(this, R.color.colorDarkPink));
+        set1.setCircleRadius(10);
         chartData.addDataSet(set1);
 
-        lineChart.setData(chartData);
+        YAxis yAxisLeft = lineChart.getAxisLeft();
+        yAxisLeft.setAxisMaximum(50);
+        yAxisLeft.setAxisMinimum(20);
 
+        XAxis xAxis = lineChart.getXAxis();
+        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+        xAxis.setAxisMinimum(1);
+        xAxis.setAxisMaximum(12);
+
+        yAxisLeft.setDrawGridLines(false);
+        lineChart.setData(chartData);
         lineChart.invalidate();
 
         goHomeBtn.setOnClickListener(new View.OnClickListener() {

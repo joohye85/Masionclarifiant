@@ -97,11 +97,9 @@ public class CombiActivity extends AppCompatActivity {
         motorStart.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
                     Toast.makeText(getApplicationContext(), "배합을 시작합니다.", Toast.LENGTH_SHORT).show();
                     getIPandPort();
                     CMD = "start";
-                    //list.add(CMD);
                     Socket_AsyncTask cmd_start_motor = new Socket_AsyncTask();
                     cmd_start_motor.execute();
                 }
