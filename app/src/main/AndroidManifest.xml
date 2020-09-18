@@ -21,12 +21,12 @@
         <activity android:name=".Mypage2Activity" />
         <activity android:name=".FindActivity" />
         <activity android:name=".FindIngredientActivity"/>
-        <activity
+        <!--<activity
             android:name=".MainActivity"
             android:configChanges="orientation|screenSize"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar" />-->
         <activity android:name=".LoadingActivity" />
-        <activity android:name=".LoginActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -41,6 +41,9 @@
         <activity android:name=".DiagnoseFin"/>
         <activity android:name=".DiagnoseResult"/>
         <activity android:name=".DiagnoseRecommend"/>
+        <activity android:name=".DiagnoseCam1"/>
+        <activity android:name=".DiagnoseCam2"/>
+        <activity android:name=".DiagnoseCamMeasure"/>
     </application>
 
 </manifest>
