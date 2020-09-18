@@ -56,6 +56,8 @@ public class DiagnoseResult extends AppCompatActivity {
         xAxis.setAxisMaximum(12);
 
         yAxisLeft.setDrawGridLines(false);
+        lineChart.getAxisRight().setDrawGridLines(false);
+        lineChart.getAxisRight().setDrawLabels(false);
         lineChart.setData(chartData);
         lineChart.invalidate();
 
