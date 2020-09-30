@@ -37,10 +37,10 @@ public class DiagnoseCam1 extends AppCompatActivity{
         takePictureBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Socket_AsyncTask cmd_start_motor = new Socket_AsyncTask();
-                //cmd_start_motor.execute();
-                Intent intent = new Intent(DiagnoseCam1.this, DiagnoseCam2.class);
-                startActivity(intent);
+                Socket_AsyncTask cmd_start_motor = new Socket_AsyncTask();
+                cmd_start_motor.execute();
+                //Intent intent = new Intent(DiagnoseCam1.this, DiagnoseCam2.class);
+                //startActivity(intent);
             }
         });
     }
@@ -54,11 +54,13 @@ public class DiagnoseCam1 extends AppCompatActivity{
             try{
                 InetAddress inetAddress = InetAddress.getByName(DiagnoseCam1.wifiModuleIp);
                 socket = new java.net.Socket(inetAddress, DiagnoseCam1.wifiModulePort);
-                DataOutputStream dataOutputStream = new DataOutputStream(socket.getOutputStream());
-                dataOutputStream.writeBytes("p");
-                dataOutputStream.close();
-                //objectOutputStream.close();
-                socket.close();
+                if(socket != null){
+                    DataOutputStream dataOutputStream = new DataOutputStream(socket.getOutputStream());
+                    dataOutputStream.writeBytes("p");
+                    dataOutputStream.close();
+                    //objectOutputStream.close();
+                    socket.close();
+                }
             }catch (UnknownHostException e){
                 e.printStackTrace();
             }catch (IOException e){

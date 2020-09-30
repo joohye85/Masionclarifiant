@@ -28,19 +28,20 @@
             android:textColor="@color/colorBlack"
             android:layout_marginLeft="10dp"/>
 
-        <TextView
-            android:id="@+id/state_chart"
+        <com.github.mikephil.charting.charts.HorizontalBarChart
+            android:id="@+id/barChart"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/diagnose_state"
-            android:text="막대 차트 들어갈 자리"/>
-
+            android:layout_height="280dp"
+            android:layout_below="@id/diagnose_state"
+            android:background="@color/colorBeige"
+            android:foregroundTint="@color/colorDarkPink"
+            />
         <TextView
             android:id="@+id/diagnose_age"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="■ 피부나이 변화 그래프"
-            android:layout_below="@+id/state_chart"
+            android:layout_below="@+id/barChart"
             android:textSize="19dp"
             android:textColor="@color/colorBlack"
             android:layout_marginLeft="10dp"
