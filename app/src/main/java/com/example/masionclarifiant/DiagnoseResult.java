@@ -91,7 +91,7 @@ public class DiagnoseResult extends AppCompatActivity {
         bar_leftAxis.setAxisMinimum(0f);
 
         Legend l = barChart.getLegend();
-        l.setTextSize(15);
+        l.setTextSize(15f);
         l.setVerticalAlignment(Legend.LegendVerticalAlignment.BOTTOM);
         l.setHorizontalAlignment(Legend.LegendHorizontalAlignment.RIGHT);
         l.setOrientation(Legend.LegendOrientation.HORIZONTAL);
@@ -99,7 +99,6 @@ public class DiagnoseResult extends AppCompatActivity {
         l.setYOffset(20f);
         l.setXOffset(0f);
         l.setYEntrySpace(0f);
-        l.setTextSize(8f);
 
         ArrayList<Entry> entry1 = new ArrayList<>();
 
