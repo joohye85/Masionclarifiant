@@ -46,6 +46,7 @@
                     android:title="피부 진단하기"
                     android:icon="@drawable/ic_child_care_black_24dp"/>
              <item
+                 android:id="@+id/nav_dignose_result"
                     android:title="진단결과 확인하기"
                     android:icon="@drawable/ic_insights_black_18dp"/>
             </group>

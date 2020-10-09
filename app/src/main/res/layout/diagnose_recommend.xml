@@ -19,21 +19,11 @@
             android:layout_marginBottom="20dp"/>
 
         <TextView
-            android:id="@+id/recommend_intro"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="■ 제품 소개"
-            android:layout_below="@+id/textView"
-            android:textSize="19dp"
-            android:textColor="@color/colorBlack"
-            android:layout_marginLeft="10dp"/>
-
-        <TextView
             android:id="@+id/recommend_detail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="■ 배합 정보"
-            android:layout_below="@+id/recommend_intro"
+            android:layout_below="@+id/textView"
             android:textSize="19dp"
             android:textColor="@color/colorBlack"
             android:layout_marginLeft="10dp"/>

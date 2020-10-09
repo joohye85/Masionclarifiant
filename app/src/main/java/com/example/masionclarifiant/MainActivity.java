@@ -95,26 +95,31 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 String userID3 = getIntent().getStringExtra("userID");
                 Intent intent2 = new Intent(MainActivity.this, SelectActivity.class);
                 intent2.putExtra("userID",userID3);
+                intent2.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent2);
                 break;
             case R.id.nav_ingredient:
                 Intent intent3 = new Intent(MainActivity.this, FindIngredientActivity.class);
+                intent3.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent3);
                 break;
             case R.id.nav_logout:
                 Intent intent4 = new Intent(MainActivity.this, LoginActivity.class);
                 intent4.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP); //액티비티 초기화
+                intent4.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent4);
                 break;
             case R.id.nav_mypage:
                 String userID = getIntent().getStringExtra("userID");
                 Intent intent5 = new Intent(MainActivity.this, MypageActivity.class);
                 intent5.putExtra("userID",userID);
+                intent5.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent5);
                 break;
             case R.id.nav_mypage2:
                 String userID5 = getIntent().getStringExtra("userID");
                 Intent intent6 = new Intent(MainActivity.this, MyskinActivity.class);
+                intent6.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent6.putExtra("userID",userID5);
                 startActivity(intent6);
                 break;
@@ -122,11 +127,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 String userID7 = getIntent().getStringExtra("userID");
                 Intent intent7 = new Intent(MainActivity.this, CombiActivity.class);
                 intent7.putExtra("userID",userID7);
+                intent7.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent7);
                 break;
             case R.id.nav_diagnose:
-                Intent intent = new Intent(MainActivity.this, DiagnoseStart.class);
-                startActivity(intent);
+                Intent intent8 = new Intent(MainActivity.this, DiagnoseStart.class);
+                intent8.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent8);
+            case R.id.nav_dignose_result:
+                Intent intent9 = new Intent(MainActivity.this, DiagnoseStart.class);
+                intent9.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent9);
         }
 
         drawerLayout.closeDrawer(GravityCompat.START);
