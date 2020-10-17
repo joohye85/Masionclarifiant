@@ -70,7 +70,7 @@ public class CombiActivity extends AppCompatActivity {
                         if(i_name.contains("녹차")) i_Name += ",greentea";
                         if(i_name.contains("달팽이")) i_Name += ",snail";
                         if(i_name.contains("올리브")) i_Name += ",olive";
-                        Toast.makeText(getApplicationContext(),i_Name + skintype,Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getApplicationContext(),i_Name + skintype,Toast.LENGTH_SHORT).show();
                     }else{
                         Toast.makeText(getApplicationContext(), "데이터 불러오기 실패", Toast.LENGTH_SHORT).show();
                     }

@@ -27,13 +27,15 @@
             android:theme="@style/AppTheme.NoActionBar" />-->
         <activity android:name=".LoadingActivity" />
         <activity android:name=".MainActivity">
+        </activity>
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RegisterActivity" />
         <activity android:name=".SelectActivity" />
         <activity android:name=".SelectResultActivity" />
         <activity android:name=".DiagnoseStart" />

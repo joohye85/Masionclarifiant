@@ -2,10 +2,15 @@ package com.example.masionclarifiant;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.widget.Toast;
+
 import java.util.Random;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.Volley;
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Description;
@@ -16,20 +21,40 @@ import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.formatter.PercentFormatter;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
 public class DiagnoseRecommend extends AppCompatActivity {
     PieChart pieChart;
-
+    public static int moisture = 0; //db에서 수분값 받아옴
+    public static int oil = 0; //db에서 유분값 받아옴
+    public static int blemish = 0; //db에서 잡티 받아옴
+    public static String test ="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.diagnose_recommend);
+        final String userID = getIntent().getStringExtra("userID");
 
-        //화장품 배합 알고리즘
-        int moisture = 0; //db에서 수분값 받아옴
-        int oil = 0; //db에서 유분값 받아옴
-        int blemish = 0; //db에서 잡티 받아옴
+        Response.Listener<String> res = new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    Boolean success = jsonObject.getBoolean("success");
+                    moisture = jsonObject.getInt("moisture");
+                    oil = jsonObject.getInt("oil");
+                    blemish = jsonObject.getInt("pimple");
+
+                }catch (Exception e){e.printStackTrace();}
+
+            }
+        };
+        DiagnoseRequest diagnoseRequest = new DiagnoseRequest(userID, res);
+        RequestQueue queue = Volley.newRequestQueue(DiagnoseRecommend.this);
+        queue.add(diagnoseRequest);
+
         String water = null; //0.3 증가인지 감소인지 보내기
         Pair[] mix = new Pair[3];
 
@@ -43,7 +68,7 @@ public class DiagnoseRecommend extends AppCompatActivity {
         String oil_ing = oil_arr[r.nextInt(2)];
         String blemish_ing = blemish_arr[r.nextInt(2)];
         System.out.println(moisture_ing + ", " + oil_ing + ", " + blemish_ing);
-
+        System.out.println(moisture + oil + blemish);
         if(moisture <= 33) {
             mix[0] = new Pair(moisture_ing, 60);
         }

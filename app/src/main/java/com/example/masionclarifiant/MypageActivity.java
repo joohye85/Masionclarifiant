@@ -41,7 +41,7 @@ public class MypageActivity extends AppCompatActivity{
         TextView user_use_combination = (TextView)findViewById(R.id.my_pg3);
         final TextView feedback_message = (TextView)findViewById(R.id.my_pg4);
         //최근 3개 데이터 page 변수들
-       // TextView[] textViews = new TextView[9];
+        // TextView[] textViews = new TextView[9];
         final TextView date1 = (TextView)findViewById(R.id.date1);
         final TextView date2 = (TextView)findViewById(R.id.date2);
         final TextView date3 = (TextView)findViewById(R.id.date3);
@@ -196,7 +196,7 @@ public class MypageActivity extends AppCompatActivity{
                 FeedbackRequest feedbackRequest = new FeedbackRequest(userID,feedback_save,res);
                 RequestQueue queue = Volley.newRequestQueue(MypageActivity.this);
                 queue.add(feedbackRequest);
-        }
+            }
         });
 
     }
