@@ -137,7 +137,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 intent8.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent8);
             case R.id.nav_dignose_result:
-                Intent intent9 = new Intent(MainActivity.this, DiagnoseRecommend.class);
+                Intent intent9 = new Intent(MainActivity.this, DiagnoseResult.class);
                 intent9.putExtra("userID", userID);
                 intent9.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent9);
