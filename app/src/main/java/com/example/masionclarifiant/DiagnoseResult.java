@@ -22,6 +22,7 @@ import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 import com.github.mikephil.charting.formatter.LargeValueFormatter;
+import com.mikhaellopez.circularprogressbar.CircularProgressBar;
 
 import java.util.ArrayList;
 
@@ -29,10 +30,13 @@ public class DiagnoseResult extends AppCompatActivity {
     private LineChart lineChart;
     private BarChart barChart;
     Button goHomeBtn, goRecommendBtn;
+    CircularProgressBar moistureBar, oilBar;
     float barWidth = 0.3f;
     float barSpace = 0f;
     float groupSpace = 0.4f;
     int groupCount = 3;
+    static double moisture;
+    static double oil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +44,12 @@ public class DiagnoseResult extends AppCompatActivity {
         setContentView(R.layout.diagnose_result);
         goHomeBtn = findViewById(R.id.go_home_btn);
         goRecommendBtn = findViewById(R.id.go_recommend_btn);
+        moistureBar = (CircularProgressBar)findViewById(R.id.moistureProgressBar);
+        oilBar = (CircularProgressBar)findViewById(R.id.oilProgressBar);
+
+        moisture = 33;
+        moistureBar.setProgress(50); //여기에 수분 수치
+        oilBar.setProgress(100); //여기에 유분 수치
 
         barChart = (BarChart)findViewById(R.id.barChart);
         barChart.setDescription(null);
@@ -148,5 +158,11 @@ public class DiagnoseResult extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(DiagnoseResult.this, MainActivity.class);
+        startActivity(intent);
     }
 }

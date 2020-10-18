@@ -140,4 +140,10 @@ public class CombiActivity extends AppCompatActivity {
             return null;
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(CombiActivity.this, MainActivity.class);
+        startActivity(intent);
+    }
 }

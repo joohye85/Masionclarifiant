@@ -105,4 +105,10 @@ public class MyskinActivity extends AppCompatActivity {
         RequestQueue queue = Volley.newRequestQueue(MyskinActivity.this);
         queue.add(myskinRequest);
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(MyskinActivity.this, MainActivity.class);
+        startActivity(intent);
+    }
 }

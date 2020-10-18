@@ -5,7 +5,7 @@ android {
     buildToolsVersion "30.0.0"
     defaultConfig {
         applicationId "com.example.masionclarifiant"
-        minSdkVersion 15
+        minSdkVersion 16
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -43,4 +43,6 @@ dependencies {
     compile 'com.pnikosis:materialish-progress:1.7'
     //chart 사용
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+    //cir
+    implementation 'com.mikhaellopez:circularprogressbar:3.0.3'
 }

@@ -111,14 +111,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(intent4);
                 break;
             case R.id.nav_mypage:
-                //String userID = getIntent().getStringExtra("userID");
+                //String userID5 = getIntent().getStringExtra("userID");
                 Intent intent5 = new Intent(MainActivity.this, MypageActivity.class);
                 intent5.putExtra("userID",userID);
                 intent5.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent5);
                 break;
             case R.id.nav_mypage2:
-               // String userID5 = getIntent().getStringExtra("userID");
+               // String userID6 = getIntent().getStringExtra("userID");
                 Intent intent6 = new Intent(MainActivity.this, MyskinActivity.class);
                 intent6.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent6.putExtra("userID",userID);
@@ -132,12 +132,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(intent7);
                 break;
             case R.id.nav_diagnose:
-                Intent intent8 = new Intent(MainActivity.this, DiagnoseStart.class);
+                Intent intent8 = new Intent(MainActivity.this, DiagnoseRecommend.class);
                 intent8.putExtra("userID", userID);
                 intent8.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent8);
             case R.id.nav_dignose_result:
-                Intent intent9 = new Intent(MainActivity.this, DiagnoseResult.class);
+                Intent intent9 = new Intent(MainActivity.this, DiagnoseStart.class);
                 intent9.putExtra("userID", userID);
                 intent9.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent9);

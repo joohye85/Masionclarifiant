@@ -55,7 +55,7 @@ public class DiagnoseStart extends AppCompatActivity {
         diagnoseBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(DiagnoseStart.this, DiagnoseResult.class);
+                Intent intent = new Intent(DiagnoseStart.this, DiagnoseCam1.class);
                 startActivity(intent);
             }
         });
@@ -105,4 +105,10 @@ public class DiagnoseStart extends AppCompatActivity {
         public void onPageScrollStateChanged(int state) {
         }
     };
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(DiagnoseStart.this, MainActivity.class);
+        startActivity(intent);
+    }
 }

@@ -198,6 +198,11 @@ public class MypageActivity extends AppCompatActivity{
                 queue.add(feedbackRequest);
             }
         });
+    }
 
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(MypageActivity.this, MainActivity.class);
+        startActivity(intent);
     }
 }

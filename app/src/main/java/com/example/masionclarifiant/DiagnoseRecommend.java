@@ -1,7 +1,10 @@
 package com.example.masionclarifiant;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import java.util.Random;
@@ -31,12 +34,14 @@ public class DiagnoseRecommend extends AppCompatActivity {
     public static int oil = 0; //db에서 유분값 받아옴
     public static int blemish = 0; //db에서 잡티 받아옴
     public static String test ="";
+    Button goMixBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.diagnose_recommend);
-        final String userID = getIntent().getStringExtra("userID");
+        goMixBtn = (Button)findViewById(R.id.go_recommend_mix_btn);
 
+        final String userID = getIntent().getStringExtra("userID");
         Response.Listener<String> res = new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -141,5 +146,13 @@ public class DiagnoseRecommend extends AppCompatActivity {
         l.setOrientation(Legend.LegendOrientation.HORIZONTAL);
 
         pieChart.setData(data);
+
+        goMixBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(DiagnoseRecommend.this, CombiActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

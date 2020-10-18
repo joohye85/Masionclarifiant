@@ -16,7 +16,7 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 
 public class DiagnoseCam1 extends AppCompatActivity{
-    public static String wifiModuleIp = "220.69.172.237";
+    public static String wifiModuleIp = "220.69.172.222";
     public static int wifiModulePort = 9999;
     WebView webView;
     Button takePictureBtn;
@@ -30,7 +30,7 @@ public class DiagnoseCam1 extends AppCompatActivity{
         webView.getSettings().setLoadWithOverviewMode(true);
         webView.getSettings().setUseWideViewPort(true);
 
-        String url ="http://220.69.172.237:8080/stream/video.mjpeg";
+        String url ="http://220.69.172.222:8080/stream/video.mjpeg";
         webView.loadUrl(url);
 
         takePictureBtn = findViewById(R.id.take_picture_btn);
@@ -39,8 +39,8 @@ public class DiagnoseCam1 extends AppCompatActivity{
             public void onClick(View view) {
                 Socket_AsyncTask cmd_start_motor = new Socket_AsyncTask();
                 cmd_start_motor.execute();
-                //Intent intent = new Intent(DiagnoseCam1.this, DiagnoseCam2.class);
-                //startActivity(intent);
+                Intent intent = new Intent(DiagnoseCam1.this, DiagnoseCam2.class);
+                startActivity(intent);
             }
         });
     }
