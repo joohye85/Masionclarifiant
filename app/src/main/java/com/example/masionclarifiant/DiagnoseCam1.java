@@ -58,7 +58,7 @@ public class DiagnoseCam1 extends AppCompatActivity{
                 socket = new java.net.Socket(inetAddress, DiagnoseCam1.wifiModulePort);
                 if(socket != null){
                     DataOutputStream dataOutputStream = new DataOutputStream(socket.getOutputStream());
-                    dataOutputStream.writeBytes("p");
+                    dataOutputStream.writeUTF("picture from android (i'm jihyeon)");
                     dataOutputStream.close();
                     //objectOutputStream.close();
                     socket.close();

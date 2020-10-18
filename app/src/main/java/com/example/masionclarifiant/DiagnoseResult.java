@@ -35,8 +35,10 @@ public class DiagnoseResult extends AppCompatActivity {
     float barSpace = 0f;
     float groupSpace = 0.4f;
     int groupCount = 3;
-    static double moisture;
-    static double oil;
+    public static int moisture = 0; //db에서 수분값 받아옴
+    public static int oil = 0; //db에서 유분값 받아옴
+    //public static int blemish = 0; //db에서 잡티 받아옴
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,8 +50,8 @@ public class DiagnoseResult extends AppCompatActivity {
         oilBar = (CircularProgressBar)findViewById(R.id.oilProgressBar);
 
         moisture = 33;
-        moistureBar.setProgress(50); //여기에 수분 수치
-        oilBar.setProgress(100); //여기에 유분 수치
+        moistureBar.setProgress(46); //여기에 수분 수치
+        oilBar.setProgress(61); //여기에 유분 수치
 
         barChart = (BarChart)findViewById(R.id.barChart);
         barChart.setDescription(null);
@@ -63,12 +65,12 @@ public class DiagnoseResult extends AppCompatActivity {
         xVals.add("청결");
         ArrayList yVals1 = new ArrayList();
         ArrayList yVals2 = new ArrayList();
-        yVals1.add(new BarEntry(1, (float) 1));
-        yVals2.add(new BarEntry(1, (float) 2));
-        yVals1.add(new BarEntry(2, (float) 3));
-        yVals2.add(new BarEntry(2, (float) 4));
-        yVals1.add(new BarEntry(3, (float) 5));
-        yVals2.add(new BarEntry(3, (float) 6));
+        yVals1.add(new BarEntry(1, (float) 2));
+        yVals2.add(new BarEntry(1, (float) 1));
+        yVals1.add(new BarEntry(2, (float) 5));
+        yVals2.add(new BarEntry(2, (float) 3));
+        yVals1.add(new BarEntry(3, (float) 6));
+        yVals2.add(new BarEntry(3, (float) 4    ));
 
         BarDataSet bar_set1, bar_set2;
         bar_set1 = new BarDataSet(yVals1, "내 피부");
@@ -117,9 +119,7 @@ public class DiagnoseResult extends AppCompatActivity {
         LineData chartData = new LineData();
 
         //아직 수정 필요 -> 그래프 선 색상, 수치 바꿈
-        entry1.add(new Entry(2, 33));
-        entry1.add(new Entry(8, 22));
-        entry1.add(new Entry(10, 40));
+        entry1.add(new Entry(10, 26));
 
         LineDataSet list_set1 = new LineDataSet(entry1, "피부나이");
         list_set1.setColor(Color.rgb(0, 0, 0));

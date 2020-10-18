@@ -55,7 +55,7 @@
                         app:cpb_background_progressbar_color_direction="right_to_left"
                         app:cpb_progressbar_color="@color/colorLightBlue"
                         app:cpb_background_progressbar_width="7dp"
-                        app:cpb_progress="75"
+                        app:cpb_progress="46"
                         app:cpb_progress_max="100"
                         app:cpb_start_angle="0"/>
 
@@ -63,7 +63,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="#1f1f1f"
-                        android:text="75%"
+                        android:text="46%"
                         android:layout_centerInParent="true"/>
                 </RelativeLayout>
                 <RelativeLayout
@@ -78,7 +78,7 @@
                         app:cpb_background_progressbar_width="7dp"
                         app:cpb_background_progressbar_color_direction="left_to_right"
                         app:cpb_progressbar_color="@color/colorDarkPink"
-                        app:cpb_progress="40"
+                        app:cpb_progress="61"
                         app:cpb_progress_max="100"
                         />
 
@@ -86,7 +86,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="#1f1f1f"
-                        android:text="75%"
+                        android:text="61%"
                         android:layout_centerInParent="true"/>
                 </RelativeLayout>
             </LinearLayout>

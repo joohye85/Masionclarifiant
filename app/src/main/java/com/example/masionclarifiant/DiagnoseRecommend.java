@@ -30,9 +30,9 @@ import java.util.ArrayList;
 
 public class DiagnoseRecommend extends AppCompatActivity {
     PieChart pieChart;
-    public static int moisture = 0; //db에서 수분값 받아옴
-    public static int oil = 0; //db에서 유분값 받아옴
-    public static int blemish = 0; //db에서 잡티 받아옴
+    public static int moisture = 41; //db에서 수분값 받아옴
+    public static int oil = 61; //db에서 유분값 받아옴
+    public static int blemish = 32; //db에서 잡티 받아옴
     public static String test ="";
     Button goMixBtn;
     @Override
@@ -95,13 +95,13 @@ public class DiagnoseRecommend extends AppCompatActivity {
         }
 
         if(blemish <= 33){
-            mix[2] = new Pair(blemish_ing, 60);
+            mix[2] = new Pair(blemish_ing, 10);
         }
         else if(blemish <= 67){
             mix[2] = new Pair(blemish_ing, 30);
         }
         else{
-            mix[2] = new Pair(blemish_ing, 10);
+            mix[2] = new Pair(blemish_ing, 60);
         }
 
         if(moisture <= 50){

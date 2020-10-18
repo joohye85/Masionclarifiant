@@ -155,24 +155,49 @@
         </LinearLayout>
     </RelativeLayout>
 
-    <com.pnikosis.materialishprogress.ProgressWheel
+    <!--<com.pnikosis.materialishprogress.ProgressWheel
         android:id="@+id/progress_wheel"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_centerInParent="true"
         wheel:matProg_barColor="@color/colorDarkPink"
         wheel:matProg_progressIndeterminate="true"
-        />
+        />-->
+
+    <com.github.rahatarmanahmed.cpv.CircularProgressView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/progress_view"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerInParent = "true"
+        app:cpv_animAutostart="true"
+        app:cpv_indeterminate="true" />
 
     <TextView
-        android:id="@+id/fin_text"
+        android:id="@+id/measuer_state"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="유수분 측정 중입니다."
         android:textSize="20dp"
         android:gravity="center"
         android:textColor="@color/colorBlack"
-        android:layout_below="@+id/progress_wheel"
+        android:layout_below="@+id/progress_view"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"/>
+
+    <Button
+        android:id="@+id/go_pic_skin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/measuer_state"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/round_rec"
+        android:backgroundTint="@color/colorDarkPink"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:text="피부 촬영하기"
+        android:textColor="@color/colorWhite"
+        android:textSize="18dp"
+        android:layout_marginTop="100dp"
+        android:visibility="invisible"/>
 </RelativeLayout>

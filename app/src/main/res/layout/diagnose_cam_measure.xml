@@ -155,14 +155,14 @@
         </LinearLayout>
     </RelativeLayout>
 
-    <com.pnikosis.materialishprogress.ProgressWheel
+    <!--<com.pnikosis.materialishprogress.ProgressWheel
         android:id="@+id/progress_wheel"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_centerInParent="true"
         wheel:matProg_barColor="@color/colorDarkPink"
         wheel:matProg_progressIndeterminate="true"
-        />
+        />-->
 
     <TextView
         android:id="@+id/cam2_text"
