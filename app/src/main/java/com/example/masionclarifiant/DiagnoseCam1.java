@@ -41,6 +41,8 @@ public class DiagnoseCam1 extends AppCompatActivity{
                 cmd_start_motor.execute();
                 Intent intent = new Intent(DiagnoseCam1.this, DiagnoseCam2.class);
                 startActivity(intent);
+                webView.destroy();
+                webView = null;
             }
         });
     }
