@@ -41,7 +41,7 @@ public class DiagnoseCamMeasure extends AppCompatActivity {
                 loadingImg.clearAnimation();
                 loadingImg.setVisibility(View.GONE);
             }
-        }, 5000);
+        }, 3000);
 
         goSeeResult = (Button)findViewById(R.id.go_see_result);
         goSeeResult.setOnClickListener(new View.OnClickListener() {
