@@ -110,7 +110,7 @@ public class CombiActivity extends AppCompatActivity {
         String ipaddress2 = ipaddress.getText().toString();
         Log.d("MYTEST", "IP String: " + ipaddress2);
         wifiModuleIp = ipaddress2;
-        wifiModulePort = 5001;
+        wifiModulePort = 5002;
         Log.d("MY TEST","IP:" + wifiModuleIp);
         Log.d("MY TEST", "PORT" + wifiModulePort);
     }

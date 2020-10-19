@@ -6,13 +6,13 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.github.rahatarmanahmed.cpv.CircularProgressView;
-//import com.pnikosis.materialishprogress.ProgressWheel;
 
 import org.w3c.dom.Text;
 
@@ -29,18 +29,30 @@ public class DiagnoseMeasure extends AppCompatActivity {
     public static int wifiModulePort = 9999;
     TextView measure_state;
     Button go_pic_skin;
+    ImageView loadingImg;
     private Handler mHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.diagnose_measure);
-        //ProgressWheel wheel = new ProgressWheel(getApplicationContext());
-        CircularProgressView progressView = (CircularProgressView) findViewById(R.id.progress_view);
-        progressView.startAnimation();
+        loadingImg = (ImageView)findViewById(R.id.loading_img);
+        Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.rotate);
+        loadingImg.setAnimation(animation);
+
         measure_state = (TextView)findViewById(R.id.measuer_state);
         go_pic_skin = (Button)findViewById(R.id.go_pic_skin);
-        go_pic_skin.setVisibility(View.VISIBLE);
+
+        Handler hd = new Handler();
+        hd.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                go_pic_skin.setVisibility(View.VISIBLE);
+                measure_state.setText("측정이 완료되었습니다.");
+                loadingImg.clearAnimation();
+                loadingImg.setVisibility(View.GONE);
+            }
+        }, 5000);
 
         go_pic_skin.setOnClickListener(new View.OnClickListener() {
             @Override

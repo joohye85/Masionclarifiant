@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".DiagnoseFin"
-    android:background="@color/colorBeige">
+    android:background="@color/colorBeige"
+    >
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
@@ -155,40 +156,49 @@
         </LinearLayout>
     </RelativeLayout>
 
-    <com.github.rahatarmanahmed.cpv.CircularProgressView
+    <!--<com.github.rahatarmanahmed.cpv.CircularProgressView
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/progress_view2"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_centerInParent = "true"
         app:cpv_animAutostart="true"
-        app:cpv_indeterminate="true" />
+        app:cpv_indeterminate="true" />-->
 
     <TextView
-        android:id="@+id/cam2_text"
+        android:id="@+id/cam_measure_state"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="촬영된 이미지 분석중입니다."
+        android:text="촬영된 이미지를 분석중입니다.\n잠시만 기다려주세요"
         android:textSize="20dp"
+        android:lineSpacingExtra = "13dp"
         android:gravity="center"
         android:textColor="@color/colorBlack"
-        android:layout_below="@+id/progress_view2"
-        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
         android:layout_marginTop="20dp"/>
+
+    <ImageView
+        android:id="@+id/loading_img"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/cam_measure_state"
+        android:background="@drawable/loading"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"/>
 
     <Button
         android:id="@+id/go_see_result"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/cam2_text"
-        android:layout_centerHorizontal="true"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/cam_measure_state"
         android:background="@drawable/round_rec"
         android:backgroundTint="@color/colorDarkPink"
         android:paddingLeft="15dp"
         android:paddingRight="15dp"
-        android:text="확인하러 가기"
+        android:text="확인하러 가기   ->"
+        android:layout_marginTop="55dp"
         android:textColor="@color/colorWhite"
-        android:textSize="18dp"
-        android:layout_marginTop="100dp"
-        android:visibility="visible"/>
+        android:layout_centerHorizontal="true"
+        android:textSize="20dp"
+        android:visibility="invisible"/>
 </RelativeLayout>
