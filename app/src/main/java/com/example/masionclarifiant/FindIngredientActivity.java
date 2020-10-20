@@ -1,5 +1,6 @@
 package com.example.masionclarifiant;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -111,6 +112,11 @@ public class FindIngredientActivity extends AppCompatActivity {
                 dlg.show();
             }
         });
+    }
 
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(FindIngredientActivity.this, MainActivity.class);
+        startActivity(intent);
     }
 }

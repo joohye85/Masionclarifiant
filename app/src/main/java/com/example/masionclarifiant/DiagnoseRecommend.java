@@ -1,8 +1,10 @@
 package com.example.masionclarifiant;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.widget.TextView;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import java.util.Random;
@@ -28,22 +30,19 @@ import java.util.ArrayList;
 
 public class DiagnoseRecommend extends AppCompatActivity {
     PieChart pieChart;
-    //public static int moisture = 0; //db에서 수분값 받아옴
-    //public static int oil = 0; //db에서 유분값 받아옴
-    //public static int blemish = 0; //db에서 잡티 받아옴
+    public static int moisture = 41; //db에서 수분값 받아옴
+    public static int oil = 61; //db에서 유분값 받아옴
+    public static int blemish = 32; //db에서 잡티 받아옴
+    public static String test ="";
+    Button goMixBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.diagnose_recommend);
+        goMixBtn = (Button)findViewById(R.id.go_recommend_mix_btn);
+
         final String userID = getIntent().getStringExtra("userID");
-        int moisture= getIntent().getIntExtra("moisture", 1);
-        int oil = getIntent().getIntExtra("oil",1);
-        int blemish = getIntent().getIntExtra("blemish",1);
-        final TextView textView = (TextView) findViewById(R.id.recommend_detail);
-        textView.setText("■ "+userID+"님의 추천 배합정보");
-
-
-        /*Response.Listener<String> res = new Response.Listener<String>() {
+        Response.Listener<String> res = new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
@@ -59,7 +58,7 @@ public class DiagnoseRecommend extends AppCompatActivity {
         };
         DiagnoseRequest diagnoseRequest = new DiagnoseRequest(userID, res);
         RequestQueue queue = Volley.newRequestQueue(DiagnoseRecommend.this);
-        queue.add(diagnoseRequest);*/
+        queue.add(diagnoseRequest);
 
         String water = null; //0.3 증가인지 감소인지 보내기
         Pair[] mix = new Pair[3];
@@ -74,7 +73,7 @@ public class DiagnoseRecommend extends AppCompatActivity {
         String oil_ing = oil_arr[r.nextInt(2)];
         String blemish_ing = blemish_arr[r.nextInt(2)];
         System.out.println(moisture_ing + ", " + oil_ing + ", " + blemish_ing);
-       // System.out.println(moisture + oil + blemish);
+        System.out.println(moisture + oil + blemish);
         if(moisture <= 33) {
             mix[0] = new Pair(moisture_ing, 60);
         }
@@ -96,13 +95,13 @@ public class DiagnoseRecommend extends AppCompatActivity {
         }
 
         if(blemish <= 33){
-            mix[2] = new Pair(blemish_ing, 60);
+            mix[2] = new Pair(blemish_ing, 10);
         }
         else if(blemish <= 67){
             mix[2] = new Pair(blemish_ing, 30);
         }
         else{
-            mix[2] = new Pair(blemish_ing, 10);
+            mix[2] = new Pair(blemish_ing, 60);
         }
 
         if(moisture <= 50){
@@ -147,5 +146,13 @@ public class DiagnoseRecommend extends AppCompatActivity {
         l.setOrientation(Legend.LegendOrientation.HORIZONTAL);
 
         pieChart.setData(data);
+
+        goMixBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(DiagnoseRecommend.this, CombiActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

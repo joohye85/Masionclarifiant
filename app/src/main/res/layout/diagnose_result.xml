@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
     <RelativeLayout
         android:layout_width="match_parent"
@@ -28,11 +30,73 @@
             android:textColor="@color/colorBlack"
             android:layout_marginLeft="10dp"/>
 
+        <RelativeLayout
+            android:id="@+id/stateProgressBar"
+            android:layout_width="match_parent"
+            android:layout_height="170dp"
+            android:layout_below="@+id/diagnose_state"
+            android:background="@color/colorBeige"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:orientation="horizontal"
+                android:layout_centerHorizontal="true">
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="100dp">
+                    <com.mikhaellopez.circularprogressbar.CircularProgressBar
+                        android:id="@+id/moistureProgressBar"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_centerInParent="true"
+                        app:cpb_background_progressbar_color="@color/colorGray"
+                        app:cpb_background_progressbar_color_direction="right_to_left"
+                        app:cpb_progressbar_color="@color/colorLightBlue"
+                        app:cpb_background_progressbar_width="7dp"
+                        app:cpb_progress="46"
+                        app:cpb_progress_max="100"
+                        app:cpb_start_angle="0"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#1f1f1f"
+                        android:text="수분\n\n46%"
+                        android:layout_centerInParent="true"/>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="50dp">
+                    <com.mikhaellopez.circularprogressbar.CircularProgressBar
+                        android:id="@+id/oilProgressBar"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        app:cpb_background_progressbar_color="@color/colorGray"
+                        app:cpb_background_progressbar_width="7dp"
+                        app:cpb_background_progressbar_color_direction="left_to_right"
+                        app:cpb_progressbar_color="@color/colorDarkPink"
+                        app:cpb_progress="61"
+                        app:cpb_progress_max="100"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#1f1f1f"
+                        android:text="유분\n\n61%"
+                        android:layout_centerInParent="true"/>
+                </RelativeLayout>
+            </LinearLayout>
+        </RelativeLayout>
+
         <com.github.mikephil.charting.charts.HorizontalBarChart
             android:id="@+id/barChart"
             android:layout_width="match_parent"
             android:layout_height="280dp"
-            android:layout_below="@id/diagnose_state"
+            android:layout_below="@id/stateProgressBar"
             android:background="@color/colorBeige"
             android:foregroundTint="@color/colorDarkPink"
             />
@@ -83,16 +147,16 @@
                 android:id="@+id/go_recommend_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="추천 제품보기"
-                android:textSize="18dp"
-                android:textColor="@color/colorWhite"
                 android:layout_below="@+id/fin_text"
                 android:layout_centerHorizontal="true"
-                android:paddingLeft="15dp"
-                android:paddingRight="15dp"
+                android:layout_marginLeft="40dp"
                 android:background="@drawable/round_rec"
                 android:backgroundTint="@color/colorDarkPink"
-                android:layout_marginLeft="40dp"/>
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:text="추천 조합 보기"
+                android:textColor="@color/colorWhite"
+                android:textSize="18dp" />
         </LinearLayout>
 
     </RelativeLayout>

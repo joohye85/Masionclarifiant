@@ -36,5 +36,20 @@
             android:layout_below="@+id/recommend_detail"
             android:background="@color/colorBeige"
             android:foregroundTint="@color/colorDarkPink"/>
+
+        <Button
+            android:id="@+id/go_recommend_mix_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/piechart"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/round_rec"
+            android:backgroundTint="@color/colorDarkPink"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:text="추천 조합으로 배합하기"
+            android:textColor="@color/colorWhite"
+            android:textSize="18dp"
+            android:layout_marginTop="100dp"/>
     </RelativeLayout>
 </ScrollView>

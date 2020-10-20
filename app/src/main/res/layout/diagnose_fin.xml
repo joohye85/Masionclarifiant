@@ -166,7 +166,7 @@
         android:textColor="@color/colorBlack"/>
 
     <Button
-        android:id="@+id/intro_diagnose_btn"
+        android:id="@+id/go_diagnose_result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="진단 결과 확인하기"

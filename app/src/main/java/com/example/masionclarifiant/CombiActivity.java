@@ -110,7 +110,7 @@ public class CombiActivity extends AppCompatActivity {
         String ipaddress2 = ipaddress.getText().toString();
         Log.d("MYTEST", "IP String: " + ipaddress2);
         wifiModuleIp = ipaddress2;
-        wifiModulePort = 5001;
+        wifiModulePort = 5002;
         Log.d("MY TEST","IP:" + wifiModuleIp);
         Log.d("MY TEST", "PORT" + wifiModulePort);
     }
@@ -139,5 +139,12 @@ public class CombiActivity extends AppCompatActivity {
             }
             return null;
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(CombiActivity.this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 }

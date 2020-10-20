@@ -55,9 +55,7 @@ public class DiagnoseStart extends AppCompatActivity {
         diagnoseBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String userID =getIntent().getStringExtra("userID");
-                Intent intent = new Intent(DiagnoseStart.this, DiagnoseResult.class);
-                intent.putExtra("userID", userID);
+                Intent intent = new Intent(DiagnoseStart.this, DiagnoseMeasure.class);
                 startActivity(intent);
             }
         });
@@ -107,4 +105,11 @@ public class DiagnoseStart extends AppCompatActivity {
         public void onPageScrollStateChanged(int state) {
         }
     };
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(DiagnoseStart.this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+    }
 }
