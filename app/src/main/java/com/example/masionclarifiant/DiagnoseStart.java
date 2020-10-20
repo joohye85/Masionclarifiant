@@ -55,7 +55,9 @@ public class DiagnoseStart extends AppCompatActivity {
         diagnoseBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String userID =getIntent().getStringExtra("userID");
                 Intent intent = new Intent(DiagnoseStart.this, DiagnoseResult.class);
+                intent.putExtra("userID", userID);
                 startActivity(intent);
             }
         });

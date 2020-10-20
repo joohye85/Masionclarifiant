@@ -42,7 +42,7 @@
         <menu>
             <group android:checkableBehavior="single">
              <item
-                 android:id="@+id/nav_diagnose"
+                 android:id="@+id/nav_diagnose_measure"
                     android:title="피부 진단하기"
                     android:icon="@drawable/ic_child_care_black_24dp"/>
              <item

@@ -131,16 +131,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 intent7.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent7);
                 break;
-            case R.id.nav_diagnose:
+            case R.id.nav_diagnose_measure:
                 Intent intent8 = new Intent(MainActivity.this, DiagnoseStart.class);
                 intent8.putExtra("userID", userID);
                 intent8.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent8);
+                break;
             case R.id.nav_dignose_result:
-                Intent intent9 = new Intent(MainActivity.this, DiagnoseRecommend.class);
-                intent9.putExtra("userID", userID);
-                intent9.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent9);
+                Intent intent10 = new Intent(MainActivity.this, DiagnoseRecommend.class);
+                intent10.putExtra("userID", userID);
+                intent10.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent10);
+                break;
         }
 
         drawerLayout.closeDrawer(GravityCompat.START);
