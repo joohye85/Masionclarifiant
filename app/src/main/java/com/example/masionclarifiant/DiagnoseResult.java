@@ -25,7 +25,6 @@ import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 import com.github.mikephil.charting.formatter.LargeValueFormatter;
-import com.mikhaellopez.circularprogressbar.CircularProgressBar;
 
 import org.json.JSONObject;
 
@@ -35,7 +34,6 @@ public class DiagnoseResult extends AppCompatActivity {
     private LineChart lineChart;
     private BarChart barChart;
     Button goHomeBtn, goRecommendBtn;
-    CircularProgressBar moistureBar, oilBar;
     float barWidth = 0.3f;
     float barSpace = 0f;
     float groupSpace = 0.4f;
@@ -55,8 +53,6 @@ public class DiagnoseResult extends AppCompatActivity {
         setContentView(R.layout.diagnose_result);
         goHomeBtn = findViewById(R.id.go_home_btn);
         goRecommendBtn = findViewById(R.id.go_recommend_btn);
-        moistureBar = (CircularProgressBar)findViewById(R.id.moistureProgressBar);
-        oilBar = (CircularProgressBar)findViewById(R.id.oilProgressBar);
         String userID = getIntent().getStringExtra("userID");
         Response.Listener<String> res = new Response.Listener<String>() {
             @Override
@@ -75,8 +71,24 @@ public class DiagnoseResult extends AppCompatActivity {
         queue.add(skinResultRequest);
         System.out.println("테스트으으으으으으"+clean+"ㄴㅁㅇㄴㅇㅁㄴㅇㅁㄴ"+liver_spot+"좀가라제발~!~>!!~"+wrinkle);
 
-        moistureBar.setProgress(46); //여기에 수분 수치
-        oilBar.setProgress(61); //여기에 유분 수치
+
+        Response.Listener<String> resp = new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    moisture = jsonObject.getInt("moisture");
+                    oil = jsonObject.getInt("oil");
+                    blemish = jsonObject.getInt("pimple");
+
+                }catch (Exception e){e.printStackTrace();}
+
+            }
+        };
+        DiagnoseRequest diagnoseRequest = new DiagnoseRequest(userID, resp);
+        RequestQueue queue2 = Volley.newRequestQueue(DiagnoseResult.this);
+        queue.add(diagnoseRequest);
+
 
         barChart = (BarChart)findViewById(R.id.barChart);
         barChart.setDescription(null);
@@ -90,11 +102,11 @@ public class DiagnoseResult extends AppCompatActivity {
         xVals.add("청결");
         ArrayList yVals1 = new ArrayList();
         ArrayList yVals2 = new ArrayList();
-        yVals1.add(new BarEntry(1, (float) clean));
+        yVals1.add(new BarEntry(1, (float) wrinkle));
         yVals2.add(new BarEntry(1, (float) 1));
         yVals1.add(new BarEntry(2, (float) liver_spot));
         yVals2.add(new BarEntry(2, (float) 3));
-        yVals1.add(new BarEntry(3, (float) wrinkle));
+        yVals1.add(new BarEntry(3, (float) clean));
         yVals2.add(new BarEntry(3, (float) 4));
 
         BarDataSet bar_set1, bar_set2;
@@ -146,6 +158,7 @@ public class DiagnoseResult extends AppCompatActivity {
         //아직 수정 필요 -> 그래프 선 색상, 수치 바꿈
         entry1.add(new Entry(10, 26));
 
+
         LineDataSet list_set1 = new LineDataSet(entry1, "피부나이");
         list_set1.setColor(Color.rgb(0, 0, 0));
         list_set1.setValueTextSize(10);
@@ -181,24 +194,11 @@ public class DiagnoseResult extends AppCompatActivity {
         goRecommendBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String userID2 = getIntent().getStringExtra("userID");
-                Response.Listener<String> res = new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        try {
-                            JSONObject jsonObject = new JSONObject(response);
-                            moisture = jsonObject.getInt("moisture");
-                            oil = jsonObject.getInt("oil");
-                            blemish = jsonObject.getInt("pimple");
-
-                        }catch (Exception e){e.printStackTrace();}
-
-                    }
-                };
-                DiagnoseRequest diagnoseRequest = new DiagnoseRequest(userID2, res);
-                RequestQueue queue = Volley.newRequestQueue(DiagnoseResult.this);
-                queue.add(diagnoseRequest);
+                //String userID2 = getIntent().getStringExtra("userID");
                 Intent intent = new Intent(DiagnoseResult.this,DiagnoseRecommend.class);
+                intent.putExtra("moisture", moisture);
+                intent.putExtra("oil", oil);
+                intent.putExtra("blemish", blemish);
                 startActivity(intent);
             }
         });

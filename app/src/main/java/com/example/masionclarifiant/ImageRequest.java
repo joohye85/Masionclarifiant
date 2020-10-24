@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ImageRequest extends StringRequest {
-    final static private String URL = "http://wngp0805.dothome.co.kr/started_python.php";
+    final static private String URL = "http://3.35.37.0/started_python.php";
     private Map<String, String> map;
 
     public ImageRequest(String userID, Response.Listener<String> listener) {
