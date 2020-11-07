@@ -11,7 +11,7 @@ import java.util.Map;
 
 //테이블에 최근 조합 데이터 3개 불러오는 Request
 public class Recently_three_dataRequest extends StringRequest {
-    final static private String URL = "http://wngp0805.dothome.co.kr/r_t_d.php";
+    final static private String URL = "http://3.35.37.0/r_t_d.php";
     private Map<String, String> map;
 
     public Recently_three_dataRequest(String userID, Response.Listener<String> listener) {

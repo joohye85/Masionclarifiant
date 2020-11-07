@@ -60,11 +60,12 @@
                         app:cpb_start_angle="0"/>
 
                     <TextView
+                        android:id="@+id/moi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#1f1f1f"
+                        android:layout_centerInParent="true"
                         android:text="수분\n\n46%"
-                        android:layout_centerInParent="true"/>
+                        android:textColor="#1f1f1f" />
                 </RelativeLayout>
                 <RelativeLayout
                     android:layout_width="wrap_content"
@@ -83,11 +84,12 @@
                         />
 
                     <TextView
+                        android:id="@+id/oi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#1f1f1f"
+                        android:layout_centerInParent="true"
                         android:text="유분\n\n61%"
-                        android:layout_centerInParent="true"/>
+                        android:textColor="#1f1f1f" />
                 </RelativeLayout>
             </LinearLayout>
         </RelativeLayout>

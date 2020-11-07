@@ -8,7 +8,7 @@ import java.util.Map;
 
 //가장 많이 팔린 제품 1순위
 public class RecentlyFragRequest extends StringRequest {
-    final static private String URL="http://wngp0805.dothome.co.kr/best_item.php";
+    final static private String URL="http://3.35.37.0/best_item.php";
     private Map<String,String> map;
 
     public RecentlyFragRequest(Response.Listener<String>listener){

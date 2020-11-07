@@ -7,12 +7,11 @@ import com.android.volley.toolbox.StringRequest;
 import java.util.HashMap;
 import java.util.Map;
 
-//ID 중복검사하는 Request
-public class CheckRequest extends StringRequest {
-    final static private String URL = "http://3.35.37.0/id_check.php";
+public class SkinResultRequest extends StringRequest {
+    final static private String URL = "http://3.35.37.0/get_skin_result.php";
     private Map<String, String> map;
 
-    public CheckRequest(String userID, Response.Listener<String> listener) {
+    public SkinResultRequest(String userID, Response.Listener<String> listener) {
         super(Request.Method.POST, URL, listener, null);//위 url에 post방식으로 값을 전송
         map = new HashMap<>();
         map.put("userID", userID);
@@ -23,3 +22,4 @@ public class CheckRequest extends StringRequest {
         return map;
     }
 }
+

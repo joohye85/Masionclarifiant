@@ -30,10 +30,6 @@ import java.util.ArrayList;
 
 public class DiagnoseRecommend extends AppCompatActivity {
     PieChart pieChart;
-    public static int moisture = 41; //db에서 수분값 받아옴
-    public static int oil = 61; //db에서 유분값 받아옴
-    public static int blemish = 32; //db에서 잡티 받아옴
-    public static String test ="";
     Button goMixBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +38,10 @@ public class DiagnoseRecommend extends AppCompatActivity {
         goMixBtn = (Button)findViewById(R.id.go_recommend_mix_btn);
 
         final String userID = getIntent().getStringExtra("userID");
-        Response.Listener<String> res = new Response.Listener<String>() {
+        int moisture= getIntent().getIntExtra("moisture", 1);
+        int oil = getIntent().getIntExtra("oil",1);
+        int blemish = getIntent().getIntExtra("blemish",1);
+        /*Response.Listener<String> res = new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
@@ -58,7 +57,7 @@ public class DiagnoseRecommend extends AppCompatActivity {
         };
         DiagnoseRequest diagnoseRequest = new DiagnoseRequest(userID, res);
         RequestQueue queue = Volley.newRequestQueue(DiagnoseRecommend.this);
-        queue.add(diagnoseRequest);
+        queue.add(diagnoseRequest);*/
 
         String water = null; //0.3 증가인지 감소인지 보내기
         Pair[] mix = new Pair[3];
@@ -151,6 +150,7 @@ public class DiagnoseRecommend extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(DiagnoseRecommend.this, CombiActivity.class);
+                intent.putExtra("userID", userID);
                 startActivity(intent);
             }
         });

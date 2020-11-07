@@ -8,7 +8,7 @@ import java.util.Map;
 
 //회원가입 Request
 public class RegisterRequest extends StringRequest {
-    final static private String URL="http://wngp0805.dothome.co.kr/register.php";
+    final static private String URL="http://3.35.37.0/register.php";
     private Map<String,String> map;
 
     public RegisterRequest(String userID, String userPW, String gender, String age, String skinType, String interest, Response.Listener<String>listener){
