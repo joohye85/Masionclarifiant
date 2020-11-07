@@ -52,7 +52,7 @@ public class DiagnoseMeasure extends AppCompatActivity {
                 loadingImg.clearAnimation();
                 loadingImg.setVisibility(View.GONE);
             }
-        }, 6200);
+        }, 2000);
 
         go_pic_skin.setOnClickListener(new View.OnClickListener() {
             @Override

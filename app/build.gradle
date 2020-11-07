@@ -41,6 +41,6 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui:2.3.0'
     //chart 사용
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
-    //cir
+    //circular
     implementation 'com.mikhaellopez:circularprogressbar:3.0.3'
 }

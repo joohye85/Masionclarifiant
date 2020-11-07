@@ -1,11 +1,17 @@
 package com.example.masionclarifiant;
 
+import android.app.ActionBar;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,7 +22,7 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 
 public class DiagnoseCam1 extends AppCompatActivity{
-    public static String wifiModuleIp = "220.69.172.222";
+    public static String wifiModuleIp = "220.69.172.78";
     public static int wifiModulePort = 9999;
     WebView webView;
     Button takePictureBtn;
@@ -30,7 +36,11 @@ public class DiagnoseCam1 extends AppCompatActivity{
         webView.getSettings().setLoadWithOverviewMode(true);
         webView.getSettings().setUseWideViewPort(true);
 
-        String url ="http://220.69.172.222:8080/stream/video.mjpeg";
+        DrawOnTop mDraw = new DrawOnTop(this);
+
+        addContentView(mDraw, new LinearLayout.LayoutParams(ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT));
+
+        String url ="http://220.69.172.78:8080/stream/video.mjpeg";
         webView.loadUrl(url);
 
         takePictureBtn = findViewById(R.id.take_picture_btn);
@@ -45,6 +55,8 @@ public class DiagnoseCam1 extends AppCompatActivity{
                 webView = null;
             }
         });
+
+
     }
 
     public class Socket_AsyncTask extends AsyncTask<Void, Void, Void>
@@ -69,6 +81,22 @@ public class DiagnoseCam1 extends AppCompatActivity{
                 e.printStackTrace();
             }
             return null;
+        }
+    }
+
+    class DrawOnTop extends View{
+        public DrawOnTop(Context context){
+            super(context);
+        }
+
+        @Override
+        protected void onDraw(Canvas canvas) {
+            Paint paint = new Paint();
+            paint.setStyle(Paint.Style.STROKE);
+            paint.setColor(Color.BLUE);
+            paint.setStrokeWidth(4);
+            canvas.drawRect(webView.getX()+60, webView.getY()+20, webView.getX()+780, webView.getY()+400, paint);
+            super.onDraw(canvas);
         }
     }
 }
