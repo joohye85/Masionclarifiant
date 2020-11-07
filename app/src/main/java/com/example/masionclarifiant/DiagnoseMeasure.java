@@ -45,6 +45,8 @@ public class DiagnoseMeasure extends AppCompatActivity {
         measure_state = (TextView)findViewById(R.id.measuer_state);
         go_pic_skin = (Button)findViewById(R.id.go_pic_skin);
 
+        System.out.println("Measure 들어왔음");
+
         Handler hd = new Handler();
         hd.postDelayed(new Runnable() {
             @Override
@@ -54,17 +56,18 @@ public class DiagnoseMeasure extends AppCompatActivity {
                 loadingImg.clearAnimation();
                 loadingImg.setVisibility(View.GONE);
             }
-        }, 6200);
+        }, 4000);
 
         go_pic_skin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent intent = new Intent(DiagnoseMeasure.this, DiagnoseCam1.class);
                 intent.putExtra("userID", userID);
                 startActivity(intent);
             }
         });
-        Thread checkUpdate = new Thread() {
+        /*Thread checkUpdate = new Thread() {
             public void run() {
                 try{
                     InetAddress inetAddress = InetAddress.getByName(DiagnoseCam1.wifiModuleIp);
@@ -116,7 +119,7 @@ public class DiagnoseMeasure extends AppCompatActivity {
                 }
             }
         };
-        checkUpdate2.start();
+        checkUpdate2.start();*/
     }
 
 }

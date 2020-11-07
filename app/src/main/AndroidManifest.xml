@@ -46,6 +46,9 @@
         <activity android:name=".DiagnoseCam1"/>
         <activity android:name=".DiagnoseCam2"/>
         <activity android:name=".DiagnoseCamMeasure"/>
+        <service android:name=".SocketService"
+            android:enabled="true"
+            android:exported="true"/>
     </application>
 
 </manifest>
