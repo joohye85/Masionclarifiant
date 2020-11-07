@@ -26,6 +26,7 @@ public class DiagnoseCam1 extends AppCompatActivity{
     //public static int wifiModulePort = 9999;
     WebView webView;
     Button takePictureBtn;
+    static String socket_msg = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +49,7 @@ public class DiagnoseCam1 extends AppCompatActivity{
         takePictureBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DiagnoseStart.diagnoseThread.sendMessage("go picture");
+                socket_msg = "go picture";
                 Intent intent = new Intent(DiagnoseCam1.this, DiagnoseCam2.class);
                 startActivity(intent);
                 webView.destroy();
@@ -98,5 +99,21 @@ public class DiagnoseCam1 extends AppCompatActivity{
             canvas.drawRect(webView.getX()+60, webView.getY()+20, webView.getX()+780, webView.getY()+400, paint);
             super.onDraw(canvas);
         }
+    }
+
+    static String getMsg(){
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while(true){
+                    if(socket_msg != null){
+                        break;
+                    }
+                }
+            }
+        }).start();
+
+        System.out.println("CAM- 메시지 보내: " + socket_msg);
+        return socket_msg;
     }
 }
