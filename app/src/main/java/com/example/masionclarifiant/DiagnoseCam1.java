@@ -22,8 +22,8 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 
 public class DiagnoseCam1 extends AppCompatActivity{
-    public static String wifiModuleIp = "220.69.172.78";
-    public static int wifiModulePort = 9999;
+    //public static String wifiModuleIp = "220.69.172.66";
+    //public static int wifiModulePort = 9999;
     WebView webView;
     Button takePictureBtn;
 
@@ -35,6 +35,7 @@ public class DiagnoseCam1 extends AppCompatActivity{
         webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setLoadWithOverviewMode(true);
         webView.getSettings().setUseWideViewPort(true);
+        System.out.println("들어왔음");
 
         DrawOnTop mDraw = new DrawOnTop(this);
 
@@ -47,8 +48,19 @@ public class DiagnoseCam1 extends AppCompatActivity{
         takePictureBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Socket_AsyncTask cmd_start_motor = new Socket_AsyncTask();
-                cmd_start_motor.execute();
+                if(DiagnoseThread.socket != null){
+                    System.out.println("socket 있음");
+                    try {
+                        DataOutputStream dataOutputStream = new DataOutputStream(DiagnoseThread.socket.getOutputStream());
+                        dataOutputStream.writeUTF("picture from android (i'm jihyeon)");
+                        dataOutputStream.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+                else{
+                    System.out.println("socket 없음");
+                }
                 Intent intent = new Intent(DiagnoseCam1.this, DiagnoseCam2.class);
                 startActivity(intent);
                 webView.destroy();
@@ -59,7 +71,7 @@ public class DiagnoseCam1 extends AppCompatActivity{
 
     }
 
-    public class Socket_AsyncTask extends AsyncTask<Void, Void, Void>
+   /* public class Socket_AsyncTask extends AsyncTask<Void, Void, Void>
     {
         Socket socket;
 
@@ -82,7 +94,7 @@ public class DiagnoseCam1 extends AppCompatActivity{
             }
             return null;
         }
-    }
+    }*/
 
     class DrawOnTop extends View{
         public DrawOnTop(Context context){
