@@ -33,7 +33,7 @@ public class DiagnoseStart extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.diagnose_start);
-
+        final String userID = getIntent().getStringExtra("userID");
         Intent intent = new Intent(DiagnoseStart.this, SocketService.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startService(intent);
@@ -70,6 +70,7 @@ public class DiagnoseStart extends AppCompatActivity {
                 socket_msg = "wngp0805";
                 Intent intent = new Intent(DiagnoseStart.this, DiagnoseMeasure.class);
                 //intent.putExtra("socket", diagnoseThread.socket);
+                intent.putExtra("userID", userID);
                 startActivity(intent);
             }
         });

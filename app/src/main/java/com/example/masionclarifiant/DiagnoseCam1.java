@@ -12,6 +12,7 @@ import android.view.View;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -36,6 +37,9 @@ public class DiagnoseCam1 extends AppCompatActivity{
         webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setLoadWithOverviewMode(true);
         webView.getSettings().setUseWideViewPort(true);
+        final String userID = getIntent().getStringExtra("userID");
+        TextView measure_text = (TextView) findViewById(R.id.measuer_text);
+        measure_text.setText(userID+"님 오늘의 피부 상태를 측정해보세요!");
         System.out.println("들어왔음");
 
         DrawOnTop mDraw = new DrawOnTop(this);
