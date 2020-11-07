@@ -64,7 +64,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
-                        android:text="수분\n\n46%"
+                        android:text="수분\n\n31%"
                         android:textColor="#1f1f1f" />
                 </RelativeLayout>
                 <RelativeLayout
@@ -88,7 +88,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
-                        android:text="유분\n\n61%"
+                        android:text="유분\n\n70%"
                         android:textColor="#1f1f1f" />
                 </RelativeLayout>
             </LinearLayout>

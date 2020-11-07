@@ -5,6 +5,8 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
@@ -26,6 +28,7 @@ import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 import com.github.mikephil.charting.formatter.LargeValueFormatter;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -41,37 +44,44 @@ public class DiagnoseResult extends AppCompatActivity {
     public static int moisture = 0; //db에서 수분값 받아옴
     public static int oil = 0; //db에서 유분값 받아옴
     public static int blemish = 0; //db에서 잡티 받아옴
-    public static double clean = 1; //청결도
-    public static double wrinkle = 2; //주름
-    public static double liver_spot = 3; //기미
-    public static int skin_age = 0; //피부나이
+    public static double clean = 0; //청결도
+    public static double wrinkle = 0; //주름
+    public static double liver_spot = 0; //기미
+    public static int skinDate2, skinDate3, skinDate1 = 1;
+    public static int Skinage1, Skinage2, Skinage3 = 1;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.diagnose_result);
+        TextView moi = (TextView) findViewById(R.id.moi);
+        TextView oi = (TextView) findViewById(R.id.oi);
         goHomeBtn = findViewById(R.id.go_home_btn);
         goRecommendBtn = findViewById(R.id.go_recommend_btn);
-        String userID = getIntent().getStringExtra("userID");
+        final String userID = getIntent().getStringExtra("userID");
+
+        //청결도, 기미, 주름 불러오기
         Response.Listener<String> res = new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try{
                     JSONObject jsonObject = new JSONObject(response);
-
-                    clean = jsonObject.getDouble("clean");
+                    clean = jsonObject.getInt("clean");
                     liver_spot = jsonObject.getDouble("liver_spot");
                     wrinkle = jsonObject.getDouble("wrinkle");
                 }catch (Exception e){e.printStackTrace();}
             }
         };
+
         SkinResultRequest skinResultRequest = new SkinResultRequest(userID, res);
         RequestQueue queue = Volley.newRequestQueue(DiagnoseResult.this);
         queue.add(skinResultRequest);
-        System.out.println("테스트으으으으으으"+clean+"ㄴㅁㅇㄴㅇㅁㄴㅇㅁㄴ"+liver_spot+"좀가라제발~!~>!!~"+wrinkle);
 
+        moi.setText(" 수분\n\n "+moisture+"%");
+        oi.setText(" 유분\n\n "+oil+"%");
 
+        //유수분, 여드름 불러오기
         Response.Listener<String> resp = new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -87,15 +97,43 @@ public class DiagnoseResult extends AppCompatActivity {
         };
         DiagnoseRequest diagnoseRequest = new DiagnoseRequest(userID, resp);
         RequestQueue queue2 = Volley.newRequestQueue(DiagnoseResult.this);
-        queue.add(diagnoseRequest);
+        queue2.add(diagnoseRequest);
 
+        //피부나이, 측정날짜 3개 배열 불러오기
+        Response.Listener<String> res2 = new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try{
+                    JSONArray jsonArray = new JSONArray(response);
+                    for(int i=0;i<jsonArray.length();i++){
+                        JSONObject jsonObject2 = jsonArray.getJSONObject(i);
+                        int skin__age = jsonObject2.getInt("skin_age");
+                        String skin__Date = jsonObject2.getString("skinDate");
+                        if(i==0) {
+                            Skinage3 = skin__age;
+                            skinDate3 = Integer.parseInt(skin__Date.substring(5,7));
+                        }
+                        else if(i==1) {
+                            Skinage2 = skin__age;
+                            skinDate2 = Integer.parseInt(skin__Date.substring(5,7));
+                        }
+                        else {
+                            Skinage1 = skin__age;
+                            skinDate1 = Integer.parseInt(skin__Date.substring(5,7));
+                        }
+                    }
+                }catch (Exception e){e.printStackTrace();}
+            }
+        };
+        Recently_three_skinageRequest recently_three_skinageRequest = new Recently_three_skinageRequest(userID, res2);
+        RequestQueue queue1 = Volley.newRequestQueue(DiagnoseResult.this);
+        queue1.add(recently_three_skinageRequest);
 
         barChart = (BarChart)findViewById(R.id.barChart);
         barChart.setDescription(null);
         barChart.setScaleEnabled(false);
         barChart.setDrawBarShadow(false);
         barChart.setDrawGridBackground(false);
-
         ArrayList xVals = new ArrayList();
         xVals.add("주름");
         xVals.add("기미");
@@ -103,11 +141,11 @@ public class DiagnoseResult extends AppCompatActivity {
         ArrayList yVals1 = new ArrayList();
         ArrayList yVals2 = new ArrayList();
         yVals1.add(new BarEntry(1, (float) wrinkle));
-        yVals2.add(new BarEntry(1, (float) 1));
+        yVals2.add(new BarEntry(1, (float) 50));
         yVals1.add(new BarEntry(2, (float) liver_spot));
-        yVals2.add(new BarEntry(2, (float) 3));
+        yVals2.add(new BarEntry(2, (float) 9));
         yVals1.add(new BarEntry(3, (float) clean));
-        yVals2.add(new BarEntry(3, (float) 4));
+        yVals2.add(new BarEntry(3, (float) 25));
 
         BarDataSet bar_set1, bar_set2;
         bar_set1 = new BarDataSet(yVals1, "내 피부");
@@ -155,9 +193,9 @@ public class DiagnoseResult extends AppCompatActivity {
 
         LineData chartData = new LineData();
 
-        //아직 수정 필요 -> 그래프 선 색상, 수치 바꿈
-        entry1.add(new Entry(10, 26));
-
+        entry1.add(new Entry(skinDate1, Skinage1));
+        entry1.add(new Entry(skinDate2, Skinage2));
+        entry1.add(new Entry(skinDate3, Skinage3));
 
         LineDataSet list_set1 = new LineDataSet(entry1, "피부나이");
         list_set1.setColor(Color.rgb(0, 0, 0));
@@ -167,8 +205,8 @@ public class DiagnoseResult extends AppCompatActivity {
         chartData.addDataSet(list_set1);
 
         YAxis line_yAxisLeft = lineChart.getAxisLeft();
-        line_yAxisLeft.setAxisMaximum(50);
-        line_yAxisLeft.setAxisMinimum(20);
+        line_yAxisLeft.setAxisMaximum(70);
+        line_yAxisLeft.setAxisMinimum(10);
 
         XAxis line_xAxis = lineChart.getXAxis();
         line_xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
@@ -186,7 +224,7 @@ public class DiagnoseResult extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(DiagnoseResult.this,MainActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-
+                intent.putExtra("userID", userID);
                 startActivity(intent);
             }
         });
@@ -199,6 +237,7 @@ public class DiagnoseResult extends AppCompatActivity {
                 intent.putExtra("moisture", moisture);
                 intent.putExtra("oil", oil);
                 intent.putExtra("blemish", blemish);
+                intent.putExtra("userID", userID);
                 startActivity(intent);
             }
         });

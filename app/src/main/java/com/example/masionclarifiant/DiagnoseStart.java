@@ -25,13 +25,15 @@ public class DiagnoseStart extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.diagnose_start);
-
+        final String userID = getIntent().getStringExtra("userID");
         backBtn = findViewById(R.id.slide_back);
         nextBtn = findViewById(R.id.slide_next);
         diagnoseBtn = findViewById(R.id.intro_diagnose_btn);
 
         mSlideViewPager = (ViewPager) findViewById(R.id.slideViewPager);
         mDotLayout = (LinearLayout) findViewById(R.id.dotsLayout);
+        TextView measure_text = (TextView) findViewById(R.id.measuer_text);
+        measure_text.setText(userID+"님 오늘의 피부 상태를 측정해보세요!");
 
         sliderAdapter = new SliderAdapter(this);
         mSlideViewPager.setAdapter(sliderAdapter);
@@ -56,6 +58,7 @@ public class DiagnoseStart extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(DiagnoseStart.this, DiagnoseMeasure.class);
+                intent.putExtra("userID", userID);
                 startActivity(intent);
             }
         });
@@ -108,8 +111,10 @@ public class DiagnoseStart extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        String userID = getIntent().getStringExtra("userID");
         Intent intent = new Intent(DiagnoseStart.this, MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.putExtra("userID", userID);
         startActivity(intent);
     }
 }
