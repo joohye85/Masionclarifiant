@@ -78,11 +78,13 @@ public class SocketService extends Service {
         Thread sendThread = new Thread() {
             public void run() {
                 while(true){
-                    String start_msg = "";
+                    String start_msg = DiagnoseStart.getMsg();
+                    Log.d("SocketConnect", "socket-start_msg: " + start_msg);
                     String cam_msg = DiagnoseCam1.getMsg();
+                    Log.d("SocketConnect", "socket-cam_msg: " + cam_msg);
                     if(cam_msg != null){
                         try{
-                            Log.i("SocketConnect", "Cam 메시지 보냄");
+                            Log.d("SocketConnect", "Cam 메시지 보냄");
                             dataOutputStream.writeUTF(cam_msg);
                             dataOutputStream.flush();
                         } catch (IOException e) {
@@ -91,7 +93,7 @@ public class SocketService extends Service {
                     }
                     else if(start_msg != null){
                         try{
-                            Log.i("SocketConnect", "Start 메시지 보냄");
+                            Log.d("SocketConnect", "Start 메시지 보냄");
                             dataOutputStream.writeUTF(start_msg);
                             dataOutputStream.flush();
                         } catch (IOException e) {

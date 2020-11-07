@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Html;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -33,6 +34,8 @@ public class DiagnoseStart extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.diagnose_start);
+
+        Log.d("SocketConnect", "START 들어왔음");
 
         Intent intent = new Intent(DiagnoseStart.this, SocketService.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -191,6 +194,7 @@ public class DiagnoseStart extends AppCompatActivity {
             @Override
             public void run() {
                 while(true){
+                    Log.d("SocketConnect", "Start: " + socket_msg);
                     if(socket_msg != null){
                         break;
                     }
@@ -198,7 +202,7 @@ public class DiagnoseStart extends AppCompatActivity {
             }
         }).start();
 
-        System.out.println("START- 메시지 보내: " + socket_msg);
+        Log.d("SocketConnect", "Start 메시지 보냄");
         return socket_msg;
     }
 }
