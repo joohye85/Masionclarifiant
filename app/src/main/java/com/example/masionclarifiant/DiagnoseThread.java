@@ -14,7 +14,10 @@ public class DiagnoseThread extends Thread{
     public static Socket socket;
     public static String wifiModuleIp = "220.69.172.66";
     public static int wifiModulePort = 9999;
+    DataOutputStream dataOutputStream;
+    DataInputStream dataInputStream;
     private Handler mHandler;
+
     @Override
     public void run() {
         try{
@@ -22,24 +25,45 @@ public class DiagnoseThread extends Thread{
             socket = new java.net.Socket(inetAddress, wifiModulePort);
             if(socket != null){
                 System.out.println("소켓 연결됨");
-                DataOutputStream dataOutputStream = new DataOutputStream(socket.getOutputStream());
-                dataOutputStream.writeUTF("wngp0805");
-                dataOutputStream.close();
-                //objectOutputStream.close();
-                DataInputStream dataInputStream = new DataInputStream(socket.getInputStream());
-                String line = "";
-                while(true){
-                    byte[] receiver = new byte[35];
-                    dataInputStream.read(receiver);
-                    System.out.println(receiver);
-                    line = new String(receiver);
-                    System.out.print(line);
-                }
+                dataOutputStream = null;
+                dataOutputStream = new DataOutputStream(socket.getOutputStream());
+                dataInputStream = new DataInputStream(socket.getInputStream());
             }
         }catch (UnknownHostException e){
             e.printStackTrace();
         }catch (IOException e){
             e.printStackTrace();
+        }
+    }
+
+    public void sendMessage(String msg){
+        try {
+            dataOutputStream.writeUTF(msg);
+            System.out.println("보내짐");
+        } catch (IOException e) {
+            System.out.println("못 보냄");
+            e.printStackTrace();
+        }
+    }
+
+    public void closeMessage() throws IOException {
+        dataOutputStream.close();
+    }
+
+    public void receiveMessage(){
+        String line="";
+        while(true){
+            byte[] receiver = new byte[35];
+            try {
+                dataInputStream.read(receiver);
+                System.out.println(receiver);
+                line = new String(receiver);
+                if(line.equals("exit")){
+                    socket.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

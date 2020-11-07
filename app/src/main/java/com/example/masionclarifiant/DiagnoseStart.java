@@ -14,6 +14,7 @@ import androidx.viewpager.widget.ViewPager;
 public class DiagnoseStart extends AppCompatActivity {
     private ViewPager mSlideViewPager;
     private LinearLayout mDotLayout;
+    public static DiagnoseThread diagnoseThread;
 
     private TextView[] mDots;
 
@@ -55,8 +56,9 @@ public class DiagnoseStart extends AppCompatActivity {
         diagnoseBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DiagnoseThread diagnoseThread = new DiagnoseThread();
+                diagnoseThread = new DiagnoseThread();
                 diagnoseThread.start();
+                diagnoseThread.sendMessage("wngp0805");
                 Intent intent = new Intent(DiagnoseStart.this, DiagnoseMeasure.class);
                 startActivity(intent);
             }

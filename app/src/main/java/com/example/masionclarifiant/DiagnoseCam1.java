@@ -48,19 +48,7 @@ public class DiagnoseCam1 extends AppCompatActivity{
         takePictureBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(DiagnoseThread.socket != null){
-                    System.out.println("socket 있음");
-                    try {
-                        DataOutputStream dataOutputStream = new DataOutputStream(DiagnoseThread.socket.getOutputStream());
-                        dataOutputStream.writeUTF("picture from android (i'm jihyeon)");
-                        dataOutputStream.close();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-                else{
-                    System.out.println("socket 없음");
-                }
+                DiagnoseStart.diagnoseThread.sendMessage("go picture");
                 Intent intent = new Intent(DiagnoseCam1.this, DiagnoseCam2.class);
                 startActivity(intent);
                 webView.destroy();
