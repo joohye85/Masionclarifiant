@@ -37,6 +37,7 @@ public class CombiActivity extends AppCompatActivity {
 
     public static String skintype;
     public static String i_Name ="";
+    public static String Perfume;
 
     Button motorStart;
 
@@ -58,6 +59,7 @@ public class CombiActivity extends AppCompatActivity {
                     if(success){
                         String skinType = jsonObject.getString("skinType");
                         String i_name = jsonObject.getString("i_name");
+                        String perfume = jsonObject.getString("perfume");
                         //i_Name = jsonObject.getString("i_name");
 
                        if(skinType.equals("토너")) skintype = ",toner";
@@ -70,7 +72,14 @@ public class CombiActivity extends AppCompatActivity {
                         if(i_name.contains("녹차")) i_Name += ",greentea";
                         if(i_name.contains("달팽이")) i_Name += ",snail";
                         if(i_name.contains("올리브")) i_Name += ",olive";
-                        //Toast.makeText(getApplicationContext(),i_Name + skintype,Toast.LENGTH_SHORT).show();
+                        if(i_name.contains("유자")) i_Name += ",citron";
+                        if(i_name.contains("백차")) i_Name += ",whitetea";
+
+                        if (perfume.equals("티트리")) Perfume = ",teatree";
+                        else if(perfume.equals("로즈마리")) Perfume = ",rosemary";
+                        else Perfume = ",no_perfume";
+
+                        Toast.makeText(getApplicationContext(),i_Name + skintype + Perfume,Toast.LENGTH_SHORT).show();
                     }else{
                         Toast.makeText(getApplicationContext(), "데이터 불러오기 실패", Toast.LENGTH_SHORT).show();
                     }
@@ -89,6 +98,7 @@ public class CombiActivity extends AppCompatActivity {
                 CombiActivity.this.finish();
                 i_Name ="";
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                intent.putExtra("userID", userID);
                 startActivity(intent);
             }
         });
@@ -129,6 +139,7 @@ public class CombiActivity extends AppCompatActivity {
                 dataOutputStream.writeBytes(CMD);
                 dataOutputStream.writeBytes(skintype);
                 dataOutputStream.writeBytes(i_Name);
+                dataOutputStream.writeBytes(Perfume);
                 dataOutputStream.close();
                 //objectOutputStream.close();
                 socket.close();
@@ -143,8 +154,10 @@ public class CombiActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        String userID = getIntent().getStringExtra("userID");
         Intent intent = new Intent(CombiActivity.this, MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.putExtra("userID", userID);
         startActivity(intent);
     }
 }

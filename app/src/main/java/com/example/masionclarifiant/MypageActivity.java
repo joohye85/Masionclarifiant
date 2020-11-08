@@ -138,7 +138,9 @@ public class MypageActivity extends AppCompatActivity{
         back_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MypageActivity.super.onBackPressed();
+                Intent intent = new Intent(MypageActivity.this, MainActivity.class);
+                intent.putExtra("userID", userID);
+                startActivity(intent);
             }
         });
 
@@ -202,7 +204,9 @@ public class MypageActivity extends AppCompatActivity{
 
     @Override
     public void onBackPressed() {
+        String userID = getIntent().getStringExtra("userID");
         Intent intent = new Intent(MypageActivity.this, MainActivity.class);
+        intent.putExtra("userID", userID);
         startActivity(intent);
     }
 }

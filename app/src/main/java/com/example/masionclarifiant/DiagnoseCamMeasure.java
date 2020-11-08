@@ -27,6 +27,9 @@ public class DiagnoseCamMeasure extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.diagnose_cam_measure);
         camMeasureState = (TextView)findViewById(R.id.cam_measure_state);
+        final String userID = getIntent().getStringExtra("userID");
+        TextView measure_text = (TextView) findViewById(R.id.measuer_text);
+        measure_text.setText(userID+"님 오늘의 피부 상태를 측정해보세요!");
 
         loadingImg = (ImageView)findViewById(R.id.loading_img);
         Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.rotate);
@@ -48,6 +51,7 @@ public class DiagnoseCamMeasure extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(DiagnoseCamMeasure.this, DiagnoseFin.class);
+                intent.putExtra("userID", userID);
                 startActivity(intent);
             }
         });

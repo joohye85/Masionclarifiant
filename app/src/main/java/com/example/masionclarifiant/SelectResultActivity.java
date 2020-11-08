@@ -199,7 +199,7 @@ public class SelectResultActivity extends AppCompatActivity {
                                                 ingredient.delete(0,ingredient.length());
                                                 i_name2.delete(0,i_name2.length());
                                                 Intent intent = new Intent(SelectResultActivity.this, CombiActivity.class);
-                                                //intent.putExtra("userID",userID);
+                                                intent.putExtra("userID",userID);
                                                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP);
                                                 SelectResultActivity.this.finish();
                                                 SelectResultActivity.this.startActivity(intent);

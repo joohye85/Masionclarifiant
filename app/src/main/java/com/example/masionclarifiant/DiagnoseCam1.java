@@ -8,11 +8,11 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -37,13 +37,16 @@ public class DiagnoseCam1 extends AppCompatActivity{
         webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setLoadWithOverviewMode(true);
         webView.getSettings().setUseWideViewPort(true);
-        Log.d("SocketConnect", "CAM 들어왔음");
+        final String userID = getIntent().getStringExtra("userID");
+        TextView measure_text = (TextView) findViewById(R.id.measuer_text);
+        measure_text.setText(userID+"님 오늘의 피부 상태를 측정해보세요!");
+        System.out.println("들어왔음");
 
         DrawOnTop mDraw = new DrawOnTop(this);
 
         addContentView(mDraw, new LinearLayout.LayoutParams(ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT));
 
-        String url ="http://220.69.172.66:8080/stream/video.mjpeg";
+        String url ="http://220.69.172.78:8080/stream/video.mjpeg";
         webView.loadUrl(url);
 
         takePictureBtn = findViewById(R.id.take_picture_btn);
@@ -107,7 +110,6 @@ public class DiagnoseCam1 extends AppCompatActivity{
             @Override
             public void run() {
                 while(true){
-                    Log.d("SocketConnect", "CAM: " + socket_msg);
                     if(socket_msg != null){
                         break;
                     }
@@ -115,7 +117,7 @@ public class DiagnoseCam1 extends AppCompatActivity{
             }
         }).start();
 
-        Log.d("SocketConnect", "CAM 메시지 보냄");
+        System.out.println("CAM- 메시지 보내: " + socket_msg);
         return socket_msg;
     }
 }

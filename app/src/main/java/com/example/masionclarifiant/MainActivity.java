@@ -47,7 +47,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mainmenu2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String userID2 = getIntent().getStringExtra("userID");
                 Intent combiIntent = new Intent(MainActivity.this, CombiActivity.class);
+                combiIntent.putExtra("userID", userID2);
                 startActivity(combiIntent);
             }
         });

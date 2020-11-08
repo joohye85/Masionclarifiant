@@ -38,8 +38,10 @@ public class DiagnoseMeasure extends AppCompatActivity {
         setContentView(R.layout.diagnose_measure);
         loadingImg = (ImageView)findViewById(R.id.loading_img);
         Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.rotate);
+        final String userID = getIntent().getStringExtra("userID");
         loadingImg.setAnimation(animation);
-
+        TextView measure_text = (TextView) findViewById(R.id.measuer_text);
+        measure_text.setText(userID+"님 오늘의 피부 상태를 측정해보세요!");
         measure_state = (TextView)findViewById(R.id.measuer_state);
         go_pic_skin = (Button)findViewById(R.id.go_pic_skin);
 
@@ -61,6 +63,7 @@ public class DiagnoseMeasure extends AppCompatActivity {
             public void onClick(View view) {
 
                 Intent intent = new Intent(DiagnoseMeasure.this, DiagnoseCam1.class);
+                intent.putExtra("userID", userID);
                 startActivity(intent);
             }
         });

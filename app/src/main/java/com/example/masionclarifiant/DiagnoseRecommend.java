@@ -1,5 +1,6 @@
 package com.example.masionclarifiant;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.widget.Toast;
 
 import java.util.Random;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.RequestQueue;
@@ -31,6 +33,7 @@ import java.util.ArrayList;
 public class DiagnoseRecommend extends AppCompatActivity {
     PieChart pieChart;
     Button goMixBtn;
+    public static String water = ""; //0.3 증가인지 감소인지 보내기
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +44,7 @@ public class DiagnoseRecommend extends AppCompatActivity {
         int moisture= getIntent().getIntExtra("moisture", 1);
         int oil = getIntent().getIntExtra("oil",1);
         int blemish = getIntent().getIntExtra("blemish",1);
+        final StringBuilder i_name = new StringBuilder();
         /*Response.Listener<String> res = new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -59,7 +63,6 @@ public class DiagnoseRecommend extends AppCompatActivity {
         RequestQueue queue = Volley.newRequestQueue(DiagnoseRecommend.this);
         queue.add(diagnoseRequest);*/
 
-        String water = null; //0.3 증가인지 감소인지 보내기
         Pair[] mix = new Pair[3];
 
         String[] moisture_arr = {"알로에", "꿀"};
@@ -104,10 +107,10 @@ public class DiagnoseRecommend extends AppCompatActivity {
         }
 
         if(moisture <= 50){
-            water = "증가";
+            water = "토너";
         }
         else{
-            water = "감소";
+            water = "로션";
         }
 
         //pieChart
@@ -145,12 +148,27 @@ public class DiagnoseRecommend extends AppCompatActivity {
         l.setOrientation(Legend.LegendOrientation.HORIZONTAL);
 
         pieChart.setData(data);
-
+        i_name.append(moisture_ing+","+oil_ing+","+blemish_ing);
+        String i_Name = i_name.toString();
+        final String water2 = water.toString();
+        Response.Listener<String> res = new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try{
+                    JSONObject jsonObject = new JSONObject(response);
+                }catch (Exception e){e.printStackTrace();}
+            }
+        };
+        RecommendResultRequest recommendResultRequest = new RecommendResultRequest(userID, i_Name, water2, res);
+        RequestQueue queue = Volley.newRequestQueue(DiagnoseRecommend.this);
+        queue.add(recommendResultRequest);
         goMixBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                i_name.delete(0,i_name.length());
                 Intent intent = new Intent(DiagnoseRecommend.this, CombiActivity.class);
                 intent.putExtra("userID", userID);
+                intent.putExtra("Water", water);
                 startActivity(intent);
             }
         });
