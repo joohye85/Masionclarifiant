@@ -14,7 +14,6 @@ import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 public class RecentlyFrag3 extends Fragment {
     TextView text;

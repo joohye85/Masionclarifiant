@@ -132,7 +132,7 @@ public class CombiActivity extends AppCompatActivity {
         protected Void doInBackground(Void... params) {
             try{
                 InetAddress inetAddress = InetAddress.getByName(CombiActivity.wifiModuleIp);
-                socket = new java.net.Socket(inetAddress, CombiActivity.wifiModulePort);
+                socket = new Socket(inetAddress, CombiActivity.wifiModulePort);
                 //ObjectOutputStream objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
                 //objectOutputStream.writeObject(list);
                 DataOutputStream dataOutputStream = new DataOutputStream(socket.getOutputStream());

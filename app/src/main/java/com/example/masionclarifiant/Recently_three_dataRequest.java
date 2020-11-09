@@ -1,8 +1,5 @@
 package com.example.masionclarifiant;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
 
@@ -15,7 +12,7 @@ public class Recently_three_dataRequest extends StringRequest {
     private Map<String, String> map;
 
     public Recently_three_dataRequest(String userID, Response.Listener<String> listener) {
-        super(Request.Method.POST, URL, listener, null);//위 url에 post방식으로 값을 전송
+        super(Method.POST, URL, listener, null);//위 url에 post방식으로 값을 전송
         map = new HashMap<>();
         map.put("userID", userID);
     }

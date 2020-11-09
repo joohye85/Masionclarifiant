@@ -1,7 +1,11 @@
 package com.example.masionclarifiant;
 
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -26,12 +30,31 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     LinearLayout mainmenu1;
     LinearLayout mainmenu2;
 
+    public static SocketService socketService;
+
+    ServiceConnection conn = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName componentName, IBinder services) {
+            SocketService.SocketBinder sb = (SocketService.SocketBinder) services;
+            socketService = sb.getService();
+            System.out.println("start SocketService: " + socketService);
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName componentName) {
+
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         Log.d("SocketConnect", "main");
+
+        Intent serviceIntent = new Intent(MainActivity.this, SocketService.class);
+        bindService(serviceIntent, conn, Context.BIND_AUTO_CREATE);
 
      //메인 화면 버튼설정
         mainmenu1 = (LinearLayout)findViewById(R.id.mainmenu1);
@@ -72,7 +95,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //      menu.findItem(R.id.nav_logout).setVisible(false);
 
         navigationView.bringToFront();
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout,  R.string.navigation_drawer_open,R.string.navigation_drawer_close);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout,  R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
@@ -152,5 +175,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unbindService(conn);
     }
 }

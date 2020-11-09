@@ -14,13 +14,15 @@ import java.io.IOException;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class SocketService extends Service {
     private Socket socket;
-    private DataOutputStream dataOutputStream;
-    private DataInputStream dataInputStream;
     public static String wifiModuleIp = "220.69.172.141";
     public static int wifiModulePort = 9999;
+    DataOutputStream dataOutputStream;
+    DataInputStream dataInputStream;
     private Handler mHandler;
     final IBinder mBinder = new SocketBinder();
 
@@ -43,9 +45,8 @@ public class SocketService extends Service {
             public void run() {
                 try{
                     InetAddress inetAddress = InetAddress.getByName(wifiModuleIp);
-                    socket = new java.net.Socket(inetAddress, wifiModulePort);
-                    System.out.println("socekt: " + socket);
-                    send("yes");
+                    socket = new Socket(inetAddress, wifiModulePort);
+                    System.out.println("connct-socket: " + socket);
                 }catch (UnknownHostException e){
                     e.printStackTrace();
                 }catch (IOException e){
@@ -62,9 +63,6 @@ public class SocketService extends Service {
     }
 
     void disconnect(){
-        if(dataInputStream != null){
-            System.out.println("들어옴");
-        }
         try {
             dataInputStream.close();
             dataOutputStream.close();
@@ -79,14 +77,13 @@ public class SocketService extends Service {
         Thread sendThread = new Thread() {
             public void run() {
                 try{
-                    System.out.println("send");
-                    DataOutputStream dataOutputStream = new DataOutputStream(socket.getOutputStream());
-                    System.out.println("send-con");
-                    dataOutputStream.writeUTF(msg);
-                    System.out.println("send-success");
-                    dataOutputStream.flush();
+                    System.out.println("send-socket: " + socket);
+                    dataOutputStream = new DataOutputStream(getSocket().getOutputStream());
+                    if(dataOutputStream != null){
+                        dataOutputStream.writeUTF(msg);
+                        dataOutputStream.flush();
+                    }
                 } catch (IOException e) {
-                    System.out.println("exceptioin1");
                     e.printStackTrace();
                 }
             }
@@ -96,19 +93,26 @@ public class SocketService extends Service {
     }
 
     String receive(){
+        System.out.println("receive!!!!!");
         String msg ="";
-        while(true){
-            byte[] receiver = new byte[35];
-            try {
+        byte[] receiver = new byte[10];
+        try {
+            dataInputStream = new DataInputStream(getSocket().getInputStream());
+            if(dataInputStream != null){
                 dataInputStream.read(receiver);
-                System.out.println(receiver);
-                msg = new String(receiver);
-                if(msg != null){
-                    return msg;
+                if(receiver != null){
+                    msg = new String(receiver);
+                    Pattern pattern = Pattern.compile(".[a-z\\s]+"); //이상한 문자들도 들어와서 정규식 적용하여 필터링 함
+                    Matcher matcher = pattern.matcher(msg);
+                    while(matcher.find()) {
+                        msg = matcher.group();
+                    }
                 }
-            } catch (IOException e) {
-                e.printStackTrace();
             }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+
+        return msg;
     }
 }

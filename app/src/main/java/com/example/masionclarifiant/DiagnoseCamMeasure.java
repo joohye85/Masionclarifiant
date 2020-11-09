@@ -3,7 +3,7 @@ package com.example.masionclarifiant;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.provider.ContactsContract;
+import android.os.Message;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -13,9 +13,6 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.arch.core.executor.TaskExecutor;
-
-import org.w3c.dom.Text;
 
 public class DiagnoseCamMeasure extends AppCompatActivity {
     Button goSeeResult;
@@ -35,33 +32,31 @@ public class DiagnoseCamMeasure extends AppCompatActivity {
         Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.rotate);
         loadingImg.setAnimation(animation);
 
-        Thread checkUpdate = new Thread() {
-            public void run() {
-                while(true){
-                    SocketService socketService = DiagnoseStart.socketService;
-                    String msg = socketService.receive();
-                    System.out.println("cam_measure: " + msg);
-                    if(msg.equals("finish measure")){
-                        goSeeResult.setVisibility(View.VISIBLE);
-                        camMeasureState.setText("측정이 완료되었습니다.");
-                        loadingImg.clearAnimation();
-                        loadingImg.setVisibility(View.GONE);
-                    }
-                }
-            }
-        };
-        checkUpdate.start();
-
-        /*Handler hd = new Handler();
-        hd.postDelayed(new Runnable() {
-            @Override
-            public void run() {
+        final Handler cam_handler = new Handler(){
+            public void handleMessage(Message msg){
                 goSeeResult.setVisibility(View.VISIBLE);
                 camMeasureState.setText("측정이 완료되었습니다.");
                 loadingImg.clearAnimation();
                 loadingImg.setVisibility(View.GONE);
             }
-        }, 3000);*/
+        };
+
+        Thread camThread = new Thread() {
+            public void run() {
+                while(true){
+                    SocketService socketService = MainActivity.socketService;
+                    String msg = socketService.receive();
+                    System.out.println("cam_measure: " + msg);
+                    //opencv랑 통신해야됨
+                    if(msg.equals("camerafin")){
+                        Message handler_msg = cam_handler.obtainMessage();
+                        cam_handler.sendMessage(handler_msg);
+                        break;
+                    }
+                }
+            }
+        };
+        camThread.start();
 
         goSeeResult = (Button)findViewById(R.id.go_see_result);
         goSeeResult.setOnClickListener(new View.OnClickListener() {

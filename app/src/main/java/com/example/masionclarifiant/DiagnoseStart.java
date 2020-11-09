@@ -1,29 +1,16 @@
 package com.example.masionclarifiant;
 
-import android.content.ComponentName;
-import android.content.Context;
 import android.content.Intent;
-import android.content.ServiceConnection;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.IBinder;
 import android.text.Html;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
-
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.net.InetAddress;
-import java.net.Socket;
-import java.net.UnknownHostException;
-import com.example.masionclarifiant.SocketService.SocketBinder;
 
 public class DiagnoseStart extends AppCompatActivity {
     private ViewPager mSlideViewPager;
@@ -33,21 +20,6 @@ public class DiagnoseStart extends AppCompatActivity {
 
     private SliderAdapter sliderAdapter;
     private Button backBtn, nextBtn, diagnoseBtn;
-    public static SocketService socketService;
-
-    ServiceConnection conn = new ServiceConnection() {
-        @Override
-        public void onServiceConnected(ComponentName componentName, IBinder services) {
-            SocketBinder sb = (SocketBinder) services;
-            socketService = sb.getService();
-            System.out.println("start SocketService: " + socketService);
-        }
-
-        @Override
-        public void onServiceDisconnected(ComponentName componentName) {
-
-        }
-    };
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -57,9 +29,6 @@ public class DiagnoseStart extends AppCompatActivity {
         /*Intent intent = new Intent(DiagnoseStart.this, SocketService.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startService(intent);*/
-        Intent serviceIntent = new Intent(DiagnoseStart.this, SocketService.class);
-        bindService(serviceIntent, conn, Context.BIND_AUTO_CREATE);
-        socketService.connect();
 
         backBtn = findViewById(R.id.slide_back);
         nextBtn = findViewById(R.id.slide_next);
@@ -70,6 +39,9 @@ public class DiagnoseStart extends AppCompatActivity {
 
         sliderAdapter = new SliderAdapter(this);
         mSlideViewPager.setAdapter(sliderAdapter);
+
+        SocketService socketService = MainActivity.socketService;
+        socketService.connect();
 
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,6 +62,7 @@ public class DiagnoseStart extends AppCompatActivity {
         diagnoseBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                SocketService socketService = MainActivity.socketService;
                 socketService.send(userID);
                 Intent intent = new Intent(DiagnoseStart.this, DiagnoseMeasure.class);
                 intent.putExtra("userID", userID);

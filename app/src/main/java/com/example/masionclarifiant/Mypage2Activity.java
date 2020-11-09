@@ -166,7 +166,7 @@ public class Mypage2Activity extends AppCompatActivity{
                             JSONObject jsonObject = new JSONObject(response);
                             Boolean success = jsonObject.getBoolean("success");
                             if(success){
-                                android.app.AlertDialog.Builder builder = new AlertDialog.Builder(Mypage2Activity.this);
+                                AlertDialog.Builder builder = new AlertDialog.Builder(Mypage2Activity.this);
                                 builder.setMessage("변경되었습니다.")
                                         .setPositiveButton("확인", new DialogInterface.OnClickListener() {
                                             @Override
@@ -180,7 +180,7 @@ public class Mypage2Activity extends AppCompatActivity{
                                         .show();
 
                             }else{
-                                android.app.AlertDialog.Builder builder = new AlertDialog.Builder(Mypage2Activity.this);
+                                AlertDialog.Builder builder = new AlertDialog.Builder(Mypage2Activity.this);
                                 builder.setMessage("변경에 실패했습니다.")
                                         .setNegativeButton("확인", null)
                                         .create()

@@ -155,51 +155,42 @@
         </LinearLayout>
     </RelativeLayout>
 
-    <ImageView
-        android:id="@+id/wv_picture"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:src="@drawable/skin"
-        android:layout_below="@+id/check_circle"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
-        />
-
-    <LinearLayout
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_below="@+id/wv_picture"
-        android:gravity="center_horizontal"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="10dp">
-        <Button
-            android:id="@+id/take_picture_again_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="재촬영하기"
-            android:textSize="18dp"
-            android:textColor="@color/colorWhite"
-            android:layout_below="@+id/fin_text"
-            android:layout_centerHorizontal="true"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"
-            android:background="@drawable/round_rec"
-            android:backgroundTint="@color/colorDarkGreen"/>
+        android:text="*** 피부를 촬영해주세요 ***"
+        android:layout_below="@+id/check_circle"
+        android:id="@+id/skin_text"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:textColor="@color/colorBlack"
+        android:textSize="17dp" />
 
-        <Button
-            android:id="@+id/go_result_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="결과 확인하기"
-            android:textSize="18dp"
-            android:textColor="@color/colorWhite"
-            android:layout_below="@+id/fin_text"
-            android:layout_centerHorizontal="true"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"
-            android:background="@drawable/round_rec"
-            android:backgroundTint="@color/colorDarkPink"
-            android:layout_marginLeft="40dp"/>
-    </LinearLayout>
+    <WebView
+        android:id="@+id/wv_stream"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_below="@+id/skin_text"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"/>
+    <!--wheel:matProg_barColor="@color/colorDarkPink"
+    wheel:matProg_progressIndeterminate="true"-->
+
+
+    <Button
+        android:id="@+id/skin_take_picture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="피부 촬영하기"
+        android:textSize="20dp"
+        android:textColor="@color/colorWhite"
+        android:layout_below="@+id/wv_stream"
+        android:layout_centerHorizontal="true"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:background="@drawable/round_rec"
+        android:backgroundTint="@color/colorDarkPink"
+        android:layout_marginTop="30dp"/>
 </RelativeLayout>

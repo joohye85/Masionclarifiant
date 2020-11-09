@@ -1,10 +1,9 @@
 package com.example.masionclarifiant;
 
 import android.content.Intent;
-import android.graphics.Color;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Message;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -14,26 +13,23 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import org.w3c.dom.Text;
-
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.net.InetAddress;
-import java.net.Socket;
-import java.net.UnknownHostException;
-
 public class DiagnoseMeasure extends AppCompatActivity {
     TextView measure_state;
     Button go_pic_skin;
     ImageView loadingImg;
+    SocketService socketService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.diagnose_measure);
         loadingImg = (ImageView)findViewById(R.id.loading_img);
+
+        socketService = MainActivity.socketService;
+        System.out.println("measure: " + socketService);
+        socketService.send("moisture");
         Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.rotate);
+
         final String userID = getIntent().getStringExtra("userID");
         loadingImg.setAnimation(animation);
         TextView measure_text = (TextView) findViewById(R.id.measuer_text);
@@ -41,17 +37,23 @@ public class DiagnoseMeasure extends AppCompatActivity {
         measure_state = (TextView)findViewById(R.id.measuer_state);
         go_pic_skin = (Button)findViewById(R.id.go_pic_skin);
 
+        final Handler handler = new Handler(){
+            public void handleMessage(Message msg){
+                go_pic_skin.setVisibility(View.VISIBLE);
+                measure_state.setText("측정이 완료되었습니다.");
+                loadingImg.clearAnimation();
+                loadingImg.setVisibility(View.GONE);
+            }
+        };
+
         Thread checkUpdate = new Thread() {
             public void run() {
-                while(true){
-                    SocketService socketService = DiagnoseStart.socketService;
+                while (true) {
                     String msg = socketService.receive();
                     System.out.println("measure: " + msg);
-                    if(msg.equals("finish measure")){
-                        go_pic_skin.setVisibility(View.VISIBLE);
-                        measure_state.setText("측정이 완료되었습니다.");
-                        loadingImg.clearAnimation();
-                        loadingImg.setVisibility(View.GONE);
+                    if (msg.equals("measurefin")) {
+                        Message handler_msg = handler.obtainMessage();
+                        handler.sendMessage(handler_msg);
                         break;
                     }
                 }
@@ -59,45 +61,15 @@ public class DiagnoseMeasure extends AppCompatActivity {
         };
         checkUpdate.start();
 
-        /*Handler hd = new Handler();
-        hd.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                go_pic_skin.setVisibility(View.VISIBLE);
-                measure_state.setText("측정이 완료되었습니다.");
-                loadingImg.clearAnimation();
-                loadingImg.setVisibility(View.GONE);
-            }
-        }, 4000);*/
-
         go_pic_skin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(DiagnoseMeasure.this, DiagnoseCam1.class);
+                socketService.send("eyecam");
+                Intent intent = new Intent(DiagnoseMeasure.this, DiagnoseEyeCam.class);
                 intent.putExtra("userID", userID);
                 startActivity(intent);
             }
         });
-        /*
-        Thread checkUpdate2 = new Thread() {
-            public void run() {
-                try{
-                    InetAddress inetAddress = InetAddress.getByName(DiagnoseCam1.wifiModuleIp);
-                    socket = new java.net.Socket(inetAddress, DiagnoseCam1.wifiModulePort);
-                    if(socket != null){
-                        DataOutputStream dataOutputStream = new DataOutputStream(socket.getOutputStream());
-                        dataOutputStream.writeUTF("go camera");
-                        dataOutputStream.close();
-                        //objectOutputStream.close();
-                    }
-                }catch (UnknownHostException e){
-                    e.printStackTrace();
-                }catch (IOException e){
-                    e.printStackTrace();
-                }
-            }
-        };
-        checkUpdate2.start();*/
     }
 
 }

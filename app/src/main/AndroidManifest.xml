@@ -43,9 +43,11 @@
         <activity android:name=".DiagnoseFin"/>
         <activity android:name=".DiagnoseResult"/>
         <activity android:name=".DiagnoseRecommend"/>
-        <activity android:name=".DiagnoseCam1"/>
-        <activity android:name=".DiagnoseCam2"/>
+        <activity android:name=".DiagnoseEyeCam"/>
+        <activity android:name=".DiagnoseEyeCheck"/>
         <activity android:name=".DiagnoseCamMeasure"/>
+        <activity android:name=".DiagnoseSkinCam" />
+        <activity android:name=".DiagnoseSkinCheck"/>
         <service android:name=".SocketService"
             android:enabled="true"
             android:exported="true"/>
