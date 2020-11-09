@@ -42,37 +42,45 @@ public class DiagnoseCam1 extends AppCompatActivity{
         measure_text.setText(userID+"님 오늘의 피부 상태를 측정해보세요!");
         System.out.println("들어왔음");
 
+        /*Socket_AsyncTask cmd_start_motor = new Socket_AsyncTask();
+        cmd_start_motor.execute();*/
+
         DrawOnTop mDraw = new DrawOnTop(this);
 
         addContentView(mDraw, new LinearLayout.LayoutParams(ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT));
 
-        String url ="http://220.69.172.78:8080/stream/video.mjpeg";
+        String url ="http://220.69.172.82:8080/stream/video.mjpeg";
         webView.loadUrl(url);
 
         takePictureBtn = findViewById(R.id.take_picture_btn);
         takePictureBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                socket_msg = "go picture";
+                SocketService socketService = DiagnoseStart.socketService;
+                if(socketService != null){
+                    socketService.send("go picture");
+                    System.out.println(socketService.getSocket());
+                }
+                else{
+                    System.out.println("못 받아옴");
+                }
                 Intent intent = new Intent(DiagnoseCam1.this, DiagnoseCam2.class);
                 startActivity(intent);
                 webView.destroy();
                 webView = null;
             }
         });
-
-
     }
 
-   /* public class Socket_AsyncTask extends AsyncTask<Void, Void, Void>
+    /*public class Socket_AsyncTask extends AsyncTask<Void, Void, Void>
     {
         Socket socket;
 
         @Override
         protected Void doInBackground(Void... params) {
             try{
-                InetAddress inetAddress = InetAddress.getByName(DiagnoseCam1.wifiModuleIp);
-                socket = new java.net.Socket(inetAddress, DiagnoseCam1.wifiModulePort);
+                InetAddress inetAddress = InetAddress.getByName("220.69.17.82");
+                socket = new java.net.Socket(inetAddress, 9999);
                 if(socket != null){
                     DataOutputStream dataOutputStream = new DataOutputStream(socket.getOutputStream());
                     dataOutputStream.writeUTF("picture from android (i'm jihyeon)");
@@ -103,21 +111,5 @@ public class DiagnoseCam1 extends AppCompatActivity{
             canvas.drawRect(webView.getX()+60, webView.getY()+20, webView.getX()+780, webView.getY()+400, paint);
             super.onDraw(canvas);
         }
-    }
-
-    static String getMsg(){
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                while(true){
-                    if(socket_msg != null){
-                        break;
-                    }
-                }
-            }
-        }).start();
-
-        System.out.println("CAM- 메시지 보내: " + socket_msg);
-        return socket_msg;
     }
 }

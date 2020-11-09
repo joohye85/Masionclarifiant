@@ -35,7 +35,24 @@ public class DiagnoseCamMeasure extends AppCompatActivity {
         Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.rotate);
         loadingImg.setAnimation(animation);
 
-        Handler hd = new Handler();
+        Thread checkUpdate = new Thread() {
+            public void run() {
+                while(true){
+                    SocketService socketService = DiagnoseStart.socketService;
+                    String msg = socketService.receive();
+                    System.out.println("cam_measure: " + msg);
+                    if(msg.equals("finish measure")){
+                        goSeeResult.setVisibility(View.VISIBLE);
+                        camMeasureState.setText("측정이 완료되었습니다.");
+                        loadingImg.clearAnimation();
+                        loadingImg.setVisibility(View.GONE);
+                    }
+                }
+            }
+        };
+        checkUpdate.start();
+
+        /*Handler hd = new Handler();
         hd.postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -44,7 +61,7 @@ public class DiagnoseCamMeasure extends AppCompatActivity {
                 loadingImg.clearAnimation();
                 loadingImg.setVisibility(View.GONE);
             }
-        }, 3000);
+        }, 3000);*/
 
         goSeeResult = (Button)findViewById(R.id.go_see_result);
         goSeeResult.setOnClickListener(new View.OnClickListener() {

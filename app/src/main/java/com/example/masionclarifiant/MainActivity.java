@@ -2,6 +2,7 @@ package com.example.masionclarifiant;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -29,6 +30,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Log.d("SocketConnect", "main");
 
      //메인 화면 버튼설정
         mainmenu1 = (LinearLayout)findViewById(R.id.mainmenu1);

@@ -17,6 +17,7 @@ public class DiagnoseFin extends AppCompatActivity {
         final String userID = getIntent().getStringExtra("userID");
         TextView measure_text = (TextView) findViewById(R.id.measuer_text);
         measure_text.setText(userID+"님 오늘의 피부 상태를 측정해보세요!");
+
         goDiagnoseResult = (Button)findViewById(R.id.go_diagnose_result);
         goDiagnoseResult.setOnClickListener(new View.OnClickListener() {
             @Override

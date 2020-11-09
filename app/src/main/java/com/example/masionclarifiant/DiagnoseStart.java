@@ -1,9 +1,14 @@
 package com.example.masionclarifiant;
 
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.IBinder;
 import android.text.Html;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -18,6 +23,7 @@ import java.io.IOException;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import com.example.masionclarifiant.SocketService.SocketBinder;
 
 public class DiagnoseStart extends AppCompatActivity {
     private ViewPager mSlideViewPager;
@@ -26,17 +32,34 @@ public class DiagnoseStart extends AppCompatActivity {
     private TextView[] mDots;
 
     private SliderAdapter sliderAdapter;
-    static String socket_msg;
     private Button backBtn, nextBtn, diagnoseBtn;
+    public static SocketService socketService;
+
+    ServiceConnection conn = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName componentName, IBinder services) {
+            SocketBinder sb = (SocketBinder) services;
+            socketService = sb.getService();
+            System.out.println("start SocketService: " + socketService);
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName componentName) {
+
+        }
+    };
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.diagnose_start);
         final String userID = getIntent().getStringExtra("userID");
-        Intent intent = new Intent(DiagnoseStart.this, SocketService.class);
+        /*Intent intent = new Intent(DiagnoseStart.this, SocketService.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-        startService(intent);
+        startService(intent);*/
+        Intent serviceIntent = new Intent(DiagnoseStart.this, SocketService.class);
+        bindService(serviceIntent, conn, Context.BIND_AUTO_CREATE);
+        socketService.connect();
 
         backBtn = findViewById(R.id.slide_back);
         nextBtn = findViewById(R.id.slide_next);
@@ -67,9 +90,8 @@ public class DiagnoseStart extends AppCompatActivity {
         diagnoseBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                socket_msg = "wngp0805";
+                socketService.send(userID);
                 Intent intent = new Intent(DiagnoseStart.this, DiagnoseMeasure.class);
-                //intent.putExtra("socket", diagnoseThread.socket);
                 intent.putExtra("userID", userID);
                 startActivity(intent);
             }
@@ -186,20 +208,4 @@ public class DiagnoseStart extends AppCompatActivity {
             }
         }
     }*/
-
-    static String getMsg(){
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                while(true){
-                    if(socket_msg != null){
-                        break;
-                    }
-                }
-            }
-        }).start();
-
-        System.out.println("START- 메시지 보내: " + socket_msg);
-        return socket_msg;
-    }
 }
