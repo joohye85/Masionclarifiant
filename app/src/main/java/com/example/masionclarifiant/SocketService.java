@@ -19,7 +19,7 @@ public class SocketService extends Service {
     private Socket socket;
     private DataOutputStream dataOutputStream;
     private DataInputStream dataInputStream;
-    public static String wifiModuleIp = "220.69.172.119";
+    public static String wifiModuleIp = "220.69.172.141";
     public static int wifiModulePort = 9999;
     private Handler mHandler;
     final IBinder mBinder = new SocketBinder();
