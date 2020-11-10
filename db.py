@@ -20,9 +20,9 @@ import paramiko
 
  
 
-conn = pymysql.connect(host = 'maison.c1seefdiv0cl.ap-northeast-2.rds.amazonaws.com',
+conn = pymysql.connect(host = '',
 
-                       user = 'admin', password = 'sswu1234', db = 'maison', charset = 'utf8')
+                       user = '', password = '', db = 'maison', charset = 'utf8')
 
 cursor = conn.cursor(pymysql.cursors.DictCursor)
 
@@ -198,11 +198,11 @@ try:
 
                                 
 
-                                host = '3.35.16.162'
+                                host = ''
 
-                                username = 'ubuntu'
+                                username = ''
 
-                                password = 'sswu1234'
+                                password = ''
 
                                 ssh = paramiko.SSHClient()
 
