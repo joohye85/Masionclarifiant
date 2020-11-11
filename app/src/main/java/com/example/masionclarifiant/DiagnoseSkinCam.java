@@ -26,9 +26,9 @@ public class DiagnoseSkinCam extends AppCompatActivity {
         measure_text.setText(userID+"님 오늘의 피부 상태를 측정해보세요!");
 
         SocketService socketService = MainActivity.socketService;
-
-        /*String url ="http://220.69.172.141:8080/stream/video.mjpeg";
-        webView.loadUrl(url);*/
+        socketService.send("skincam");
+        String url ="http://220.69.172.80:8080/stream/video.mjpeg";
+        webView.loadUrl(url);
 
         takePictureBtn = (Button) findViewById(R.id.skin_take_picture);
         takePictureBtn.setOnClickListener(new View.OnClickListener() {

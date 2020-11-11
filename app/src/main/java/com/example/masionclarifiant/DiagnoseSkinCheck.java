@@ -23,9 +23,8 @@ public class DiagnoseSkinCheck extends AppCompatActivity {
         goSkinMeasure.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //SocketService socketService = MainActivity.socketService;
-                //socketService.send("exit");
-
+                SocketService socketService = MainActivity.socketService;
+                socketService.send("exit");
                 Intent intent = new Intent(DiagnoseSkinCheck.this, DiagnoseCamMeasure.class);
                 intent.putExtra("userID", userID);
                 startActivity(intent);
