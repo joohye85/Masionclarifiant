@@ -30,7 +30,7 @@ public class DiagnoseSkinCam extends AppCompatActivity {
         measure_text.setText(userID+"님 오늘의 피부 상태를 측정해보세요!");
 
         SocketService socketService = MainActivity.socketService;
-        String url ="http://220.69.172.112:8080/stream/video.mjpeg";
+        String url ="http://192.168.137.192:8080/stream/video.mjpeg";
         webView.loadUrl(url);
 
         takePictureBtn = (Button) findViewById(R.id.skin_take_picture);
@@ -46,6 +46,7 @@ public class DiagnoseSkinCam extends AppCompatActivity {
                     System.out.println("못 받아옴");
                 }
                 Intent intent = new Intent(DiagnoseSkinCam.this, DiagnoseSkinCheck.class);
+                intent.putExtra("userID", userID);
                 startActivity(intent);
                 webView.destroy();
                 webView = null;
@@ -59,7 +60,8 @@ public class DiagnoseSkinCam extends AppCompatActivity {
         }
 
         @Override
-        protected void onDraw(Canvas canvas) {            Paint paint = new Paint();
+        protected void onDraw(Canvas canvas) {
+            Paint paint = new Paint();
             paint.setStyle(Paint.Style.STROKE);
             paint.setColor(Color.BLUE);
             paint.setStrokeWidth(4);

@@ -19,8 +19,8 @@ import java.util.regex.Pattern;
 
 public class SocketService extends Service {
     private Socket socket;
-    public static String wifiModuleIp = "220.69.172.112";
-    public static int wifiModulePort = 9999;
+    public static String wifiModuleIp = "192.168.137.192";
+    public static int wifiModulePort = 9998;
     DataOutputStream dataOutputStream;
     DataInputStream dataInputStream;
     private Handler mHandler;

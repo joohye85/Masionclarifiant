@@ -26,7 +26,6 @@ public class DiagnoseEyeCheck extends AppCompatActivity {
             public void onClick(View view) {
                 SocketService socketService = MainActivity.socketService;
                 socketService.send("skincam");
-
                 Intent intent = new Intent(DiagnoseEyeCheck.this, DiagnoseSkinCam.class);
                 intent.putExtra("userID", userID);
                 startActivity(intent);

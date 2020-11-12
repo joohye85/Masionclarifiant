@@ -35,7 +35,7 @@ public class DiagnoseEyeCam extends AppCompatActivity{
 
         addContentView(mDraw, new LinearLayout.LayoutParams(ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT));
 
-        String url ="http://220.69.172.112:8080/stream/video.mjpeg";
+        String url ="http://192.168.137.192:8080/stream/video.mjpeg";
         webView.loadUrl(url);
 
         takePictureBtn = (Button) findViewById(R.id.eye_take_picture);
@@ -53,6 +53,7 @@ public class DiagnoseEyeCam extends AppCompatActivity{
                 webView.destroy();
                 webView = null;
                 Intent intent = new Intent(DiagnoseEyeCam.this, DiagnoseEyeCheck.class);
+                intent.putExtra("userID", userID);
                 startActivity(intent);
             }
         });
