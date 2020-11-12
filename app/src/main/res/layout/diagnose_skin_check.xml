@@ -166,7 +166,7 @@
         />
 
     <Button
-        android:id="@+id/go_result_btn"
+        android:id="@+id/go_measure_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="피부 진단 시작하기"

@@ -35,7 +35,7 @@ public class DiagnoseEyeCam extends AppCompatActivity{
 
         addContentView(mDraw, new LinearLayout.LayoutParams(ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT));
 
-        String url ="http://220.69.172.80:8080/stream/video.mjpeg";
+        String url ="http://220.69.172.112:8080/stream/video.mjpeg";
         webView.loadUrl(url);
 
         takePictureBtn = (Button) findViewById(R.id.eye_take_picture);
@@ -68,7 +68,7 @@ public class DiagnoseEyeCam extends AppCompatActivity{
             paint.setStyle(Paint.Style.STROKE);
             paint.setColor(Color.BLUE);
             paint.setStrokeWidth(4);
-            canvas.drawRect(webView.getX()+120, webView.getY()+60, webView.getX()+780, webView.getY()+400, paint);
+            canvas.drawRect(webView.getX()+150, webView.getY()+100, webView.getX()+780, webView.getY()+400, paint);
             super.onDraw(canvas);
         }
     }

@@ -16,7 +16,7 @@ public class DiagnoseSkinCheck extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.diagnose_skin_check);
-        goSkinMeasure = (Button)findViewById(R.id.go_skin_cam);
+        goSkinMeasure = (Button)findViewById(R.id.go_measure_btn);
         final String userID = getIntent().getStringExtra("userID");
         TextView measure_text = (TextView) findViewById(R.id.measuer_text);
         measure_text.setText(userID+"님 오늘의 피부 상태를 측정해보세요!");
