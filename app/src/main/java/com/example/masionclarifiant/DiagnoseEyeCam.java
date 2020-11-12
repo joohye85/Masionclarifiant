@@ -35,7 +35,7 @@ public class DiagnoseEyeCam extends AppCompatActivity{
 
         addContentView(mDraw, new LinearLayout.LayoutParams(ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT));
 
-        String url ="http://220.69.172.218:8080/stream/video.mjpeg";
+        String url ="http://192.168.137.192:8080/stream/video.mjpeg";
         webView.loadUrl(url);
 
         takePictureBtn = (Button) findViewById(R.id.eye_take_picture);
@@ -52,7 +52,8 @@ public class DiagnoseEyeCam extends AppCompatActivity{
                 }
                 webView.destroy();
                 webView = null;
-                Intent intent = new Intent(DiagnoseEyeCam.this, DiagnoseEyeCheck.class);
+                Intent intent = new Intent(DiagnoseEyeCam.this, DiagnoseMeasure.class);
+                intent.putExtra("userID", userID);
                 startActivity(intent);
             }
         });
@@ -69,7 +70,7 @@ public class DiagnoseEyeCam extends AppCompatActivity{
             paint.setStyle(Paint.Style.STROKE);
             paint.setColor(Color.BLUE);
             paint.setStrokeWidth(4);
-            canvas.drawRect(webView.getX()+120, webView.getY()+60, webView.getX()+780, webView.getY()+400, paint);
+            canvas.drawRect(webView.getX()+webView.getWidth()/2-240, webView.getY()+webView.getHeight()/2-240, webView.getX()+webView.getWidth()/2+240, webView.getY()+webView.getHeight()/2+240, paint);
             super.onDraw(canvas);
         }
     }

@@ -48,7 +48,8 @@ public class DiagnoseCamMeasure extends AppCompatActivity {
                     String msg = socketService.receive();
                     System.out.println("cam_measure: " + msg);
                     //opencv랑 통신해야됨
-                    if(msg.equals("camerafin")){
+                    if(msg.equals("allfinish")){
+                        socketService.disconnect();
                         Message handler_msg = cam_handler.obtainMessage();
                         cam_handler.sendMessage(handler_msg);
                         break;

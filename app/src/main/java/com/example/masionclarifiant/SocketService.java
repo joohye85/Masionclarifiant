@@ -19,8 +19,8 @@ import java.util.regex.Pattern;
 
 public class SocketService extends Service {
     private Socket socket;
-    public static String wifiModuleIp = "220.69.172.218";
-    public static int wifiModulePort = 9999;
+    public static String wifiModuleIp = "192.168.137.192";
+    public static int wifiModulePort = 9998;
     DataOutputStream dataOutputStream;
     DataInputStream dataInputStream;
     private Handler mHandler;
@@ -48,9 +48,9 @@ public class SocketService extends Service {
                     socket = new Socket(inetAddress, wifiModulePort);
                     System.out.println("connct-socket: " + socket);
                 }catch (UnknownHostException e){
-                    e.printStackTrace();
+                    System.out.println("cannot connet - UnknownHostException");
                 }catch (IOException e){
-                    e.printStackTrace();
+                    System.out.println("cannot connet - IOException");
                 }
             }
         };
@@ -64,9 +64,11 @@ public class SocketService extends Service {
 
     void disconnect(){
         try {
-            dataInputStream.close();
-            dataOutputStream.close();
-            socket.close();
+            if(getSocket() != null){
+                dataInputStream.close();
+                dataOutputStream.close();
+                socket.close();
+            }
         } catch (IOException e) {
             System.out.println("send에서 예외");
             e.printStackTrace();
@@ -78,8 +80,8 @@ public class SocketService extends Service {
             public void run() {
                 try{
                     System.out.println("send-socket: " + socket);
-                    dataOutputStream = new DataOutputStream(getSocket().getOutputStream());
-                    if(dataOutputStream != null){
+                    if(getSocket() != null){
+                        dataOutputStream = new DataOutputStream(getSocket().getOutputStream());
                         dataOutputStream.writeUTF(msg);
                         dataOutputStream.flush();
                     }
@@ -97,15 +99,17 @@ public class SocketService extends Service {
         String msg ="";
         byte[] receiver = new byte[10];
         try {
-            dataInputStream = new DataInputStream(getSocket().getInputStream());
-            if(dataInputStream != null){
-                dataInputStream.read(receiver);
-                if(receiver != null){
-                    msg = new String(receiver);
-                    Pattern pattern = Pattern.compile(".[a-z\\s]+"); //이상한 문자들도 들어와서 정규식 적용하여 필터링 함
-                    Matcher matcher = pattern.matcher(msg);
-                    while(matcher.find()) {
-                        msg = matcher.group();
+            if(getSocket() != null) {
+                dataInputStream = new DataInputStream(getSocket().getInputStream());
+                if (dataInputStream != null) {
+                    dataInputStream.read(receiver);
+                    if (receiver != null) {
+                        msg = new String(receiver);
+                        Pattern pattern = Pattern.compile(".[a-z\\s]+"); //이상한 문자들도 들어와서 정규식 적용하여 필터링 함
+                        Matcher matcher = pattern.matcher(msg);
+                        while (matcher.find()) {
+                            msg = matcher.group();
+                        }
                     }
                 }
             }
