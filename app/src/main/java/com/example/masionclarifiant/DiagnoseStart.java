@@ -29,7 +29,8 @@ public class DiagnoseStart extends AppCompatActivity {
         /*Intent intent = new Intent(DiagnoseStart.this, SocketService.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startService(intent);*/
-
+        TextView measure_text = (TextView) findViewById(R.id.measuer_text);
+        measure_text.setText(userID+"님 오늘의 피부 상태를 측정해보세요!");
         backBtn = findViewById(R.id.slide_back);
         nextBtn = findViewById(R.id.slide_next);
         diagnoseBtn = findViewById(R.id.intro_diagnose_btn);
@@ -64,7 +65,7 @@ public class DiagnoseStart extends AppCompatActivity {
             public void onClick(View view) {
                 SocketService socketService = MainActivity.socketService;
                 socketService.send(userID);
-                Intent intent = new Intent(DiagnoseStart.this, DiagnoseMeasure.class);
+                Intent intent = new Intent(DiagnoseStart.this, DiagnoseEyeCheck.class);
                 intent.putExtra("userID", userID);
                 startActivity(intent);
             }

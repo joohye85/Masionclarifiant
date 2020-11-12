@@ -9,6 +9,12 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONObject;
+
 public class DiagnoseEyeCheck extends AppCompatActivity {
     Button goSkinCam;
 
@@ -26,7 +32,18 @@ public class DiagnoseEyeCheck extends AppCompatActivity {
             public void onClick(View view) {
                 SocketService socketService = MainActivity.socketService;
                 socketService.connect();
-
+                Response.Listener<String> res = new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try{
+                            JSONObject jsonObject = new JSONObject(response);
+                            boolean success = jsonObject.getBoolean("success");
+                        }catch (Exception e){e.printStackTrace();}
+                    }
+                };
+                SendEyeCamRequest sendEyeCamRequest = new SendEyeCamRequest(userID, res);
+                RequestQueue queue = Volley.newRequestQueue(DiagnoseEyeCheck.this);
+                queue.add(sendEyeCamRequest);
                 Intent intent = new Intent(DiagnoseEyeCheck.this, DiagnoseSkinCam.class);
                 intent.putExtra("userID", userID);
                 startActivity(intent);
