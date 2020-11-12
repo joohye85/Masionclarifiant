@@ -66,7 +66,7 @@ public class DiagnoseStart extends AppCompatActivity {
             public void onClick(View view) {
                 SocketService socketService = MainActivity.socketService;
                 socketService.send(userID);
-                Intent intent = new Intent(DiagnoseStart.this, DiagnoseMeasure.class);
+                Intent intent = new Intent(DiagnoseStart.this, DiagnoseEyeCam.class);
                 intent.putExtra("userID", userID);
                 startActivity(intent);
             }
