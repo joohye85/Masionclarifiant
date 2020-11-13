@@ -32,7 +32,7 @@ public class DiagnoseFin extends AppCompatActivity {
         measure_text.setText(userID+"님 오늘의 피부 상태를 측정해보세요!");
 
         //url 넣어서 이미지 바꾸기
-        /*final Handler eye_handler = new Handler(){
+        final Handler eye_handler = new Handler(){
             public void handleMessage(Message msg){
                 final ImageView eye_picture = (ImageView)findViewById(R.id.eye_picture);
                 Handler api_handler = new Handler();
@@ -94,7 +94,7 @@ public class DiagnoseFin extends AppCompatActivity {
                 }
             }
         });
-        skin_imgload.start();*/
+        skin_imgload.start();
 
         goDiagnoseResult = (Button)findViewById(R.id.go_diagnose_result);
         goDiagnoseResult.setOnClickListener(new View.OnClickListener() {
