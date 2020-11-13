@@ -85,4 +85,8 @@ public class DiagnoseSkinCam extends AppCompatActivity {
             super.onDraw(canvas);
         }
     }
+
+    @Override
+    public void onBackPressed() {
+    }
 }

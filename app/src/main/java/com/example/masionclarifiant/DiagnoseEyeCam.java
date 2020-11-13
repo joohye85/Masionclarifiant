@@ -74,4 +74,8 @@ public class DiagnoseEyeCam extends AppCompatActivity{
             super.onDraw(canvas);
         }
     }
+
+    @Override
+    public void onBackPressed() {
+    }
 }

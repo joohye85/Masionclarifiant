@@ -117,4 +117,8 @@ public class DiagnoseFin extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public void onBackPressed() {
+    }
 }

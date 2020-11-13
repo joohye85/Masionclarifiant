@@ -72,4 +72,8 @@ public class DiagnoseCamMeasure extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public void onBackPressed() {
+    }
 }
