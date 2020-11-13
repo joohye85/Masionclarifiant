@@ -32,6 +32,9 @@ public class DiagnoseCamMeasure extends AppCompatActivity {
         Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.rotate);
         loadingImg.setAnimation(animation);
 
+        SocketService socketService = MainActivity.socketService;
+        socketService.send("exit");
+
         final Handler cam_handler = new Handler(){
             public void handleMessage(Message msg){
                 goSeeResult.setVisibility(View.VISIBLE);
