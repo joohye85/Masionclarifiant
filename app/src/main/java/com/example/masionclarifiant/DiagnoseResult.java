@@ -59,74 +59,22 @@ public class DiagnoseResult extends AppCompatActivity {
         goHomeBtn = findViewById(R.id.go_home_btn);
         goRecommendBtn = findViewById(R.id.go_recommend_btn);
         final String userID = getIntent().getStringExtra("userID");
+        System.out.println("userID: " + userID);
+        moisture = getIntent().getExtras().getInt("moisture");
+        oil = getIntent().getExtras().getInt("oil");
+        blemish = getIntent().getExtras().getInt("blemish");
+        clean = getIntent().getExtras().getDouble("clean");
+        wrinkle = getIntent().getExtras().getDouble("wrinkle");
+        liver_spot = getIntent().getExtras().getDouble("liver_spot");
+        skinDate2 = getIntent().getExtras().getInt("skinDate2");
+        skinDate3 = getIntent().getExtras().getInt("skinDate3");
+        skinDate1 = getIntent().getExtras().getInt("skinDate1");
+        Skinage1 = getIntent().getExtras().getInt("Skinage1");
+        Skinage2 = getIntent().getExtras().getInt("Skinage2");
+        Skinage3 = getIntent().getExtras().getInt("Skinage3");
 
-        //청결도, 기미, 주름 불러오기
-        Response.Listener<String> res = new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                try{
-                    JSONObject jsonObject = new JSONObject(response);
-                    clean = jsonObject.getInt("clean");
-                    liver_spot = jsonObject.getDouble("liver_spot");
-                    wrinkle = jsonObject.getDouble("wrinkle");
-                }catch (Exception e){e.printStackTrace();}
-            }
-        };
-
-        SkinResultRequest skinResultRequest = new SkinResultRequest(userID, res);
-        RequestQueue queue = Volley.newRequestQueue(DiagnoseResult.this);
-        queue.add(skinResultRequest);
-
-        moi.setText(" 수분\n\n "+moisture+"%");
-        oi.setText(" 유분\n\n "+oil+"%");
-
-        //유수분, 여드름 불러오기
-        Response.Listener<String> resp = new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                try {
-                    JSONObject jsonObject = new JSONObject(response);
-                    moisture = jsonObject.getInt("moisture");
-                    oil = jsonObject.getInt("oil");
-                    blemish = jsonObject.getInt("pimple");
-
-                }catch (Exception e){e.printStackTrace();}
-
-            }
-        };
-        DiagnoseRequest diagnoseRequest = new DiagnoseRequest(userID, resp);
-        RequestQueue queue2 = Volley.newRequestQueue(DiagnoseResult.this);
-        queue2.add(diagnoseRequest);
-
-        //피부나이, 측정날짜 3개 배열 불러오기
-        Response.Listener<String> res2 = new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                try{
-                    JSONArray jsonArray = new JSONArray(response);
-                    for(int i=0;i<jsonArray.length();i++){
-                        JSONObject jsonObject2 = jsonArray.getJSONObject(i);
-                        int skin__age = jsonObject2.getInt("skin_age");
-                        String skin__Date = jsonObject2.getString("skinDate");
-                        if(i==0) {
-                            Skinage3 = skin__age;
-                            skinDate3 = Integer.parseInt(skin__Date.substring(5,7));
-                        }
-                        else if(i==1) {
-                            Skinage2 = skin__age;
-                            skinDate2 = Integer.parseInt(skin__Date.substring(5,7));
-                        }
-                        else {
-                            Skinage1 = skin__age;
-                            skinDate1 = Integer.parseInt(skin__Date.substring(5,7));
-                        }
-                    }
-                }catch (Exception e){e.printStackTrace();}
-            }
-        };
-        Recently_three_skinageRequest recently_three_skinageRequest = new Recently_three_skinageRequest(userID, res2);
-        RequestQueue queue1 = Volley.newRequestQueue(DiagnoseResult.this);
-        queue1.add(recently_three_skinageRequest);
+        moi.setText(" 수분\n\n " + moisture + "%");
+        oi.setText(" 유분\n\n " + oil + "%");
 
         barChart = (BarChart)findViewById(R.id.barChart);
         barChart.setDescription(null);
@@ -251,4 +199,5 @@ public class DiagnoseResult extends AppCompatActivity {
 
         startActivity(intent);
     }
+
 }
