@@ -33,7 +33,7 @@ public class DiagnoseCamMeasure extends AppCompatActivity {
         loadingImg.setAnimation(animation);
 
         SocketService socketService = MainActivity.socketService;
-        socketService.send("exit");
+        socketService.disconnect();
 
         final Handler cam_handler = new Handler(){
             public void handleMessage(Message msg){
@@ -43,24 +43,6 @@ public class DiagnoseCamMeasure extends AppCompatActivity {
                 loadingImg.setVisibility(View.GONE);
             }
         };
-
-        Thread camThread = new Thread() {
-            public void run() {
-                while(true){
-                    SocketService socketService = MainActivity.socketService;
-                    String msg = socketService.receive();
-                    System.out.println("cam_measure: " + msg);
-                    //opencv랑 통신해야됨
-                    if(msg.equals("allfinish")){
-                        socketService.disconnect();
-                        Message handler_msg = cam_handler.obtainMessage();
-                        cam_handler.sendMessage(handler_msg);
-                        break;
-                    }
-                }
-            }
-        };
-        camThread.start();
 
         goSeeResult = (Button)findViewById(R.id.go_see_result);
         goSeeResult.setOnClickListener(new View.OnClickListener() {
