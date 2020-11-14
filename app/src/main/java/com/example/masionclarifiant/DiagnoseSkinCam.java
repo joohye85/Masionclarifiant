@@ -7,6 +7,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.Button;
@@ -36,8 +37,17 @@ public class DiagnoseSkinCam extends AppCompatActivity {
         addContentView(mDraw, new LinearLayout.LayoutParams(ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT));
 
         SocketService socketService = MainActivity.socketService;
-        String url ="http://192.168.137.192:8080/stream/video.mjpeg";
-        webView.loadUrl(url);
+        socketService.send("skincam");
+
+        new Handler().postDelayed(new Runnable()
+        {
+            @Override
+            public void run()
+            {
+                String url ="http://192.168.137.192:8080/stream/video.mjpeg";
+                webView.loadUrl(url);
+            }
+        }, 600);// 라즈베리파이 서버에서 서비스 시작하는 시간 기다리는 것
 
         takePictureBtn = (Button) findViewById(R.id.skin_take_picture);
         takePictureBtn.setOnClickListener(new View.OnClickListener() {
@@ -51,7 +61,7 @@ public class DiagnoseSkinCam extends AppCompatActivity {
                 else{
                     System.out.println("못 받아옴");
                 }
-                Intent intent = new Intent(DiagnoseSkinCam.this, DiagnoseSkinCheck.class);
+                Intent intent = new Intent(DiagnoseSkinCam.this, DiagnoseCamMeasure.class);
                 intent.putExtra("userID", userID);
                 startActivity(intent);
                 webView.destroy();
@@ -74,5 +84,9 @@ public class DiagnoseSkinCam extends AppCompatActivity {
             canvas.drawRect(webView.getX()+webView.getWidth()/2-240, webView.getY()+webView.getHeight()/2-240, webView.getX()+webView.getWidth()/2+240, webView.getY()+webView.getHeight()/2+240, paint);
             super.onDraw(canvas);
         }
+    }
+
+    @Override
+    public void onBackPressed() {
     }
 }

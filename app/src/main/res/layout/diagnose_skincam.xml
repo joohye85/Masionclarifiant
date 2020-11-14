@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:wheel="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,190 +7,194 @@
     android:layout_height="match_parent"
     tools:context=".DiagnoseFin"
     android:background="@color/colorBeige">
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Masion Clarifiant"
-        android:fontFamily="serif"
-        android:textColor="@color/colorDarkGreen"
-        android:textSize="30dp"
-        android:layout_alignParentTop="true"
-        android:background="@color/colorWhite"/>
-
-    <TextView
-        android:id="@+id/measuer_text"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:paddingBottom="15dp"
-        android:layout_below="@+id/textView"
-        android:text="000님 오늘의 피부 상태를 측정해보세요!"
-        android:background="@drawable/ic_message"
-        android:textColor="@color/colorWhite"
-        android:textSize="20dp"
-        android:gravity="center"/>
-
     <RelativeLayout
-        android:id="@+id/check_circle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_below="@+id/measuer_text"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp">
-        <LinearLayout
-            android:id="@+id/state1"
-            android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <ImageView
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:background="@drawable/circle"
-                android:backgroundTint="@color/colorLightGreen"/>
-            <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="시작하기"
-                android:textColor="@color/colorBlack"
-                android:gravity="center"
-                android:layout_marginTop="10dp"
-                android:textSize="13dp"
-                />
-        </LinearLayout>
+            android:gravity="center"
+            android:text="Masion Clarifiant"
+            android:fontFamily="serif"
+            android:textColor="@color/colorDarkGreen"
+            android:textSize="30dp"
+            android:layout_alignParentTop="true"
+            android:background="@color/colorWhite"/>
+
+        <TextView
+            android:id="@+id/measuer_text"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:paddingBottom="15dp"
+            android:layout_below="@+id/textView"
+            android:text="000님 오늘의 피부 상태를 측정해보세요!"
+            android:background="@drawable/ic_message"
+            android:textColor="@color/colorWhite"
+            android:textSize="20dp"
+            android:gravity="center"/>
+
         <RelativeLayout
-            android:id="@+id/one_and_two"
-            android:layout_width="30dp"
-            android:layout_height="60dp"
-            android:layout_toRightOf="@+id/state1">
-            <View
-                android:layout_width="30dp"
-                android:layout_height="2dp"
-                android:background="@color/colorGray"
-                android:layout_centerVertical="true"/>
-        </RelativeLayout>
-        <LinearLayout
-            android:id="@+id/state2"
+            android:id="@+id/check_circle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_toRightOf="@id/one_and_two">
-            <ImageView
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:background="@drawable/circle"
-                android:backgroundTint="@color/colorLightGreen"/>
-            <TextView
-                android:layout_width="fill_parent"
+            android:orientation="horizontal"
+            android:layout_below="@+id/measuer_text"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp">
+            <LinearLayout
+                android:id="@+id/state1"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="유수분측정"
-                android:textColor="@color/colorBlack"
-                android:gravity="center"
-                android:textSize="13dp"
-                android:layout_marginTop="10dp"
-                />
-        </LinearLayout>
-        <RelativeLayout
-            android:id="@+id/two_and_three"
-            android:layout_width="30dp"
-            android:layout_height="60dp"
-            android:layout_toRightOf="@+id/state2">
-            <View
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:background="@drawable/circle"
+                    android:backgroundTint="@color/colorLightGreen"/>
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="시작하기"
+                    android:textColor="@color/colorBlack"
+                    android:gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:textSize="13dp"
+                    />
+            </LinearLayout>
+            <RelativeLayout
+                android:id="@+id/one_and_two"
                 android:layout_width="30dp"
-                android:layout_height="2dp"
-                android:background="@color/colorGray"
-                android:layout_centerVertical="true"/>
+                android:layout_height="60dp"
+                android:layout_toRightOf="@+id/state1">
+                <View
+                    android:layout_width="30dp"
+                    android:layout_height="2dp"
+                    android:background="@color/colorGray"
+                    android:layout_centerVertical="true"/>
+            </RelativeLayout>
+            <LinearLayout
+                android:id="@+id/state2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_toRightOf="@id/one_and_two">
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:background="@drawable/circle"
+                    android:backgroundTint="@color/colorLightGreen"/>
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="유수분측정"
+                    android:textColor="@color/colorBlack"
+                    android:gravity="center"
+                    android:textSize="13dp"
+                    android:layout_marginTop="10dp"
+                    />
+            </LinearLayout>
+            <RelativeLayout
+                android:id="@+id/two_and_three"
+                android:layout_width="30dp"
+                android:layout_height="60dp"
+                android:layout_toRightOf="@+id/state2">
+                <View
+                    android:layout_width="30dp"
+                    android:layout_height="2dp"
+                    android:background="@color/colorGray"
+                    android:layout_centerVertical="true"/>
+            </RelativeLayout>
+            <LinearLayout
+                android:id="@+id/state3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_toRightOf="@+id/two_and_three">
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:background="@drawable/ic_check"/>
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="피부촬영"
+                    android:textColor="@color/colorBlack"
+                    android:gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:textSize="13dp"
+                    />
+            </LinearLayout>
+            <RelativeLayout
+                android:id="@+id/three_and_four"
+                android:layout_width="30dp"
+                android:layout_height="60dp"
+                android:layout_toRightOf="@+id/state3">
+                <View
+                    android:layout_width="30dp"
+                    android:layout_height="2dp"
+                    android:background="@color/colorGray"
+                    android:layout_centerVertical="true"/>
+            </RelativeLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_toRightOf="@+id/three_and_four">
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:background="@drawable/circle"
+                    android:backgroundTint="@color/colorLightGreen"/>
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="진단완료"
+                    android:textColor="@color/colorBlack"
+                    android:gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:textSize="13dp"
+                    />
+            </LinearLayout>
         </RelativeLayout>
-        <LinearLayout
-            android:id="@+id/state3"
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="*** 사각형 안에 피부가 들어가도록 촬영해주세요 ***"
+            android:layout_below="@+id/check_circle"
+            android:id="@+id/skin_text"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:textColor="@color/colorBlack"
+            android:textSize="17dp" />
+
+        <WebView
+            android:id="@+id/wv_stream"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_below="@+id/skin_text"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"/>
+        <!--wheel:matProg_barColor="@color/colorDarkPink"
+        wheel:matProg_progressIndeterminate="true"-->
+
+
+        <Button
+            android:id="@+id/skin_take_picture"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_toRightOf="@+id/two_and_three">
-            <ImageView
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:background="@drawable/ic_check"/>
-            <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="피부촬영"
-                android:textColor="@color/colorBlack"
-                android:gravity="center"
-                android:layout_marginTop="10dp"
-                android:textSize="13dp"
-                />
-        </LinearLayout>
-        <RelativeLayout
-            android:id="@+id/three_and_four"
-            android:layout_width="30dp"
-            android:layout_height="60dp"
-            android:layout_toRightOf="@+id/state3">
-            <View
-                android:layout_width="30dp"
-                android:layout_height="2dp"
-                android:background="@color/colorGray"
-                android:layout_centerVertical="true"/>
-        </RelativeLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_toRightOf="@+id/three_and_four">
-            <ImageView
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:background="@drawable/circle"
-                android:backgroundTint="@color/colorLightGreen"/>
-            <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="진단완료"
-                android:textColor="@color/colorBlack"
-                android:gravity="center"
-                android:layout_marginTop="10dp"
-                android:textSize="13dp"
-                />
-        </LinearLayout>
+            android:text="피부 촬영하기"
+            android:textSize="20dp"
+            android:textColor="@color/colorWhite"
+            android:layout_below="@+id/wv_stream"
+            android:layout_centerHorizontal="true"
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:background="@drawable/round_rec"
+            android:backgroundTint="@color/colorDarkPink"
+            android:layout_marginTop="30dp"/>
     </RelativeLayout>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="*** 피부를 촬영해주세요 ***"
-        android:layout_below="@+id/check_circle"
-        android:id="@+id/skin_text"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:textColor="@color/colorBlack"
-        android:textSize="17dp" />
-
-    <WebView
-        android:id="@+id/wv_stream"
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:layout_below="@+id/skin_text"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"/>
-    <!--wheel:matProg_barColor="@color/colorDarkPink"
-    wheel:matProg_progressIndeterminate="true"-->
-
-
-    <Button
-        android:id="@+id/skin_take_picture"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="피부 촬영하기"
-        android:textSize="20dp"
-        android:textColor="@color/colorWhite"
-        android:layout_below="@+id/wv_stream"
-        android:layout_centerHorizontal="true"
-        android:paddingLeft="25dp"
-        android:paddingRight="25dp"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:background="@drawable/round_rec"
-        android:backgroundTint="@color/colorDarkPink"
-        android:layout_marginTop="30dp"/>
-</RelativeLayout>
+</ScrollView>

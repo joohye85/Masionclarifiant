@@ -52,7 +52,7 @@ public class DiagnoseEyeCam extends AppCompatActivity{
                 }
                 webView.destroy();
                 webView = null;
-                Intent intent = new Intent(DiagnoseEyeCam.this, DiagnoseMeasure.class);
+                Intent intent = new Intent(DiagnoseEyeCam.this, DiagnoseSkinCam.class);
                 intent.putExtra("userID", userID);
                 startActivity(intent);
             }
@@ -70,8 +70,12 @@ public class DiagnoseEyeCam extends AppCompatActivity{
             paint.setStyle(Paint.Style.STROKE);
             paint.setColor(Color.BLUE);
             paint.setStrokeWidth(4);
-            canvas.drawRect(webView.getX()+webView.getWidth()/2-240, webView.getY()+webView.getHeight()/2-240, webView.getX()+webView.getWidth()/2+240, webView.getY()+webView.getHeight()/2+240, paint);
+            canvas.drawRect(webView.getX()+webView.getWidth()/2-240, webView.getY()+webView.getHeight()/2-130, webView.getX()+webView.getWidth()/2+240, webView.getY()+webView.getHeight()/2+130, paint);
             super.onDraw(canvas);
         }
+    }
+
+    @Override
+    public void onBackPressed() {
     }
 }

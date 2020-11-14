@@ -72,4 +72,8 @@ public class DiagnoseMeasure extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onBackPressed() {
+    }
+
 }
