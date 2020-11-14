@@ -88,11 +88,11 @@ public class DiagnoseResult extends AppCompatActivity {
         ArrayList yVals1 = new ArrayList();
         ArrayList yVals2 = new ArrayList();
         yVals1.add(new BarEntry(1, (float) wrinkle));
-        yVals2.add(new BarEntry(1, (float) 50));
+        yVals2.add(new BarEntry(1, (float) 250));
         yVals1.add(new BarEntry(2, (float) liver_spot));
-        yVals2.add(new BarEntry(2, (float) 9));
+        yVals2.add(new BarEntry(2, (float) 13));
         yVals1.add(new BarEntry(3, (float) clean));
-        yVals2.add(new BarEntry(3, (float) 25));
+        yVals2.add(new BarEntry(3, (float) 24));
 
         BarDataSet bar_set1, bar_set2;
         bar_set1 = new BarDataSet(yVals1, "내 피부");
@@ -181,6 +181,7 @@ public class DiagnoseResult extends AppCompatActivity {
             public void onClick(View view) {
                 //String userID2 = getIntent().getStringExtra("userID");
                 Intent intent = new Intent(DiagnoseResult.this,DiagnoseRecommend.class);
+                System.out.println(moisture+"masdadsaasfahf");
                 intent.putExtra("moisture", moisture);
                 intent.putExtra("oil", oil);
                 intent.putExtra("blemish", blemish);

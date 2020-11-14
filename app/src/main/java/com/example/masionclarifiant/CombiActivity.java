@@ -47,7 +47,7 @@ public class CombiActivity extends AppCompatActivity {
         setContentView(R.layout.activity_combi);
 
         ipaddress = (EditText) findViewById(R.id.ipadress);
-        ipaddress.setText("220.69.172.45");
+        ipaddress.setText("192.168.137.36");
         final String userID = getIntent().getStringExtra("userID");
 
         Response.Listener<String> res = new Response.Listener<String>() {
@@ -120,7 +120,7 @@ public class CombiActivity extends AppCompatActivity {
         String ipaddress2 = ipaddress.getText().toString();
         Log.d("MYTEST", "IP String: " + ipaddress2);
         wifiModuleIp = ipaddress2;
-        wifiModulePort = 5002;
+        wifiModulePort = 5001;
         Log.d("MY TEST","IP:" + wifiModuleIp);
         Log.d("MY TEST", "PORT" + wifiModulePort);
     }

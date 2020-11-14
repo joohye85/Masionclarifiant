@@ -37,6 +37,9 @@ public class DiagnoseFin extends AppCompatActivity {
     public static double liver_spot = 0; //기미
     public static int skinDate2, skinDate3, skinDate1 = 1;
     public static int Skinage1, Skinage2, Skinage3 = 1;
+    public static double skin_age = 0;
+    String liver_spot_string;
+    String wrinkle_string;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +68,7 @@ public class DiagnoseFin extends AppCompatActivity {
             public void run() {
                 URL url = null;
                 try {
-                    url = new URL("http://3.35.16.162/image/crop_eye.jpg");
+                    url = new URL("http://3.35.16.162/image/eye.jpg");
                     InputStream is = url.openStream();
                     bm = BitmapFactory.decodeStream(is);
                     Message handler_msg = eye_handler.obtainMessage();
@@ -115,10 +118,13 @@ public class DiagnoseFin extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 try{
+                    System.out.println("json-response: " + response);
                     JSONObject jsonObject = new JSONObject(response);
                     clean = jsonObject.getInt("clean");
                     liver_spot = jsonObject.getDouble("liver_spot");
                     wrinkle = jsonObject.getDouble("wrinkle");
+                    System.out.println("wrinkle");
+                    skin_age = Math.round((((wrinkle/100)*2.243)*2.301)+((liver_spot/10)*3.985)+10);
                 }catch (Exception e){e.printStackTrace();}
             }
         };
@@ -179,7 +185,18 @@ public class DiagnoseFin extends AppCompatActivity {
         goDiagnoseResult.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String skin_ages = String.valueOf(skin_age);
+                System.out.printf(skin_ages + "sadasasfasasdsadasf");
+                Response.Listener<String> res3 = new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                    }
+                };
+                CalcSkinAgeRequest calcSkinAgeRequest = new CalcSkinAgeRequest(userID, skin_ages, res3);
+                RequestQueue queue3 = Volley.newRequestQueue(DiagnoseFin.this);
+                queue3.add(calcSkinAgeRequest);
                 Intent intent = new Intent(DiagnoseFin.this, DiagnoseResult.class);
+                intent.putExtra("userID", userID);
                  intent.putExtra("moisture", moisture);
                 intent.putExtra("oil", oil);
                 intent.putExtra("blemish", blemish);

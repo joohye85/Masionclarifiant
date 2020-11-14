@@ -34,7 +34,7 @@ public class DiagnoseMeasure extends AppCompatActivity {
             {
                 socketService.send("moisture");
             }
-        }, 1000);// 라즈베리파이 서버에서 서비스 시작하는 시간 기다리는 것
+        }, 2000);// 라즈베리파이 서버에서 서비스 시작하는 시간 기다리는 것
         Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.rotate);
 
         final String userID = getIntent().getStringExtra("userID");

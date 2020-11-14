@@ -16,6 +16,12 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONObject;
+
 public class DiagnoseSkinCam extends AppCompatActivity {
     WebView webView;
     Button takePictureBtn;
@@ -44,10 +50,10 @@ public class DiagnoseSkinCam extends AppCompatActivity {
             @Override
             public void run()
             {
-                String url ="http://192.168.137.192:8080/stream/video.mjpeg";
+                String url ="http://192.168.137.208:8080/stream/video.mjpeg";
                 webView.loadUrl(url);
             }
-        }, 2000);// 라즈베리파이 서버에서 서비스 시작하는 시간 기다리는 것
+        }, 3000);// 라즈베리파이 서버에서 서비스 시작하는 시간 기다리는 것
 
         takePictureBtn = (Button) findViewById(R.id.skin_take_picture);
         takePictureBtn.setOnClickListener(new View.OnClickListener() {
@@ -61,6 +67,20 @@ public class DiagnoseSkinCam extends AppCompatActivity {
                 else{
                     System.out.println("못 받아옴");
                 }
+                Response.Listener<String> res1 = new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try{
+                        }catch (Exception e){e.printStackTrace();}
+                    }
+                };
+
+                SendSkinCamRequest sendSkinCamRequest = new SendSkinCamRequest(userID, res1);
+                RequestQueue queue = Volley.newRequestQueue(DiagnoseSkinCam.this);
+                queue.add(sendSkinCamRequest);
+                SendEyeCamRequest sendEyeCamRequest = new SendEyeCamRequest(userID, res1);
+                queue.add(sendEyeCamRequest);
+
                 Intent intent = new Intent(DiagnoseSkinCam.this, DiagnoseCamMeasure.class);
                 intent.putExtra("userID", userID);
                 startActivity(intent);
