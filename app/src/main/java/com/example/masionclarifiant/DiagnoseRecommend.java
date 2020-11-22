@@ -35,7 +35,7 @@ public class DiagnoseRecommend extends AppCompatActivity {
         goMixBtn = (Button)findViewById(R.id.go_recommend_mix_btn);
 
         final String userID = getIntent().getStringExtra("userID");
-        int moisture= getIntent().getIntExtra("moisture", 2);
+        int moisture= getIntent().getIntExtra("moisture", 1);
         int oil = getIntent().getIntExtra("oil",1);
         int blemish = getIntent().getIntExtra("blemish",1);
         final StringBuilder i_name = new StringBuilder();
@@ -46,7 +46,7 @@ public class DiagnoseRecommend extends AppCompatActivity {
                     JSONObject jsonObject = new JSONObject(response);
                     Boolean success = jsonObject.getBoolean("success");
                     moisture = jsonObject.getInt("moisture");
-                    oil = jsonObject.getInt("oil");
+                    oil = jsonObject.getInt("oil");o
                     blemish = jsonObject.getInt("pimple");
 
                 }catch (Exception e){e.printStackTrace();}

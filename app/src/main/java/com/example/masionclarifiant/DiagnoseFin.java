@@ -195,6 +195,7 @@ public class DiagnoseFin extends AppCompatActivity {
                 CalcSkinAgeRequest calcSkinAgeRequest = new CalcSkinAgeRequest(userID, skin_ages, res3);
                 RequestQueue queue3 = Volley.newRequestQueue(DiagnoseFin.this);
                 queue3.add(calcSkinAgeRequest);
+
                 Intent intent = new Intent(DiagnoseFin.this, DiagnoseResult.class);
                 intent.putExtra("userID", userID);
                  intent.putExtra("moisture", moisture);
@@ -206,6 +207,7 @@ public class DiagnoseFin extends AppCompatActivity {
                 intent.putExtra("skinDate2", skinDate2);
                 intent.putExtra("skinDate3", skinDate3);
                 intent.putExtra("skinDate1", skinDate1);
+                System.out.printf("sskssskk", Skinage1);
                 intent.putExtra("Skinage1", Skinage1);
                 intent.putExtra("Skinage2", Skinage2);
                 intent.putExtra("Skinage3", Skinage3);
