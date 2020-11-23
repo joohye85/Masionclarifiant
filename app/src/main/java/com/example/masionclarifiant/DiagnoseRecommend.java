@@ -142,7 +142,23 @@ public class DiagnoseRecommend extends AppCompatActivity {
         l.setOrientation(Legend.LegendOrientation.HORIZONTAL);
 
         pieChart.setData(data);
-        i_name.append(moisture_ing+","+oil_ing+","+blemish_ing);
+
+        if(moisture_ing.equals("알로에"))
+            i_name.append("a"+mix[0].getIngredient());
+        else
+            i_name.append("h"+mix[0].getIngredient());
+
+        if(oil_ing.equals("달팽이"))
+            i_name.append("s"+mix[1].getIngredient());
+        else
+            i_name.append("c"+mix[1].getIngredient());
+
+        if (blemish_ing.equals("병풀"))
+            i_name.append("b"+mix[2].getIngredient());
+        else
+            i_name.append("w"+mix[2].getIngredient());
+
+        //i_name.append(moisture_ing+","+oil_ing+","+blemish_ing);
         String i_Name = i_name.toString();
         final String water2 = water.toString();
         Response.Listener<String> res = new Response.Listener<String>() {

@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class SkinResultRequest extends StringRequest {
-    final static private String URL = "http://3.35.16.162/get_skin_result.php";
+    final static private String URL = "http://3.34.134.55/get_skin_result.php";
     private Map<String, String> map;
 
     public SkinResultRequest(String userID, Response.Listener<String> listener) {

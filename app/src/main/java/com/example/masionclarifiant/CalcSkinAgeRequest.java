@@ -7,14 +7,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CalcSkinAgeRequest extends StringRequest {
-    final static private String URL = "http://3.35.16.162/skin_age.php";
+    final static private String URL = "http://3.35.16.162/calage.php";
     private Map<String, String> map;
 
-    public CalcSkinAgeRequest(String userID, String skin_age, Response.Listener<String> listener) {
+    public CalcSkinAgeRequest(String userID, Response.Listener<String> listener) {
         super(Method.POST, URL, listener, null);//위 url에 post방식으로 값을 전송
         map = new HashMap<>();
         map.put("userID", userID);
-        map.put("skin_age", skin_age);
     }
 
     @Override

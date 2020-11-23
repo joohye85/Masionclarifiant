@@ -123,8 +123,9 @@ public class DiagnoseFin extends AppCompatActivity {
                     clean = jsonObject.getInt("clean");
                     liver_spot = jsonObject.getDouble("liver_spot");
                     wrinkle = jsonObject.getDouble("wrinkle");
-                    System.out.println("wrinkle");
-                    skin_age = Math.round((((wrinkle/100)*2.243)*2.301)+((liver_spot/10)*3.985)+10);
+                    moisture = jsonObject.getInt("moisture");
+                    oil = jsonObject.getInt("oil");
+                    blemish = jsonObject.getInt("blemish");
                 }catch (Exception e){e.printStackTrace();}
             }
         };
@@ -134,7 +135,7 @@ public class DiagnoseFin extends AppCompatActivity {
         queue.add(skinResultRequest);
 
         //유수분, 여드름 불러오기
-        Response.Listener<String> resp = new Response.Listener<String>() {
+        /*Response.Listener<String> resp = new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
@@ -149,10 +150,10 @@ public class DiagnoseFin extends AppCompatActivity {
         };
         DiagnoseRequest diagnoseRequest = new DiagnoseRequest(userID, resp);
         RequestQueue queue2 = Volley.newRequestQueue(DiagnoseFin.this);
-        queue2.add(diagnoseRequest);
+        queue2.add(diagnoseRequest);*/
 
         //피부나이, 측정날짜 3개 배열 불러오기
-        Response.Listener<String> res2 = new Response.Listener<String>() {
+       /* Response.Listener<String> res2 = new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try{
@@ -179,20 +180,18 @@ public class DiagnoseFin extends AppCompatActivity {
         };
         Recently_three_skinageRequest recently_three_skinageRequest = new Recently_three_skinageRequest(userID, res2);
         RequestQueue queue1 = Volley.newRequestQueue(DiagnoseFin.this);
-        queue1.add(recently_three_skinageRequest);
+        queue1.add(recently_three_skinageRequest); */
 
         goDiagnoseResult = (Button)findViewById(R.id.go_diagnose_result);
         goDiagnoseResult.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String skin_ages = String.valueOf(skin_age);
-                System.out.printf(skin_ages + "sadasasfasasdsadasf");
                 Response.Listener<String> res3 = new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                     }
                 };
-                CalcSkinAgeRequest calcSkinAgeRequest = new CalcSkinAgeRequest(userID, skin_ages, res3);
+                CalcSkinAgeRequest calcSkinAgeRequest = new CalcSkinAgeRequest(userID, res3);
                 RequestQueue queue3 = Volley.newRequestQueue(DiagnoseFin.this);
                 queue3.add(calcSkinAgeRequest);
 

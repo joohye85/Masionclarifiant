@@ -38,6 +38,7 @@ public class CombiActivity extends AppCompatActivity {
     public static String skintype;
     public static String i_Name ="";
     public static String Perfume;
+    public static String costype;
 
     Button motorStart;
 
@@ -50,46 +51,66 @@ public class CombiActivity extends AppCompatActivity {
         ipaddress.setText("192.168.137.36");
         final String userID = getIntent().getStringExtra("userID");
 
-        Response.Listener<String> res = new Response.Listener<String>() {
+
+        Response.Listener<String> res2 = new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try{
                     JSONObject jsonObject = new JSONObject(response);
-                    boolean success = jsonObject.getBoolean("success");
-                    if(success){
-                        String skinType = jsonObject.getString("skinType");
-                        String i_name = jsonObject.getString("i_name");
-                        String perfume = jsonObject.getString("perfume");
-                        //i_Name = jsonObject.getString("i_name");
-
-                       if(skinType.equals("토너")) skintype = ",toner";
-                       else skintype = ",lotion";
-                        //list.add(skintype);}
-
-                        if(i_name.contains("알로에")) i_Name += ",aloe";
-                        if(i_name.contains("꿀")) i_Name += ",honey";
-                        if(i_name.contains("병풀")) i_Name += ",byeongpul";
-                        if(i_name.contains("녹차")) i_Name += ",greentea";
-                        if(i_name.contains("달팽이")) i_Name += ",snail";
-                        if(i_name.contains("올리브")) i_Name += ",olive";
-                        if(i_name.contains("유자")) i_Name += ",citron";
-                        if(i_name.contains("백차")) i_Name += ",whitetea";
-
-                        if (perfume.equals("티트리")) Perfume = ",teatree";
-                        else if(perfume.equals("로즈마리")) Perfume = ",rosemary";
-                        else Perfume = ",no_perfume";
-
-                        Toast.makeText(getApplicationContext(),i_Name + skintype + Perfume,Toast.LENGTH_SHORT).show();
-                    }else{
-                        Toast.makeText(getApplicationContext(), "데이터 불러오기 실패", Toast.LENGTH_SHORT).show();
-                    }
+                    costype = jsonObject.getString("costype");
                 }catch (Exception e){e.printStackTrace();}
             }
         };
-        CombiRequest combiRequest = new CombiRequest(userID, res);
-        RequestQueue requestQueue = Volley.newRequestQueue(CombiActivity.this);
-        requestQueue.add(combiRequest);
+        DiagnoseRequest diagnoseRequest = new DiagnoseRequest(userID, res2);
+        RequestQueue queue2 = Volley.newRequestQueue(CombiActivity.this);
+        queue2.add(diagnoseRequest);
 
+        if(costype.equals("직접배합")) {
+            Response.Listener<String> res = new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+                    try {
+                        JSONObject jsonObject = new JSONObject(response);
+                        boolean success = jsonObject.getBoolean("success");
+                        if (success) {
+                            String skinType = jsonObject.getString("skinType");
+                            String i_name = jsonObject.getString("i_name");
+                            String perfume = jsonObject.getString("perfume");
+                            //i_Name = jsonObject.getString("i_name");
+
+                            if (skinType.equals("토너")) skintype = ",toner";
+                            else skintype = ",lotion";
+                            //list.add(skintype);}
+
+                            if (i_name.contains("알로에")) i_Name += ",aloe";
+                            if (i_name.contains("꿀")) i_Name += ",honey";
+                            if (i_name.contains("병풀")) i_Name += ",byeongpul";
+                            if (i_name.contains("녹차")) i_Name += ",greentea";
+                            if (i_name.contains("달팽이")) i_Name += ",snail";
+                            if (i_name.contains("올리브")) i_Name += ",olive";
+                            if (i_name.contains("유자")) i_Name += ",citron";
+                            if (i_name.contains("백차")) i_Name += ",whitetea";
+
+                            if (perfume.equals("티트리")) Perfume = ",teatree";
+                            else if (perfume.equals("로즈마리")) Perfume = ",rosemary";
+                            else Perfume = ",no_perfume";
+
+                            Toast.makeText(getApplicationContext(), i_Name + skintype + Perfume, Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(getApplicationContext(), "데이터 불러오기 실패", Toast.LENGTH_SHORT).show();
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            };
+            CombiRequest combiRequest = new CombiRequest(userID, res);
+            RequestQueue requestQueue = Volley.newRequestQueue(CombiActivity.this);
+            requestQueue.add(combiRequest);
+        }else
+        {
+
+        }
         TextView reset_btn = (TextView) findViewById(R.id.reset_btn);
         reset_btn.setOnClickListener(new View.OnClickListener() {
             @Override
