@@ -8,7 +8,7 @@ import java.util.Map;
 
 //비밀번호 찾기 Request
 public class FindRequest extends StringRequest {
-    final static private String URL = "http://3.35.16.162/find_pw.php";
+    final static private String URL = "http://3.34.134.55/find_pw.php";
     private Map<String,String> map;
 
     public FindRequest(String userID, Response.Listener<String>listener){

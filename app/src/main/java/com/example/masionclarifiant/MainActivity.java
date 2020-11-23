@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         String userID = getIntent().getStringExtra("userID");
 
-        Response.Listener<String> res = new Response.Listener<String>() {
+        /*Response.Listener<String> res = new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try{
@@ -132,7 +132,27 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         };
         Recently_three_skinageRequest recently_three_skinageRequest = new Recently_three_skinageRequest(userID, res2);
         RequestQueue queue1 = Volley.newRequestQueue(MainActivity.this);
-        queue1.add(recently_three_skinageRequest);
+        queue1.add(recently_three_skinageRequest);*/
+
+        Response.Listener<String> res = new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try{
+                    System.out.println("json-response: " + response);
+                    JSONObject jsonObject = new JSONObject(response);
+                    clean = jsonObject.getInt("clean");
+                    liver_spot = jsonObject.getDouble("liver_spot");
+                    wrinkle = jsonObject.getDouble("wrinkle");
+                    moisture = jsonObject.getInt("moisture");
+                    oil = jsonObject.getInt("oil");
+                    blemish = jsonObject.getInt("blemish");
+                }catch (Exception e){e.printStackTrace();}
+            }
+        };
+
+        SkinResultRequest skinResultRequest = new SkinResultRequest(userID, res);
+        RequestQueue queue = Volley.newRequestQueue(MainActivity.this);
+        queue.add(skinResultRequest);
 
         Intent serviceIntent = new Intent(MainActivity.this, SocketService.class);
         bindService(serviceIntent, conn, Context.BIND_AUTO_CREATE);
@@ -248,6 +268,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.nav_dignose_result:
                 Intent intent9 = new Intent(MainActivity.this, DiagnoseResult.class);
+                Response.Listener<String> res3 = new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                    }
+                };
+                CalcSkinAgeRequest calcSkinAgeRequest = new CalcSkinAgeRequest(userID, res3);
+                RequestQueue queue3 = Volley.newRequestQueue(MainActivity.this);
+                queue3.add(calcSkinAgeRequest);
+
                 intent9.putExtra("userID", userID);
                 intent9.putExtra("moisture", moisture);
                 intent9.putExtra("oil", oil);
@@ -261,6 +290,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 intent9.putExtra("Skinage1", Skinage1);
                 intent9.putExtra("Skinage2", Skinage2);
                 intent9.putExtra("Skinage3", Skinage3);
+                intent9.putExtra("Skinage3", Skinage3);
+                System.out.println("main: " + moisture + ", " + oil + ", " + blemish + ", " + clean + ", " + wrinkle + ", " + liver_spot);
                 intent9.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent9);
                 break;

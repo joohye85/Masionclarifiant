@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class SendSkinCamRequest extends StringRequest {
-    final static private String URL = "http://3.35.16.162/send_skin.php";
+    final static private String URL = "http://3.34.134.55/send_skin.php";
     private Map<String, String> map;
 
     public SendSkinCamRequest(String userID, Response.Listener<String> listener) {

@@ -8,7 +8,7 @@ import java.util.Map;
 
 //선택한 재료 저장하는 Request
 public class SelectRequest extends StringRequest {
-    final static private String URL="http://3.35.16.162/selected_skin.php";
+    final static private String URL="http://3.34.134.55/selected_skin.php";
     private Map<String,String> map;
 
     public SelectRequest(String userID, String skinType, String i_name, String perfume, Response.Listener<String>listener){

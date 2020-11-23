@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Recently_three_skinageRequest extends StringRequest {
-    final static private String URL = "http://3.35.16.162/recently_three_skinage.php";
+    final static private String URL = "http://3.34.134.55/recently_three_skinage.php";
     private Map<String, String> map;
 
     public Recently_three_skinageRequest(String userID, Response.Listener<String> listener) {

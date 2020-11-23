@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ThreadInitRequest extends StringRequest {
-    final static private String URL = "http://3.35.16.162/thread_init.php";
+    final static private String URL = "http://3.34.134.55/thread_init.php";
     private Map<String, String> map;
 
     public ThreadInitRequest(String userID, Response.Listener<String> listener) {

@@ -8,7 +8,7 @@ import java.util.Map;
 
 //피드백을 전송하기 위해 최근 조합한 데이터 1개를 보내주는 Request
 public class RecentlyCombinationRequest extends StringRequest {
-    final static private String URL = "http://3.35.16.162/recently_data.php";
+    final static private String URL = "http://3.34.134.55/recently_data.php";
     private Map<String,String> map;
 
     public RecentlyCombinationRequest(String userID, Response.Listener<String>listener){

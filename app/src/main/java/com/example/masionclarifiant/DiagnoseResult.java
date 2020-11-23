@@ -26,6 +26,7 @@ import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 import com.github.mikephil.charting.formatter.LargeValueFormatter;
+import com.mikhaellopez.circularprogressbar.CircularProgressBar;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -35,6 +36,7 @@ import java.util.ArrayList;
 public class DiagnoseResult extends AppCompatActivity {
     private LineChart lineChart;
     private BarChart barChart;
+    private CircularProgressBar moistureProgressbar, oilProgressbar;
     Button goHomeBtn, goRecommendBtn;
     float barWidth = 0.3f;
     float barSpace = 0f;
@@ -54,6 +56,8 @@ public class DiagnoseResult extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.diagnose_result);
+        moistureProgressbar = (CircularProgressBar)findViewById(R.id.moistureProgressBar);
+        oilProgressbar = (CircularProgressBar)findViewById(R.id.oilProgressBar);
         TextView moi = (TextView) findViewById(R.id.moi);
         TextView oi = (TextView) findViewById(R.id.oi);
         goHomeBtn = findViewById(R.id.go_home_btn);
@@ -73,6 +77,10 @@ public class DiagnoseResult extends AppCompatActivity {
         Skinage2 = getIntent().getExtras().getInt("Skinage2");
         Skinage3 = getIntent().getExtras().getInt("Skinage3");
 
+        System.out.println(moisture +", " + oil + ", " + blemish + ", " + clean + ", " + liver_spot);
+
+        moistureProgressbar.setProgress(moisture);
+        oilProgressbar.setProgress(oil);
         moi.setText(" 수분\n\n " + moisture + "%");
         oi.setText(" 유분\n\n " + oil + "%");
 
@@ -140,6 +148,9 @@ public class DiagnoseResult extends AppCompatActivity {
 
         LineData chartData = new LineData();
 
+        System.out.println("skinage1: " + Skinage1);
+        System.out.println("skinage2: " + Skinage2);
+        System.out.println("skinage3: " + Skinage3);
         entry1.add(new Entry(skinDate1, Skinage1));
         entry1.add(new Entry(skinDate2, Skinage2));
         entry1.add(new Entry(skinDate3, Skinage3));
@@ -181,7 +192,7 @@ public class DiagnoseResult extends AppCompatActivity {
             public void onClick(View view) {
                 //String userID2 = getIntent().getStringExtra("userID");
                 Intent intent = new Intent(DiagnoseResult.this,DiagnoseRecommend.class);
-                System.out.println(moisture+"masdadsaasfahf");
+                System.out.println("goRecommendBtn: " + moisture + ", oil: " + oil + ", blemish: " + blemish);
                 intent.putExtra("moisture", moisture);
                 intent.putExtra("oil", oil);
                 intent.putExtra("blemish", blemish);

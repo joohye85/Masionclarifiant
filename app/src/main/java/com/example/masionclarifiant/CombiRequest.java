@@ -8,7 +8,7 @@ import java.util.Map;
 
 //배합하기 화면에 재료 불러오는 Request
 public class CombiRequest extends StringRequest {
-    final static private String URL = "http://3.35.16.162/combination.php";
+    final static private String URL = "http://3.34.134.55/combination.php";
     private Map<String, String> map;
 
     public CombiRequest(String userID, Response.Listener<String> listener) {

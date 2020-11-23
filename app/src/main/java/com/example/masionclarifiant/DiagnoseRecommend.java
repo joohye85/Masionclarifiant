@@ -38,6 +38,7 @@ public class DiagnoseRecommend extends AppCompatActivity {
         int moisture= getIntent().getIntExtra("moisture", 1);
         int oil = getIntent().getIntExtra("oil",1);
         int blemish = getIntent().getIntExtra("blemish",1);
+        System.out.println("recommend-moisture: " + moisture + ", oil: " + oil + ", blemish: " + blemish);
         final StringBuilder i_name = new StringBuilder();
         /*Response.Listener<String> res = new Response.Listener<String>() {
             @Override

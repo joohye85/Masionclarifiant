@@ -8,7 +8,7 @@ import java.util.Map;
 
 //ID 중복검사하는 Request
 public class CheckRequest extends StringRequest {
-    final static private String URL = "http://3.35.16.162/id_check.php";
+    final static private String URL = "http://3.34.134.55/id_check.php";
     private Map<String, String> map;
 
     public CheckRequest(String userID, Response.Listener<String> listener) {

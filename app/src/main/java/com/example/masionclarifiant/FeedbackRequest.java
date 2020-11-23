@@ -8,7 +8,7 @@ import java.util.Map;
 
 //피드백 업데이트 하는 Request
 public class FeedbackRequest extends StringRequest {
-    final static private String URL = "http://3.35.16.162/feedback.php";
+    final static private String URL = "http://3.34.134.55/feedback.php";
     private Map<String,String> map;
 
     public FeedbackRequest(String userID,String feedback, Response.Listener<String>listener){

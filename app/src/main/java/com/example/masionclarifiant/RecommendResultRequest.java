@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class RecommendResultRequest extends StringRequest {
-    final static private String URL = "http://3.35.16.162/auto_skin.php";
+    final static private String URL = "http://3.34.134.55/auto_skin.php";
     private Map<String, String> map;
 
     public RecommendResultRequest(String userID, String i_Name, String Water, Response.Listener<String> listener) {

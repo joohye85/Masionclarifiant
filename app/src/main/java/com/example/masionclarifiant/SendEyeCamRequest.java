@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class SendEyeCamRequest extends StringRequest {
-    final static private String URL = "http://3.35.16.162/send_eye.php";
+    final static private String URL = "http://3.34.134.55/send_eye.php";
     private Map<String, String> map;
 
     public SendEyeCamRequest(String userID, Response.Listener<String> listener) {
