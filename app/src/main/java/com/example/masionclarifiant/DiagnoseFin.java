@@ -29,17 +29,8 @@ public class DiagnoseFin extends AppCompatActivity {
     Button goDiagnoseResult;
     Button goHomeBtn;
     Bitmap bm;
-    public static int moisture = 0; //db에서 수분값 받아옴
-    public static int oil = 0; //db에서 유분값 받아옴
-    public static int blemish = 0; //db에서 잡티 받아옴
-    public static double clean = 0; //청결도
-    public static double wrinkle = 0; //주름
-    public static double liver_spot = 0; //기미
-    public static int skinDate2, skinDate3, skinDate1 = 1;
-    public static int Skinage1, Skinage2, Skinage3 = 1;
     public static double skin_age = 0;
-    String liver_spot_string;
-    String wrinkle_string;
+    String jsonResult = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -120,90 +111,22 @@ public class DiagnoseFin extends AppCompatActivity {
                 try{
                     System.out.println("json-response: " + response);
                     JSONObject jsonObject = new JSONObject(response);
-                    clean = jsonObject.getInt("clean");
-                    liver_spot = jsonObject.getDouble("liver_spot");
-                    wrinkle = jsonObject.getDouble("wrinkle");
-                    moisture = jsonObject.getInt("moisture");
-                    oil = jsonObject.getInt("oil");
-                    blemish = jsonObject.getInt("blemish");
-                    skinDate1 = Integer.parseInt(jsonObject.getString("skinDate1").substring(5,7));
-                    skinDate2 = Integer.parseInt(jsonObject.getString("skinDate2").substring(5,7));
-                    skinDate3 = Integer.parseInt(jsonObject.getString("skinDate3").substring(5,7));
-                    Skinage1 = jsonObject.getInt("skin_age1");
-                    Skinage2 = jsonObject.getInt("skin_age2");
-                    Skinage3 = jsonObject.getInt("skin_age3");
+                    jsonResult = response;
                 }catch (Exception e){e.printStackTrace();}
             }
         };
-
         SkinResultRequest skinResultRequest = new SkinResultRequest(userID, res);
         RequestQueue queue = Volley.newRequestQueue(DiagnoseFin.this);
         queue.add(skinResultRequest);
-
-        //유수분, 여드름 불러오기
-        /*Response.Listener<String> resp = new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                try {
-                    JSONObject jsonObject = new JSONObject(response);
-                    moisture = jsonObject.getInt("moisture");
-                    oil = jsonObject.getInt("oil");
-                    blemish = jsonObject.getInt("pimple");
-
-                }catch (Exception e){e.printStackTrace();}
-
-            }
-        };
-        DiagnoseRequest diagnoseRequest = new DiagnoseRequest(userID, resp);
-        RequestQueue queue2 = Volley.newRequestQueue(DiagnoseFin.this);
-        queue2.add(diagnoseRequest);*/
-
-        //피부나이, 측정날짜 3개 배열 불러오기
-       /* Response.Listener<String> res2 = new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                try{
-                    JSONArray jsonArray = new JSONArray(response);
-                    for(int i=0;i<jsonArray.length();i++){
-                        JSONObject jsonObject2 = jsonArray.getJSONObject(i);
-                        int skin__age = jsonObject2.getInt("skin_age");
-                        String skin__Date = jsonObject2.getString("skinDate");
-                        if(i==0) {
-                            Skinage3 = skin__age;
-                            skinDate3 = Integer.parseInt(skin__Date.substring(5,7));
-                        }
-                        else if(i==1) {
-                            Skinage2 = skin__age;
-                            skinDate2 = Integer.parseInt(skin__Date.substring(5,7));
-                        }
-                        else {
-                            Skinage1 = skin__age;
-                            skinDate1 = Integer.parseInt(skin__Date.substring(5,7));
-                        }
-                    }
-                }catch (Exception e){e.printStackTrace();}
-            }
-        };
-        Recently_three_skinageRequest recently_three_skinageRequest = new Recently_three_skinageRequest(userID, res2);
-        RequestQueue queue1 = Volley.newRequestQueue(DiagnoseFin.this);
-        queue1.add(recently_three_skinageRequest); */
 
         goDiagnoseResult = (Button)findViewById(R.id.go_diagnose_result);
         goDiagnoseResult.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Response.Listener<String> res3 = new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                    }
-                };
-                CalcSkinAgeRequest calcSkinAgeRequest = new CalcSkinAgeRequest(userID, res3);
-                RequestQueue queue3 = Volley.newRequestQueue(DiagnoseFin.this);
-                queue3.add(calcSkinAgeRequest);
-
                 Intent intent = new Intent(DiagnoseFin.this, DiagnoseResult.class);
                 intent.putExtra("userID", userID);
-                 intent.putExtra("moisture", moisture);
+                intent.putExtra("jsonResult",jsonResult);
+                /* intent.putExtra("moisture", moisture);
                 intent.putExtra("oil", oil);
                 intent.putExtra("blemish", blemish);
                 intent.putExtra("clean", clean);
@@ -214,7 +137,7 @@ public class DiagnoseFin extends AppCompatActivity {
                 intent.putExtra("skinDate1", skinDate1);
                 intent.putExtra("Skinage1", Skinage1);
                 intent.putExtra("Skinage2", Skinage2);
-                intent.putExtra("Skinage3", Skinage3);
+                intent.putExtra("Skinage3", Skinage3);*/
                 startActivity(intent);
             }
         });

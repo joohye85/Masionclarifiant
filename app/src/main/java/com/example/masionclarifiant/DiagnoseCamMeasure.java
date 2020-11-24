@@ -31,6 +31,8 @@ public class DiagnoseCamMeasure extends AppCompatActivity {
     ImageView loadingImg;
     TextView camMeasureState;
     public static String finish_str = ""; //0.3 증가인지 감소인지 보내기
+    public static int skinDate2, skinDate3, skinDate1 = 1;
+    public static int Skinage1, Skinage2, Skinage3 = 1;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -115,8 +117,18 @@ public class DiagnoseCamMeasure extends AppCompatActivity {
         goSeeResult.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //여기부터
+                Response.Listener<String> res3 = new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                    }
+                };
+                CalcSkinAgeRequest calcSkinAgeRequest = new CalcSkinAgeRequest(userID, res3);
+                RequestQueue queue3 = Volley.newRequestQueue(DiagnoseCamMeasure.this);
+                queue3.add(calcSkinAgeRequest);
                 Intent intent = new Intent(DiagnoseCamMeasure.this, DiagnoseFin.class);
                 intent.putExtra("userID", userID);
+                //여기까지 주석처리하기(인텐트 선언, userID 빼고)
                 startActivity(intent);
             }
         });

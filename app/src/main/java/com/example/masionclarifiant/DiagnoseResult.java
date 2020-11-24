@@ -170,12 +170,9 @@ public class DiagnoseResult extends AppCompatActivity {
 
         LineData chartData = new LineData();
 
-        System.out.println("skinage1: " + Skinage1);
-        System.out.println("skinage2: " + Skinage2);
-        System.out.println("skinage3: " + Skinage3);
-        entry1.add(new Entry(skinDate1, Skinage1));
-        entry1.add(new Entry(skinDate2, Skinage2));
         entry1.add(new Entry(skinDate3, Skinage3));
+        entry1.add(new Entry(skinDate2, Skinage2));
+        entry1.add(new Entry(skinDate1, Skinage1));
 
         LineDataSet list_set1 = new LineDataSet(entry1, "피부나이");
         list_set1.setColor(Color.rgb(0, 0, 0));

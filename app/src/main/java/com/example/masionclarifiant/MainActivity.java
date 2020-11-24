@@ -259,7 +259,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(intent8);
                 break;
             case R.id.nav_dignose_result:
-                Intent intent9 = new Intent(MainActivity.this, DiagnoseResult.class);
+                Intent intent9 = new Intent(MainActivity.this, DiagnoseFin.class);
                 Response.Listener<String> res3 = new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {

@@ -5,7 +5,7 @@ import com.android.volley.toolbox.StringRequest;
 
 import java.util.HashMap;
 import java.util.Map;
-
+//얘일단필없음
 public class DiagnoseRequest extends StringRequest {
     final static private String URL = "http://3.34.134.55/get_costype.php";
     private Map<String, String> map;
