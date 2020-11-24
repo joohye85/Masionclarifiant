@@ -41,11 +41,12 @@ public class DiagnoseStart extends AppCompatActivity {
         sliderAdapter = new SliderAdapter(this);
         mSlideViewPager.setAdapter(sliderAdapter);
 
-        SocketService socketService = MainActivity.socketService;
+       /* SocketService socketService = MainActivity.socketService;
         socketService.connect();
 
         if(socketService.getSocket() != null)
             Toast.makeText(getApplicationContext(), "피부 진단기기와 연결되었습니다.", Toast.LENGTH_SHORT).show();
+        */
 
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override

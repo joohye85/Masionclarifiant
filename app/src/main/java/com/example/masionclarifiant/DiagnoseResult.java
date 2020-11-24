@@ -29,6 +29,7 @@ import com.github.mikephil.charting.formatter.LargeValueFormatter;
 import com.mikhaellopez.circularprogressbar.CircularProgressBar;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -63,22 +64,42 @@ public class DiagnoseResult extends AppCompatActivity {
         goHomeBtn = findViewById(R.id.go_home_btn);
         goRecommendBtn = findViewById(R.id.go_recommend_btn);
         final String userID = getIntent().getStringExtra("userID");
+        final String jsonResult = getIntent().getStringExtra("jsonResult");
         System.out.println("userID: " + userID);
-        moisture = getIntent().getExtras().getInt("moisture");
-        oil = getIntent().getExtras().getInt("oil");
-        blemish = getIntent().getExtras().getInt("blemish");
-        clean = getIntent().getExtras().getDouble("clean");
-        wrinkle = getIntent().getExtras().getDouble("wrinkle");
-        liver_spot = getIntent().getExtras().getDouble("liver_spot");
-        skinDate2 = getIntent().getExtras().getInt("skinDate2");
-        skinDate3 = getIntent().getExtras().getInt("skinDate3");
-        skinDate1 = getIntent().getExtras().getInt("skinDate1");
-        Skinage1 = getIntent().getExtras().getInt("Skinage1");
-        Skinage2 = getIntent().getExtras().getInt("Skinage2");
-        Skinage3 = getIntent().getExtras().getInt("Skinage3");
+
+        JSONObject jsonObject = null;
+        try {
+            jsonObject = new JSONObject(jsonResult);
+            clean = jsonObject.getInt("clean");
+            System.out.println("json-clean: " + clean);
+            Skinage1 = jsonObject.getInt("skin_age1");
+            System.out.println("json-Skinage1: " + Skinage1);
+            Skinage2 = jsonObject.getInt("skin_age2");
+            System.out.println("json-Skinage2: " + Skinage2);
+            Skinage3 = jsonObject.getInt("skin_age3");
+            System.out.println("json-Skinage3: " + Skinage3);
+            skinDate1 = Integer.parseInt(jsonObject.getString("skinDate1").substring(5,7));
+            System.out.println("json-skinDate1: " + skinDate1);
+            skinDate2 = Integer.parseInt(jsonObject.getString("skinDate2").substring(5,7));
+            System.out.println("json-skinDate1: " + skinDate2);
+            skinDate3 = Integer.parseInt(jsonObject.getString("skinDate3").substring(5,7));
+            System.out.println("json-skinDate1: " + skinDate3);
+            liver_spot = jsonObject.getDouble("liver_spot");
+            System.out.println("json-liver_spot: " + liver_spot);
+            wrinkle = jsonObject.getDouble("wrinkle");
+            System.out.println("json-wrinkle: " + wrinkle);
+            moisture = jsonObject.getInt("moisture");
+            System.out.println("json-moisture: " + moisture);
+            oil = jsonObject.getInt("oil");
+            System.out.println("json-oil: " + oil);
+            blemish = jsonObject.getInt("blemish");
+            System.out.println("json-blemish: " + blemish);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
         System.out.println(moisture +", " + oil + ", " + blemish + ", " + clean + ", " + liver_spot);
-        System.out.println(skinDate1 + ", " + Skinage1 + "test");
+        System.out.println("age: " + skinDate1 + "->" + Skinage1 +", " + skinDate2 + "->" + Skinage2 +", " + skinDate3 + "->" + Skinage3);
 
         moistureProgressbar.setProgress(moisture);
         oilProgressbar.setProgress(oil);

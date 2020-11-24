@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public int skinDate2, skinDate3, skinDate1 = 0;
     public int Skinage1, Skinage2, Skinage3 = 0;
     public static SocketService socketService;
+    String jsonResult = null;
 
     ServiceConnection conn = new ServiceConnection() {
         @Override
@@ -138,20 +139,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onResponse(String response) {
                 try{
-                    System.out.println("json-response: " + response);
-                    JSONObject jsonObject = new JSONObject(response);
-                    clean = jsonObject.getInt("clean");
-                    liver_spot = jsonObject.getDouble("liver_spot");
-                    wrinkle = jsonObject.getDouble("wrinkle");
-                    moisture = jsonObject.getInt("moisture");
-                    oil = jsonObject.getInt("oil");
-                    blemish = jsonObject.getInt("blemish");
-                    Skinage1 = jsonObject.getInt("skin_age1");
-                    Skinage2 = jsonObject.getInt("skin_age2");
-                    Skinage3 = jsonObject.getInt("skin_age3");
-                    skinDate1 = Integer.parseInt(jsonObject.getString("skinDate1").substring(5,7));
-                    skinDate2 = Integer.parseInt(jsonObject.getString("skinDate2").substring(5,7));
-                    skinDate3 = Integer.parseInt(jsonObject.getString("skinDate3").substring(5,7));
+                    jsonResult = response;
+
                 }catch (Exception e){e.printStackTrace();}
             }
         };
@@ -276,12 +265,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     public void onResponse(String response) {
                     }
                 };
-                CalcSkinAgeRequest calcSkinAgeRequest = new CalcSkinAgeRequest(userID, res3);
-                RequestQueue queue3 = Volley.newRequestQueue(MainActivity.this);
-                queue3.add(calcSkinAgeRequest);
 
                 intent9.putExtra("userID", userID);
-                intent9.putExtra("moisture", moisture);
+                intent9.putExtra("jsonResult", jsonResult);
+                System.out.println("jsonResult: " + jsonResult);
+                /*intent9.putExtra("moisture", moisture);
                 intent9.putExtra("oil", oil);
                 intent9.putExtra("blemish", blemish);
                 intent9.putExtra("clean", clean);
@@ -293,8 +281,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 intent9.putExtra("Skinage1", Skinage1);
                 intent9.putExtra("Skinage2", Skinage2);
                 intent9.putExtra("Skinage3", Skinage3);
-                intent9.putExtra("Skinage3", Skinage3);
-                System.out.println("main: " + skinDate3 + ", " + skinDate2 + ", " + skinDate1 + ", " + Skinage1 + ", " + Skinage2 + ", " + Skinage3);
+                intent9.putExtra("Skinage3", Skinage3);*/
                 intent9.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent9);
                 break;
