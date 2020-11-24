@@ -145,19 +145,19 @@ public class DiagnoseRecommend extends AppCompatActivity {
         pieChart.setData(data);
 
         if(moisture_ing.equals("알로에"))
-            i_name.append("a"+mix[0].getIngredient());
+            i_name.append("알로에"+mix[0].getRate()+",");
         else
-            i_name.append("h"+mix[0].getIngredient());
+            i_name.append("꿀"+mix[0].getRate()+",");
 
         if(oil_ing.equals("달팽이"))
-            i_name.append("s"+mix[1].getIngredient());
+            i_name.append("달팽이"+mix[1].getRate()+",");
         else
-            i_name.append("c"+mix[1].getIngredient());
+            i_name.append("유자"+mix[1].getRate()+",");
 
         if (blemish_ing.equals("병풀"))
-            i_name.append("b"+mix[2].getIngredient());
+            i_name.append("병풀"+mix[2].getRate());
         else
-            i_name.append("w"+mix[2].getIngredient());
+            i_name.append("백차"+mix[2].getRate());
 
         //i_name.append(moisture_ing+","+oil_ing+","+blemish_ing);
         String i_Name = i_name.toString();
@@ -179,7 +179,6 @@ public class DiagnoseRecommend extends AppCompatActivity {
                 i_name.delete(0,i_name.length());
                 Intent intent = new Intent(DiagnoseRecommend.this, CombiActivity.class);
                 intent.putExtra("userID", userID);
-                intent.putExtra("Water", water);
                 startActivity(intent);
             }
         });

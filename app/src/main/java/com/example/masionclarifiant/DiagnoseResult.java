@@ -78,6 +78,7 @@ public class DiagnoseResult extends AppCompatActivity {
         Skinage3 = getIntent().getExtras().getInt("Skinage3");
 
         System.out.println(moisture +", " + oil + ", " + blemish + ", " + clean + ", " + liver_spot);
+        System.out.println(skinDate1 + ", " + Skinage1 + "test");
 
         moistureProgressbar.setProgress(moisture);
         oilProgressbar.setProgress(oil);

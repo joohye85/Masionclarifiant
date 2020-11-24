@@ -126,6 +126,12 @@ public class DiagnoseFin extends AppCompatActivity {
                     moisture = jsonObject.getInt("moisture");
                     oil = jsonObject.getInt("oil");
                     blemish = jsonObject.getInt("blemish");
+                    skinDate1 = Integer.parseInt(jsonObject.getString("skinDate1").substring(5,7));
+                    skinDate2 = Integer.parseInt(jsonObject.getString("skinDate2").substring(5,7));
+                    skinDate3 = Integer.parseInt(jsonObject.getString("skinDate3").substring(5,7));
+                    Skinage1 = jsonObject.getInt("skin_age1");
+                    Skinage2 = jsonObject.getInt("skin_age2");
+                    Skinage3 = jsonObject.getInt("skin_age3");
                 }catch (Exception e){e.printStackTrace();}
             }
         };
@@ -206,7 +212,6 @@ public class DiagnoseFin extends AppCompatActivity {
                 intent.putExtra("skinDate2", skinDate2);
                 intent.putExtra("skinDate3", skinDate3);
                 intent.putExtra("skinDate1", skinDate1);
-                System.out.printf("sskssskk", Skinage1);
                 intent.putExtra("Skinage1", Skinage1);
                 intent.putExtra("Skinage2", Skinage2);
                 intent.putExtra("Skinage3", Skinage3);

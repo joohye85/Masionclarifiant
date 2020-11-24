@@ -78,7 +78,7 @@ public class MypageActivity extends AppCompatActivity{
                         String createDate = jsonObject2.getString("createDate");
                         String perfume = jsonObject2.getString("perfume");
                         String skinType = jsonObject2.getString("skinType");
-                        i_nameArray.add(i_name);
+                        i_nameArray.add(i_name.replace("60","").replace("30","").replace("10",""));
                         createDateArray.add(createDate);
                         perfumeArray.add(perfume);
                         skinTypeArray.add(skinType);

@@ -41,8 +41,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public double clean = 0; //청결도
     public double wrinkle = 0; //주름
     public double liver_spot = 0; //기미
-    public int skinDate2, skinDate3, skinDate1 = 1;
-    public int Skinage1, Skinage2, Skinage3 = 1;
+    public int skinDate2, skinDate3, skinDate1 = 0;
+    public int Skinage1, Skinage2, Skinage3 = 0;
     public static SocketService socketService;
 
     ServiceConnection conn = new ServiceConnection() {
@@ -146,17 +146,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     moisture = jsonObject.getInt("moisture");
                     oil = jsonObject.getInt("oil");
                     blemish = jsonObject.getInt("blemish");
+                    Skinage1 = jsonObject.getInt("skin_age1");
+                    Skinage2 = jsonObject.getInt("skin_age2");
+                    Skinage3 = jsonObject.getInt("skin_age3");
+                    skinDate1 = Integer.parseInt(jsonObject.getString("skinDate1").substring(5,7));
+                    skinDate2 = Integer.parseInt(jsonObject.getString("skinDate2").substring(5,7));
+                    skinDate3 = Integer.parseInt(jsonObject.getString("skinDate3").substring(5,7));
                 }catch (Exception e){e.printStackTrace();}
             }
         };
-
         SkinResultRequest skinResultRequest = new SkinResultRequest(userID, res);
         RequestQueue queue = Volley.newRequestQueue(MainActivity.this);
         queue.add(skinResultRequest);
-
         Intent serviceIntent = new Intent(MainActivity.this, SocketService.class);
         bindService(serviceIntent, conn, Context.BIND_AUTO_CREATE);
-
      //메인 화면 버튼설정
         mainmenu1 = (LinearLayout)findViewById(R.id.mainmenu1);
         mainmenu2 = (LinearLayout)findViewById(R.id.mainmenu2);
@@ -291,7 +294,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 intent9.putExtra("Skinage2", Skinage2);
                 intent9.putExtra("Skinage3", Skinage3);
                 intent9.putExtra("Skinage3", Skinage3);
-                System.out.println("main: " + moisture + ", " + oil + ", " + blemish + ", " + clean + ", " + wrinkle + ", " + liver_spot);
+                System.out.println("main: " + skinDate3 + ", " + skinDate2 + ", " + skinDate1 + ", " + Skinage1 + ", " + Skinage2 + ", " + Skinage3);
                 intent9.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent9);
                 break;
