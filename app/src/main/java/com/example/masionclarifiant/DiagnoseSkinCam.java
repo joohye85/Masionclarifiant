@@ -50,7 +50,7 @@ public class DiagnoseSkinCam extends AppCompatActivity {
             @Override
             public void run()
             {
-                String url ="http://220.69.172.219:8080/stream/video.mjpeg";
+                String url ="http://192.168.137.30:8080/stream/video.mjpeg";
                 webView.loadUrl(url);
             }
         }, 3000);// 라즈베리파이 서버에서 서비스 시작하는 시간 기다리는 것

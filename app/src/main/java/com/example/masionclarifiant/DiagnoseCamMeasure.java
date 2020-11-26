@@ -118,14 +118,14 @@ public class DiagnoseCamMeasure extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //여기부터
-                Response.Listener<String> res3 = new Response.Listener<String>() {
+                /*Response.Listener<String> res3 = new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                     }
                 };
                 CalcSkinAgeRequest calcSkinAgeRequest = new CalcSkinAgeRequest(userID, res3);
                 RequestQueue queue3 = Volley.newRequestQueue(DiagnoseCamMeasure.this);
-                queue3.add(calcSkinAgeRequest);
+                queue3.add(calcSkinAgeRequest);*/
                 Intent intent = new Intent(DiagnoseCamMeasure.this, DiagnoseFin.class);
                 intent.putExtra("userID", userID);
                 //여기까지 주석처리하기(인텐트 선언, userID 빼고)

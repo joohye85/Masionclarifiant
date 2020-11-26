@@ -71,7 +71,7 @@ public class DiagnoseResult extends AppCompatActivity {
             System.out.println("jsonResult not null");
             try {
                 jsonObject = new JSONObject(jsonResult);
-                clean = jsonObject.getInt("clean");
+                clean = jsonObject.getDouble("clean");
                 System.out.println("json-clean: " + clean);
                 Skinage1 = jsonObject.getInt("skin_age1");
                 System.out.println("json-Skinage1: " + Skinage1);
