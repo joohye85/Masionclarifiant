@@ -30,8 +30,8 @@ public class CombiActivity extends AppCompatActivity {
     //String ipaddress = "220.69.172.235";
     //Socket myAppSocket = null;
     EditText ipaddress;
-    public static String wifiModuleIp = "";
-    public static int wifiModulePort = 0;
+    public static String wifiModuleIp = "220.69.172.142";
+    public static int wifiModulePort = 5002;
     public static ArrayList<String> list = new ArrayList<>();
     public static String CMD = "0";
 
@@ -47,7 +47,7 @@ public class CombiActivity extends AppCompatActivity {
         setContentView(R.layout.activity_combi);
 
         ipaddress = (EditText) findViewById(R.id.ipadress);
-        ipaddress.setText("192.168.137.36");
+        ipaddress.setText("220.69.172.142");
         final String userID = getIntent().getStringExtra("userID");
 
         Response.Listener<String> res = new Response.Listener<String>() {
@@ -125,7 +125,7 @@ public class CombiActivity extends AppCompatActivity {
         String ipaddress2 = ipaddress.getText().toString();
         Log.d("MYTEST", "IP String: " + ipaddress2);
         wifiModuleIp = ipaddress2;
-        wifiModulePort = 5001;
+        wifiModulePort = 5002;
         Log.d("MY TEST","IP:" + wifiModuleIp);
         Log.d("MY TEST", "PORT" + wifiModulePort);
     }
@@ -141,10 +141,12 @@ public class CombiActivity extends AppCompatActivity {
                 //ObjectOutputStream objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
                 //objectOutputStream.writeObject(list);
                 DataOutputStream dataOutputStream = new DataOutputStream(socket.getOutputStream());
-                dataOutputStream.writeBytes(CMD);
+                String msg = CMD + skintype + i_Name + Perfume;
+                /*dataOutputStream.writeBytes(CMD);
                 dataOutputStream.writeBytes(skintype);
                 dataOutputStream.writeBytes(i_Name);
-                dataOutputStream.writeBytes(Perfume);
+                dataOutputStream.writeBytes(Perfume);*/
+                dataOutputStream.writeUTF(msg);
                 dataOutputStream.close();
                 //objectOutputStream.close();
                 socket.close();

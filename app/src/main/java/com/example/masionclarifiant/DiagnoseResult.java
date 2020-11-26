@@ -65,37 +65,39 @@ public class DiagnoseResult extends AppCompatActivity {
         goRecommendBtn = findViewById(R.id.go_recommend_btn);
         final String userID = getIntent().getStringExtra("userID");
         final String jsonResult = getIntent().getStringExtra("jsonResult");
-        System.out.println("userID: " + userID);
-
-        JSONObject jsonObject = null;
-        try {
-            jsonObject = new JSONObject(jsonResult);
-            clean = jsonObject.getInt("clean");
-            System.out.println("json-clean: " + clean);
-            Skinage1 = jsonObject.getInt("skin_age1");
-            System.out.println("json-Skinage1: " + Skinage1);
-            Skinage2 = jsonObject.getInt("skin_age2");
-            System.out.println("json-Skinage2: " + Skinage2);
-            Skinage3 = jsonObject.getInt("skin_age3");
-            System.out.println("json-Skinage3: " + Skinage3);
-            skinDate1 = Integer.parseInt(jsonObject.getString("skinDate1").substring(5,7));
-            System.out.println("json-skinDate1: " + skinDate1);
-            skinDate2 = Integer.parseInt(jsonObject.getString("skinDate2").substring(5,7));
-            System.out.println("json-skinDate1: " + skinDate2);
-            skinDate3 = Integer.parseInt(jsonObject.getString("skinDate3").substring(5,7));
-            System.out.println("json-skinDate1: " + skinDate3);
-            liver_spot = jsonObject.getDouble("liver_spot");
-            System.out.println("json-liver_spot: " + liver_spot);
-            wrinkle = jsonObject.getDouble("wrinkle");
-            System.out.println("json-wrinkle: " + wrinkle);
-            moisture = jsonObject.getInt("moisture");
-            System.out.println("json-moisture: " + moisture);
-            oil = jsonObject.getInt("oil");
-            System.out.println("json-oil: " + oil);
-            blemish = jsonObject.getInt("blemish");
-            System.out.println("json-blemish: " + blemish);
-        } catch (JSONException e) {
-            e.printStackTrace();
+        System.out.println("jsonResult: " + jsonResult);
+        if(jsonResult != null) {
+            JSONObject jsonObject = null;
+            System.out.println("jsonResult not null");
+            try {
+                jsonObject = new JSONObject(jsonResult);
+                clean = jsonObject.getInt("clean");
+                System.out.println("json-clean: " + clean);
+                Skinage1 = jsonObject.getInt("skin_age1");
+                System.out.println("json-Skinage1: " + Skinage1);
+                Skinage2 = jsonObject.getInt("skin_age2");
+                System.out.println("json-Skinage2: " + Skinage2);
+                Skinage3 = jsonObject.getInt("skin_age3");
+                System.out.println("json-Skinage3: " + Skinage3);
+                skinDate1 = Integer.parseInt(jsonObject.getString("skinDate1").substring(5, 7));
+                System.out.println("json-skinDate1: " + skinDate1);
+                skinDate2 = Integer.parseInt(jsonObject.getString("skinDate2").substring(5, 7));
+                System.out.println("json-skinDate1: " + skinDate2);
+                skinDate3 = Integer.parseInt(jsonObject.getString("skinDate3").substring(5, 7));
+                System.out.println("json-skinDate1: " + skinDate3);
+                liver_spot = jsonObject.getDouble("liver_spot");
+                System.out.println("json-liver_spot: " + liver_spot);
+                wrinkle = jsonObject.getDouble("wrinkle");
+                System.out.println("json-wrinkle: " + wrinkle);
+                moisture = jsonObject.getInt("moisture");
+                System.out.println("json-moisture: " + moisture);
+                oil = jsonObject.getInt("oil");
+                System.out.println("json-oil: " + oil);
+                blemish = jsonObject.getInt("blemish");
+                System.out.println("json-blemish: " + blemish);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
 
         System.out.println(moisture +", " + oil + ", " + blemish + ", " + clean + ", " + liver_spot);
