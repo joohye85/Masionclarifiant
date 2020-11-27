@@ -173,7 +173,6 @@
             android:layout_height="150dp"
             android:layout_below="@+id/eye_check"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/ha_eye"
             />
 
         <TextView
@@ -192,7 +191,6 @@
             android:layout_height="250dp"
             android:layout_below="@+id/skin_check"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/ha_skin"
             />
 
         <TextView

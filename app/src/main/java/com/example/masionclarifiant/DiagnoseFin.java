@@ -59,7 +59,7 @@ public class DiagnoseFin extends AppCompatActivity {
             public void run() {
                 URL url = null;
                 try {
-                    url = new URL("http://3.35.16.162/image/eye.jpg");
+                    url = new URL("http://3.34.134.55/image/eye.jpg");
                     InputStream is = url.openStream();
                     bm = BitmapFactory.decodeStream(is);
                     Message handler_msg = eye_handler.obtainMessage();
@@ -91,7 +91,7 @@ public class DiagnoseFin extends AppCompatActivity {
             public void run() {
                 URL url = null;
                 try {
-                    url = new URL("http://3.35.16.162/image/skin.jpg");
+                    url = new URL("http://3.34.134.55/image/skin.jpg");
                     InputStream is = url.openStream();
                     bm = BitmapFactory.decodeStream(is);
                     Message handler_msg = skin_handler.obtainMessage();
