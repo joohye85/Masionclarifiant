@@ -47,9 +47,6 @@ public class DiagnoseEyeCam extends AppCompatActivity{
                     socketService.send("goeyepicture");
                     System.out.println(socketService.getSocket());
                 }
-                else{
-                    System.out.println("못 받아옴");
-                }
                 webView.destroy();
                 webView = null;
                 Intent intent = new Intent(DiagnoseEyeCam.this, DiagnoseSkinCam.class);

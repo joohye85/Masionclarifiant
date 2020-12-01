@@ -126,18 +126,6 @@ public class DiagnoseFin extends AppCompatActivity {
                 Intent intent = new Intent(DiagnoseFin.this, DiagnoseResult.class);
                 intent.putExtra("userID", userID);
                 intent.putExtra("jsonResult",jsonResult);
-                /* intent.putExtra("moisture", moisture);
-                intent.putExtra("oil", oil);
-                intent.putExtra("blemish", blemish);
-                intent.putExtra("clean", clean);
-                intent.putExtra("wrinkle", wrinkle);
-                intent.putExtra("liver_spot", liver_spot);
-                intent.putExtra("skinDate2", skinDate2);
-                intent.putExtra("skinDate3", skinDate3);
-                intent.putExtra("skinDate1", skinDate1);
-                intent.putExtra("Skinage1", Skinage1);
-                intent.putExtra("Skinage2", Skinage2);
-                intent.putExtra("Skinage3", Skinage3);*/
                 startActivity(intent);
             }
         });

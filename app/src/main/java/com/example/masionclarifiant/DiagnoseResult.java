@@ -72,41 +72,73 @@ public class DiagnoseResult extends AppCompatActivity {
             try {
                 jsonObject = new JSONObject(jsonResult);
                 clean = jsonObject.getDouble("clean");
-                System.out.println("json-clean: " + clean);
                 Skinage1 = jsonObject.getInt("skin_age1");
-                System.out.println("json-Skinage1: " + Skinage1);
                 Skinage2 = jsonObject.getInt("skin_age2");
-                System.out.println("json-Skinage2: " + Skinage2);
                 Skinage3 = jsonObject.getInt("skin_age3");
-                System.out.println("json-Skinage3: " + Skinage3);
                 skinDate1 = Integer.parseInt(jsonObject.getString("skinDate1").substring(5, 7));
-                System.out.println("json-skinDate1: " + skinDate1);
                 skinDate2 = Integer.parseInt(jsonObject.getString("skinDate2").substring(5, 7));
-                System.out.println("json-skinDate1: " + skinDate2);
                 skinDate3 = Integer.parseInt(jsonObject.getString("skinDate3").substring(5, 7));
-                System.out.println("json-skinDate1: " + skinDate3);
                 liver_spot = jsonObject.getDouble("liver_spot");
-                System.out.println("json-liver_spot: " + liver_spot);
                 wrinkle = jsonObject.getDouble("wrinkle");
-                System.out.println("json-wrinkle: " + wrinkle);
                 moisture = jsonObject.getInt("moisture");
-                System.out.println("json-moisture: " + moisture);
                 oil = jsonObject.getInt("oil");
-                System.out.println("json-oil: " + oil);
                 blemish = jsonObject.getInt("blemish");
-                System.out.println("json-blemish: " + blemish);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
 
-        System.out.println(moisture +", " + oil + ", " + blemish + ", " + clean + ", " + liver_spot);
-        System.out.println("age: " + skinDate1 + "->" + Skinage1 +", " + skinDate2 + "->" + Skinage2 +", " + skinDate3 + "->" + Skinage3);
 
+        if (clean <= 2) {
+            clean = 1;
+        } else if (clean <= 4) {
+            System.out.println("여기");
+            clean = 2;
+        } else if (clean <= 7) {
+            clean = 3;
+        } else if (clean <= 11) {
+            clean = 4;
+        } else if (clean <= 15) {
+            clean = 5;
+        } else if (clean <= 20) {
+            clean = 6;
+        } else if (clean <= 25) {
+            clean = 7;
+        } else if (clean <= 30) {
+            clean = 8;
+        } else if (clean <= 40) {
+            clean = 9;
+        }
+        else{
+            clean = 10;
+        }
+
+        if (wrinkle <= 60) {
+            wrinkle = 1;
+        } else if (wrinkle <=  130) {
+            wrinkle = 2;
+        } else if (wrinkle <=  200) {
+            wrinkle = 3;
+        } else if (wrinkle <= 270) {
+            wrinkle = 4;
+        } else if (wrinkle <=  340) {
+            wrinkle = 5;
+        } else if (wrinkle <=  430) {
+            wrinkle = 6;
+        } else if (wrinkle <=  500) {
+            wrinkle = 7;
+        } else if (wrinkle <=  600) {
+            wrinkle = 8;
+        } else if (wrinkle <=  750) {
+            wrinkle = 9;
+        } else{
+            wrinkle = 10;
+        }
+
+        moi.setText("수분\n\n" + moisture + "%");
+        oi.setText("유분\n\n" + oil + "%");
         moistureProgressbar.setProgress(moisture);
         oilProgressbar.setProgress(oil);
-        moi.setText(" 수분\n\n " + moisture + "%");
-        oi.setText(" 유분\n\n " + oil + "%");
 
         barChart = (BarChart)findViewById(R.id.barChart);
         barChart.setDescription(null);
@@ -120,11 +152,11 @@ public class DiagnoseResult extends AppCompatActivity {
         ArrayList yVals1 = new ArrayList();
         ArrayList yVals2 = new ArrayList();
         yVals1.add(new BarEntry(1, (float) wrinkle));
-        yVals2.add(new BarEntry(1, (float) 250));
+        yVals2.add(new BarEntry(1, (float) 3));
         yVals1.add(new BarEntry(2, (float) liver_spot));
-        yVals2.add(new BarEntry(2, (float) 13));
+        yVals2.add(new BarEntry(2, (float) 3));
         yVals1.add(new BarEntry(3, (float) clean));
-        yVals2.add(new BarEntry(3, (float) 24));
+        yVals2.add(new BarEntry(3, (float) 2));
 
         BarDataSet bar_set1, bar_set2;
         bar_set1 = new BarDataSet(yVals1, "내 피부");
@@ -155,6 +187,7 @@ public class DiagnoseResult extends AppCompatActivity {
         bar_leftAxis.setDrawGridLines(false);
         bar_leftAxis.setSpaceTop(35f);
         bar_leftAxis.setAxisMinimum(0f);
+        bar_leftAxis.setAxisMaximum(10f);
 
         Legend l = barChart.getLegend();
         l.setTextSize(15f);

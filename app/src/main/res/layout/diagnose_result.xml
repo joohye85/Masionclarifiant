@@ -65,6 +65,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:text="수분\n\n31%"
+                        android:gravity="center"
                         android:textColor="#1f1f1f" />
                 </RelativeLayout>
                 <RelativeLayout
@@ -88,7 +89,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
-                        android:text="유분\n\n70%"
+                        android:text="유분\n\n0%"
+                        android:gravity="center"
                         android:textColor="#1f1f1f" />
                 </RelativeLayout>
             </LinearLayout>
@@ -102,16 +104,27 @@
             android:background="@color/colorBeige"
             android:foregroundTint="@color/colorDarkPink"
             />
+
+        <TextView
+            android:id="@+id/skin_graph_inform"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="0~3: 좋음, 3~7: 보통, 8~10: 나쁨"
+            android:background="@color/colorBeige"
+            android:layout_below="@+id/barChart"
+            android:textColor="@color/colorBlack"
+            android:gravity="center_horizontal"
+            />
         <TextView
             android:id="@+id/diagnose_age"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="■ 피부나이 변화 그래프"
-            android:layout_below="@+id/barChart"
+            android:layout_below="@+id/skin_graph_inform"
             android:textSize="19dp"
             android:textColor="@color/colorBlack"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="15dp"/>
+            android:layout_marginTop="20dp"/>
 
         <com.github.mikephil.charting.charts.LineChart
             android:id="@+id/age_chart"
