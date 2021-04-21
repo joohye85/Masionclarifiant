@@ -20,19 +20,19 @@
 - 기존 단 방향적 정보전달을 목표로 하는 뷰티 서비스가 아닌 데이터 공유  측면에서의 고객 맞춤형 서비스를 제안
 
 ## 서비스 흐름도
-<img src="C:\Users\jooae\service.png" width="450px" height="450px" alt="ServiceFlows"></img><br/>
+<img width="450" alt="service" src="https://user-images.githubusercontent.com/29416323/115499571-9bfb2680-a2aa-11eb-935c-d57dcdce3984.png">
 - 라즈베리파이 4B+ 보드를 활용한 진단기기를 통해 피부의 유∙수분 수치를 측정하고 라즈베리파이 카메라모듈 V2, 8MP (RPI 8MP CAMERA BOARD)을 이용하여 피부 이미지를 촬영한 후 측정값을 피부 분석을 위한 OpenCV 영상처리 기법 사용
 - 측정 결과 값인 유∙수분 수치와 촬영된 피부 이미지를 기반으로 개인별 피부 상태를 분석한 후 진단 결과를 어플리케이션으로 전송하여 사용자가 어플리케이션을 통해 분석 결과를 시각적으로 확인함
 - 분석 결과를 참조하여 라즈베리파이 4B+(Raspberry Pi 4B+)를 통해 L298 모터드라이버 모듈, 수중펌프모터, DC모터를 제어함으로써 원격으로 맞춤형 천연 화장품을 제조함
 
 ## 화면 흐름도
-<img src="C:\Users\jooae\screen.png" width="450px" height="450px" alt="ServiceFlows"></img><br/>
+![screen](https://user-images.githubusercontent.com/29416323/115499537-90a7fb00-a2aa-11eb-9324-7c4cfcceca7a.png)
 
 ## H/W 구성도
 📎 피부 진단기기 H/W 구성도
-<img src="C:\Users\jooae\hardware.png" width="450px" height="450px" alt="ServiceFlows"></img><br/>
+![hardware](https://user-images.githubusercontent.com/29416323/115499551-97cf0900-a2aa-11eb-9aec-53efd7791835.png)
 📎 천연 화장품 메이커 H/W 구성도
-<img src="C:\Users\jooae\hw2.png" width="450px" height="450px" alt="ServiceFlows"></img><br/>
+<img width="876" alt="hw2" src="https://user-images.githubusercontent.com/29416323/115499555-98679f80-a2aa-11eb-919d-b5f11a89c32b.png">
 
 ## 📌 개발 환경
 1) APP 개발
