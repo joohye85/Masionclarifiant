@@ -29,9 +29,9 @@
 ![screen](https://user-images.githubusercontent.com/29416323/115499537-90a7fb00-a2aa-11eb-9324-7c4cfcceca7a.png)
 
 ## H/W 구성도
-📎 피부 진단기기 H/W 구성도
+#### 📎 피부 진단기기 H/W 구성도
 ![hardware](https://user-images.githubusercontent.com/29416323/115499551-97cf0900-a2aa-11eb-9aec-53efd7791835.png)
-📎 천연 화장품 메이커 H/W 구성도
+#### 📎 천연 화장품 메이커 H/W 구성도
 <img width="876" alt="hw2" src="https://user-images.githubusercontent.com/29416323/115499555-98679f80-a2aa-11eb-919d-b5f11a89c32b.png">
 
 ## 📌 개발 환경
